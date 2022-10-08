@@ -17,6 +17,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
+        
+        
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
@@ -32,7 +34,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBarTelaPrincipal = new javax.swing.JMenuBar();
         jMenuCadastros = new javax.swing.JMenu();
         jMenuCadastrosClientes = new javax.swing.JMenuItem();
         jMenuItemCadastrosMarcas = new javax.swing.JMenuItem();
@@ -69,13 +71,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItemCadastrosMarcas);
 
-        jMenuBar1.add(jMenuCadastros);
+        jMenuBarTelaPrincipal.add(jMenuCadastros);
 
         jMenuConsultas.setText("Consultas");
-        jMenuBar1.add(jMenuConsultas);
+        jMenuBarTelaPrincipal.add(jMenuConsultas);
 
         jMenuControle.setText("Controle");
-        jMenuBar1.add(jMenuControle);
+        jMenuBarTelaPrincipal.add(jMenuControle);
 
         jMenuOutros.setText("Outros");
 
@@ -99,12 +101,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuOutros.add(jMenuItem1);
 
-        jMenuBar1.add(jMenuOutros);
+        jMenuBarTelaPrincipal.add(jMenuOutros);
 
         jMenuAjuda.setText("Ajuda");
-        jMenuBar1.add(jMenuAjuda);
+        jMenuBarTelaPrincipal.add(jMenuAjuda);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBarTelaPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,7 +184,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenuAjuda;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBarTelaPrincipal;
     private javax.swing.JMenu jMenuCadastros;
     private javax.swing.JMenuItem jMenuCadastrosClientes;
     private javax.swing.JMenu jMenuConsultas;
