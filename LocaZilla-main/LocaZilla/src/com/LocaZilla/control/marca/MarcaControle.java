@@ -79,9 +79,6 @@ public class MarcaControle implements IMarcaControle {
         if(verificarVazio(objeto)) {
             throw new Exception("Preencha os campos corretamente");
         }
-         if (buscarMarca(objeto.getDescricao())) {
-            throw new Exception("Marca já foi cadastrada");
-        }
         marcaPersistencia.alterar(objeto);    
     }
     
