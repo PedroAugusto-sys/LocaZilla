@@ -1,0 +1,1 @@
+1;DAWDA;.\src\com\LocaZilla\Dados\marca\ImagemMarca\DAWDA.jpeg

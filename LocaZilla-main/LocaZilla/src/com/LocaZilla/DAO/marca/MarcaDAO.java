@@ -44,6 +44,8 @@ public class MarcaDAO implements IMarcaDAO{
 
     @Override
     public void alterar(Marca objeto) throws Exception {
+        
+        try{
         FileReader fr = new FileReader(nomeDoArquivoNoDisco);
         BufferedReader br = new BufferedReader(fr);
         String linha = "";
@@ -60,6 +62,10 @@ public class MarcaDAO implements IMarcaDAO{
         BufferedWriter bw  = new BufferedWriter(fw);
         bw.write(banco);
         bw.close();       
+        }catch(Exception erro){
+         throw erro;
+      }
+        
     }
 
     @Override
