@@ -4,8 +4,18 @@
  */
 package com.LocaZilla.view;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.MenuElement;
+import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
  *
@@ -17,13 +27,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
-        
-        
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        customizeMenuBar(jMenuBarLocazilla);
+        
     }
     
-     ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LogoLocaZilla.png");
+    
+    
+    
+     ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,7 +47,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBarTelaPrincipal = new javax.swing.JMenuBar();
+        jMenuBarLocazilla = new javax.swing.JMenuBar();
         jMenuCadastros = new javax.swing.JMenu();
         jMenuCadastrosClientes = new javax.swing.JMenuItem();
         jMenuItemCadastrosMarcas = new javax.swing.JMenuItem();
@@ -48,6 +61,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LocaZilla");
         setIconImage(img.getImage());
+
+        jMenuBarLocazilla.setBackground(new java.awt.Color(255, 204, 102));
+        jMenuBarLocazilla.setForeground(new java.awt.Color(0, 0, 0));
 
         jMenuCadastros.setText("Cadastros");
 
@@ -71,13 +87,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItemCadastrosMarcas);
 
-        jMenuBarTelaPrincipal.add(jMenuCadastros);
+        jMenuBarLocazilla.add(jMenuCadastros);
 
         jMenuConsultas.setText("Consultas");
-        jMenuBarTelaPrincipal.add(jMenuConsultas);
+        jMenuBarLocazilla.add(jMenuConsultas);
 
         jMenuControle.setText("Controle");
-        jMenuBarTelaPrincipal.add(jMenuControle);
+        jMenuBarLocazilla.add(jMenuControle);
 
         jMenuOutros.setText("Outros");
 
@@ -101,12 +117,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuOutros.add(jMenuItem1);
 
-        jMenuBarTelaPrincipal.add(jMenuOutros);
+        jMenuBarLocazilla.add(jMenuOutros);
 
         jMenuAjuda.setText("Ajuda");
-        jMenuBarTelaPrincipal.add(jMenuAjuda);
+        jMenuBarLocazilla.add(jMenuAjuda);
 
-        setJMenuBar(jMenuBarTelaPrincipal);
+        setJMenuBar(jMenuBarLocazilla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,10 +139,63 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //COLORIR BARRA DE MENU
+    Color azulSistema = new Color(255, 204, 102, 255);
+    //[255,204,102]
+
+    private void customizeMenuBar(JMenuBar menuBar) {
+
+        menuBar.setUI(new BasicMenuBarUI() {
+
+            @Override
+            public void paint(Graphics g, JComponent c) {
+                g.setColor(azulSistema);
+                g.fillRect(0, 0, c.getWidth(), c.getHeight());
+            }
+
+        });
+
+        MenuElement[] menus = menuBar.getSubElements();
+
+        for (MenuElement menuElement : menus) {
+
+            JMenu menu = (JMenu) menuElement.getComponent();
+            changeComponentColors(menu);
+            menu.setOpaque(true);
+
+            MenuElement[] menuElements = menu.getSubElements();
+
+            for (MenuElement popupMenuElement : menuElements) {
+
+                JPopupMenu popupMenu = (JPopupMenu) popupMenuElement.getComponent();
+                popupMenu.setBorder(null);
+
+                MenuElement[] menuItens = popupMenuElement.getSubElements();
+
+                for (MenuElement menuItemElement : menuItens) {
+
+                    JMenuItem menuItem = (JMenuItem) menuItemElement.getComponent();
+                    changeComponentColors(menuItem);
+                    menuItem.setOpaque(true);
+
+                }
+            }
+        }
+    }
+
+    private void changeComponentColors(Component comp) {
+        comp.setBackground(azulSistema);
+        comp.setForeground(Color.black);
+    }
+    
+    
     private void jMenuCadastrosClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrosClientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuCadastrosClientesActionPerformed
 
+    
+    
+    
     private void jMenuItemCadastrosMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrosMarcasActionPerformed
         // TODO add your handling code here:
         TelaDasMarcas telaCadastroMarcas = new TelaDasMarcas();
@@ -184,7 +253,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenuAjuda;
-    private javax.swing.JMenuBar jMenuBarTelaPrincipal;
+    private javax.swing.JMenuBar jMenuBarLocazilla;
     private javax.swing.JMenu jMenuCadastros;
     private javax.swing.JMenuItem jMenuCadastrosClientes;
     private javax.swing.JMenu jMenuConsultas;

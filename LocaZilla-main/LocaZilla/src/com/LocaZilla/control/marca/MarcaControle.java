@@ -53,36 +53,26 @@ public class MarcaControle implements IMarcaControle {
     }
         
         private boolean verificarVazio(Marca objeto){
-        if(objeto.getDescricao().equals("")) {
-            return true;
-        } else{
-            return false;
-        }
+        if(objeto.getDescricao().equals("") || objeto.getUrl().equals("")) return true;
+        return false;
     }
     
-        
     @Override
     public void incluir(Marca objeto) throws Exception {
-        if(verificarVazio(objeto)) {
+        if(verificarVazio(objeto)) 
             throw new Exception("Preencha os campos corretamente");
-        }
-            
         if(buscarMarca(objeto.getDescricao())){
             throw new Exception("Marca já foi cadastrada");
         }
         marcaPersistencia.incluir(objeto);
     }
-    
-    
     @Override
     public void alterar(Marca objeto) throws Exception {
-        if(verificarVazio(objeto)) {
-            throw new Exception("Preencha os campos corretamente");
+         if (buscarMarca(objeto.getDescricao())) {
+            throw new Exception("Marca já foi cadastrada");
         }
         marcaPersistencia.alterar(objeto);    
     }
-    
-    
     @Override
     public ArrayList<Marca> listagem() throws Exception {
          return marcaPersistencia.listagem();
