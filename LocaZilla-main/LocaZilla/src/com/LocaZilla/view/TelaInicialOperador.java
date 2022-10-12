@@ -8,7 +8,9 @@ import java.awt.Label;
 import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import com.LocaZilla.view.TelaCadastroOperador;
+import com.LocaZilla.Tools.operador.GeradorIdentificadorOperador;
+import com.LocaZilla.DAO.operador.OperadorDAO;
+import com.LocaZilla.DAO.operador.IOperadorDAO;
 
 /**
  *
@@ -87,10 +89,11 @@ public class TelaInicialOperador extends javax.swing.JFrame {
 
         jLabelimagemOperador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/operadorPadrao2.png"))); // NOI18N
 
-        choiceOperador.add("Operador Padrao");
-        choiceOperador.add("Operador2");
-        choiceOperador.add("Operador3");
         Label escolhaOperador = new Label();
+
+        choiceOperador.add("xd");
+
+        //choiceOperador.add(popup);
         escolhaOperador.setText(choiceOperador.getItem(0));
         choiceOperador.setBackground(new java.awt.Color(51, 51, 51));
         choiceOperador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -176,6 +179,10 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
+    
     private void jButtonLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogarActionPerformed
         // TODO add your handling code here:
         super.dispose();
@@ -190,7 +197,8 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jPasswordFieldSenhaOperadorActionPerformed
-
+    
+    
     private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFecharActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonFecharActionPerformed

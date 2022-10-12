@@ -191,7 +191,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="choiceOperador.add(&quot;Operador Padrao&quot;);&#xa;choiceOperador.add(&quot;Operador2&quot;);&#xa;choiceOperador.add(&quot;Operador3&quot;);&#xa;Label escolhaOperador = new Label();&#xa;escolhaOperador.setText(choiceOperador.getItem(0));"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Label escolhaOperador = new Label();&#xa;&#xa;&#xa;&#xa;choiceOperador.add(&quot;xd&quot;);&#xa;&#xa;//choiceOperador.add(popup);&#xa;escolhaOperador.setText(choiceOperador.getItem(0));"/>
                 <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="TelaOperador_choiceOperador"/>
               </AuxValues>
             </Component>
