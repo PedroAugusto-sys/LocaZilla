@@ -174,6 +174,12 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(240, 188, 69));
         jLabel5.setText("Id:");
 
+        jTextNomeOperadorNovo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextNomeOperadorNovoKeyPressed(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(240, 188, 69));
         jLabel6.setText("Url:");
@@ -241,12 +247,6 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAlterarActionPerformed(evt);
-            }
-        });
-
-        jTextFieldSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSenhaActionPerformed(evt);
             }
         });
 
@@ -400,6 +400,7 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
             imprimirDadosNaGridOperador(operadorControle.listagemOperador());
             jTextNomeOperadorNovo.setText("");
             jTextURLOperador.setText("");
+            jTextFieldSenha.setText("");
             jLabelFotoOperadorNovo.setIcon(null);
 
         } catch (Exception erro) {
@@ -439,9 +440,11 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonVoltarTelaMarcasActionPerformed
 
-    private void jTextFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSenhaActionPerformed
+    private void jTextNomeOperadorNovoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeOperadorNovoKeyPressed
+        // TODO add your handling code here:            
+            char e = evt.getKeyChar();
+            evt.setKeyChar(Character.toUpperCase(e));
+    }//GEN-LAST:event_jTextNomeOperadorNovoKeyPressed
 
     /**
      * @param args the command line arguments

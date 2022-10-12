@@ -53,7 +53,7 @@ public class OperadorDAO implements IOperadorDAO{
         String banco = "";
         while((linha = br.readLine()) != null){
             if(linha.contains(objeto.getIdOperador()+"")){
-                banco+= objeto.getIdOperador()+ ";" + objeto.getNomeOperador()+ ";" + objeto.getSenhaOperador()+ 
+                banco+= objeto.getIdOperador()+ ";" + objeto.getNomeOperador()+ ";" + objeto.getSenhaOperador()+ ";"+
                         objeto.getUrlOperador()+"\n";
             }else{
                 banco+= linha + "\n";
