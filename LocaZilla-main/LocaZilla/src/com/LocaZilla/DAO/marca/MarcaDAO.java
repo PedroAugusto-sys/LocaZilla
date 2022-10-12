@@ -4,7 +4,7 @@
  */
 package com.LocaZilla.DAO.marca;
 
-import com.LocaZilla.Tools.GeradorIdentificador;
+import com.LocaZilla.Tools.marca.GeradorIdentificadorMarca;
 import com.LocaZilla.model.marca.Marca;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -32,7 +32,7 @@ public class MarcaDAO implements IMarcaDAO{
             //Criar o buffer do arquivo
             BufferedWriter bw =new BufferedWriter(fw);
             // Incluindo o id no objeto ******
-            objeto.setId(GeradorIdentificador.getID());
+            objeto.setId(GeradorIdentificadorMarca.getID());
             //Escreve no arquivo
             bw.write(objeto.toString()+"\n");
             //fecha o arquivo

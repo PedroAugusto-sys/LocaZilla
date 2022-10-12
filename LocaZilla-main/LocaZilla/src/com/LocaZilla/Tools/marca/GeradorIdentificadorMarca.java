@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.LocaZilla.Tools;
+package com.LocaZilla.Tools.marca;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author pedro
  */
-public class GeradorIdentificador {
+public class GeradorIdentificadorMarca {
       public static void criarArquivoDeID()throws FileNotFoundException, IOException{
         String nomeDoArquivo ="./src/com/LocaZilla/Dados/marca/idGerado.txt";
         //String nomeDoArquivo ="idGerado.txt";

@@ -4,7 +4,7 @@
  */
 package com.LocaZilla.view;
 
-import com.LocaZilla.Tools.Tabelaimagem;
+import com.LocaZilla.Tools.marca.TabelaimagemMarca;
 import com.LocaZilla.control.marca.IMarcaControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.marca.Marca;
@@ -19,7 +19,6 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.nio.file.StandardCopyOption;
-import java.io.IOException;
 
 
 /**
@@ -242,7 +241,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableMarcas);
         if (jTableMarcas.getColumnModel().getColumnCount() > 0) {
-            jTableMarcas.getColumnModel().getColumn(3).setCellRenderer(new Tabelaimagem());
+            jTableMarcas.getColumnModel().getColumn(3).setCellRenderer(new com.LocaZilla.Tools.marca.TabelaimagemMarca());
         }
         jTableMarcas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -504,7 +503,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             JLabelLogo.setIcon(iconLogo);
             
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
+            JOptionPane.showMessageDialog(this, "Selecione uma marca válida já cadastrada!");
         }
     }//GEN-LAST:event_jTableMarcasMouseClicked
 

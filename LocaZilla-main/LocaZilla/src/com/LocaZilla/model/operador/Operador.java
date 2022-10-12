@@ -24,7 +24,7 @@ public class Operador {
          this.senhaOperador = senhaOperador;
          this.urlOperador = urlOperador;
     }
-    
+
     
     public int getIdOperador() {
         return idOperador;

@@ -8,6 +8,7 @@ import java.awt.Label;
 import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import com.LocaZilla.view.TelaCadastroOperador;
 
 /**
  *

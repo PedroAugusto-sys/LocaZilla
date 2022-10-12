@@ -4,13 +4,16 @@
  */
 package com.LocaZilla.DAO.operador;
 
+import com.LocaZilla.model.operador.Operador;
+import java.util.ArrayList;
 /**
  *
  * @author pedro
  */
 public interface IOperadorDAO {
     
-    
-    
-    
+    void incluirOperador(Operador objeto) throws Exception;
+    void alterarOperador(Operador objeto) throws Exception;
+    ArrayList<Operador> listagemOperador()  throws Exception; 
+    void alterarSenhaOperador(Operador objeto) throws Exception;
 }
