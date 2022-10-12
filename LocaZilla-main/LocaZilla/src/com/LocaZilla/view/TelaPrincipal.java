@@ -16,6 +16,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.MenuElement;
 import javax.swing.plaf.basic.BasicMenuBarUI;
+import java.awt.Dimension;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -27,11 +32,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
+        
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         customizeMenuBar(jMenuBarLocazilla);
+        //jLabelBackgroundTelaPrincipal.setBackground(Color.BLACK);;
+        //jLabelBackgroundTelaPrincipal.setOpaque(true);
+        //add(jLabelBackgroundTelaPrincipal);
+        
     }
-    
+   
+
      ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
 
     /**
@@ -43,6 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelBackgroundTelaPrincipal = new javax.swing.JLabel();
         jMenuBarLocazilla = new javax.swing.JMenuBar();
         jMenuCadastros = new javax.swing.JMenu();
         jMenuCadastrosClientes = new javax.swing.JMenuItem();
@@ -56,7 +68,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LocaZilla");
+        setBackground(new java.awt.Color(51, 51, 51));
         setIconImage(img.getImage());
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
+
+        jLabelBackgroundTelaPrincipal.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelBackgroundTelaPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelBackgroundTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/LogoFullSemFundo.png"))); // NOI18N
+        jLabelBackgroundTelaPrincipal.setMaximumSize(new java.awt.Dimension(1280, 1024));
+        jLabelBackgroundTelaPrincipal.setMinimumSize(new java.awt.Dimension(1280, 1024));
+
+        jMenuBarLocazilla.setToolTipText("");
 
         jMenuCadastros.setText("Cadastros");
 
@@ -121,11 +143,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 728, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabelBackgroundTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 1336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addComponent(jLabelBackgroundTelaPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 555, Short.MAX_VALUE)
         );
 
         pack();
@@ -134,9 +158,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     //COLORIR BARRA DE MENU
     Color azulSistema = new Color(255, 204, 102, 255);
+    
     //[255,204,102]
     
-        private void customizeMenuBar(JMenuBar menuBar) {
+    static void displayJFrame()
+  {
+    // create our jframe as usual
+    JFrame jframe = new JFrame("JFrame Background Color");
+    //jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    jframe.setBackground(Color.red);
+
+    // set the jframe size and location, and make it visible
+    jframe.setPreferredSize(new Dimension(400, 300));
+    jframe.pack();
+    jframe.setLocationRelativeTo(null);
+    jframe.setVisible(true);
+  }
+    
+    
+    private void customizeMenuBar(JMenuBar menuBar) {
 
         menuBar.setUI(new BasicMenuBarUI() {
 
@@ -180,6 +221,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         comp.setBackground(azulSistema);
         comp.setForeground(Color.black);
     }
+
+    
+    
+    
     
     
     private void jMenuCadastrosClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrosClientesActionPerformed
@@ -242,6 +287,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelBackgroundTelaPrincipal;
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenuBar jMenuBarLocazilla;
     private javax.swing.JMenu jMenuCadastros;
