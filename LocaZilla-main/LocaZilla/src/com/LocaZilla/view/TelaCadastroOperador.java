@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 import java.nio.file.StandardCopyOption;
 import javax.swing.JPasswordField;
 
+
 /**
  *
  * @author pedro
@@ -384,11 +385,16 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro);
         }
+
+        
+        
+        
         jTextNomeOperadorNovo.setText("");
         jTextIDOperador.setText("");
         jTextFieldSenha.setText("");
         jLabelFotoOperadorNovo.setIcon(null);
-
+        
+        
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed

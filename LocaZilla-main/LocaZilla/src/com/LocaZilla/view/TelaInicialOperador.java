@@ -4,13 +4,18 @@
  */
 package com.LocaZilla.view;
 
-import java.awt.Label;
-import java.awt.event.KeyEvent;
-import javax.swing.BorderFactory;
+
+import com.LocaZilla.model.operador.Operador;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.ImageIcon;
-import com.LocaZilla.Tools.operador.GeradorIdentificadorOperador;
-import com.LocaZilla.DAO.operador.OperadorDAO;
-import com.LocaZilla.DAO.operador.IOperadorDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,8 +35,7 @@ public class TelaInicialOperador extends javax.swing.JFrame {
     }
     
     ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
-    
-
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,9 +50,9 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         jButtonLogar = new javax.swing.JButton();
         jButtonFechar = new javax.swing.JButton();
         jLabelimagemOperador = new javax.swing.JLabel();
-        choiceOperador = new java.awt.Choice();
         jPasswordFieldSenhaOperador = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
+        jComboBoxOperadores = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("LocaZilla");
@@ -89,25 +93,12 @@ public class TelaInicialOperador extends javax.swing.JFrame {
 
         jLabelimagemOperador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/operadorPadrao2.png"))); // NOI18N
 
-        Label escolhaOperador = new Label();
-
-        choiceOperador.add("xd");
-
-        //choiceOperador.add(popup);
-        escolhaOperador.setText(choiceOperador.getItem(0));
-        choiceOperador.setBackground(new java.awt.Color(51, 51, 51));
-        choiceOperador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        choiceOperador.setForeground(new java.awt.Color(240, 188, 69));
-
         jPasswordFieldSenhaOperador.setBackground(new java.awt.Color(51, 51, 51));
         jPasswordFieldSenhaOperador.setForeground(new java.awt.Color(240, 188, 69));
-        jPasswordFieldSenhaOperador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldSenhaOperadorActionPerformed(evt);
-            }
-        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/LocazillaSemFundo.png"))); // NOI18N
+
+        jComboBoxOperadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,13 +113,13 @@ public class TelaInicialOperador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabelimagemOperador)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordFieldSenhaOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(choiceOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPasswordFieldSenhaOperador)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButtonLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonFechar)))
+                                .addComponent(jButtonFechar))
+                            .addComponent(jComboBoxOperadores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(199, 199, 199))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -138,9 +129,9 @@ public class TelaInicialOperador extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(choiceOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxOperadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
                         .addComponent(jPasswordFieldSenhaOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -182,7 +173,6 @@ public class TelaInicialOperador extends javax.swing.JFrame {
     
     
     
-    
     private void jButtonLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogarActionPerformed
         // TODO add your handling code here:
         super.dispose();
@@ -190,13 +180,6 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         telaPrincipal.setVisible(true); // mostrar tela
         
     }//GEN-LAST:event_jButtonLogarActionPerformed
-
-    private void jPasswordFieldSenhaOperadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaOperadorActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-    }//GEN-LAST:event_jPasswordFieldSenhaOperadorActionPerformed
     
     
     private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFecharActionPerformed
@@ -206,12 +189,13 @@ public class TelaInicialOperador extends javax.swing.JFrame {
     private void jButtonFecharKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonFecharKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyChar() == 0x1B ){
-            super.dispose();
+            System.exit(0);
         }
         
         
     }//GEN-LAST:event_jButtonFecharKeyPressed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -251,9 +235,9 @@ public class TelaInicialOperador extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Choice choiceOperador;
     private javax.swing.JButton jButtonFechar;
     private javax.swing.JButton jButtonLogar;
+    public javax.swing.JComboBox<String> jComboBoxOperadores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelimagemOperador;
     private javax.swing.JPanel jPanel1;
