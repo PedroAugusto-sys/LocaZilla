@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -52,7 +53,6 @@ public class TelaInicialOperador extends javax.swing.JFrame {
             
             for (int i = 0; i < linhas.length; i++) {
                 String linha = linhas[i].toString();
-                Operador objetoObterOperador = new Operador();
                 String vetorString [] = linha.split(";");
                 String nome = vetorString[1];
                 jComboBoxOperadores.addItem(nome);
@@ -63,8 +63,33 @@ public class TelaInicialOperador extends javax.swing.JFrame {
             Logger.getLogger(TelaInicialOperador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+    public void confirmarLogin(){
+        String caminhoArquivo = "./src/com/LocaZilla/Dados/operador/Operador.txt";
+        File arquivo = new File(caminhoArquivo);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(arquivo));
+            Object[] linhas = br.lines().toArray();
+            
+            for (int i = 0; i < linhas.length; i++) {
+                String linha = linhas[i].toString();
+                String vetorString [] = linha.split(";");
+                String pass = vetorString[2];
+                
+                if (pass == String.valueOf(jPasswordFieldSenhaOperador.getPassword())) {
+                          super.dispose();
+                          TelaPrincipal telaPrincipal = new TelaPrincipal(); // objeto tela principal
+                          telaPrincipal.setVisible(true); // mostrar tela
+                }else{
+                    JOptionPane.showMessageDialog(this, "Senha incorreta");
+                }
+            }
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TelaInicialOperador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
     ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
@@ -213,10 +238,7 @@ public class TelaInicialOperador extends javax.swing.JFrame {
     
     private void jButtonLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogarActionPerformed
         // TODO add your handling code here:
-        super.dispose();
-        TelaPrincipal telaPrincipal = new TelaPrincipal(); // objeto tela principal
-        telaPrincipal.setVisible(true); // mostrar tela
-        
+        confirmarLogin();
     }//GEN-LAST:event_jButtonLogarActionPerformed
     
     
@@ -227,7 +249,7 @@ public class TelaInicialOperador extends javax.swing.JFrame {
     private void jButtonFecharKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonFecharKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyChar() == 0x1B ){
-            System.exit(0);
+            System.exit(1);
         }
         
         
@@ -235,10 +257,10 @@ public class TelaInicialOperador extends javax.swing.JFrame {
 
     private void jComboBoxOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOperadoresActionPerformed
         // TODO add your handling code here:
-        ImageIcon imagem = new ImageIcon("./src/com/LocaZilla/Dados/operador/ImagemOperador/" + jComboBoxOperadores.getSelectedItem().toString() + ".jpeg");
-        imagem.setImage(imagem.getImage().getScaledInstance(86, 86, 0));
-        jLabelimagemOperador.setIcon(imagem);
-        
+        ImageIcon imagem = new ImageIcon("./src/com/LocaZilla/Dados/operador/ImagemOperador/" + 
+                jComboBoxOperadores.getSelectedItem().toString() + ".jpeg");
+                imagem.setImage(imagem.getImage().getScaledInstance(86, 86, 0));
+                jLabelimagemOperador.setIcon(imagem);
     }//GEN-LAST:event_jComboBoxOperadoresActionPerformed
 
     
