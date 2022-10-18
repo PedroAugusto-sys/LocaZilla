@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -31,8 +33,39 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         jLabelimagemOperador.setText("");
+        preencherCombobox();
+        
+        
+        
+        
         
     }
+    
+    
+    public void preencherCombobox(){
+        String caminhoArquivo = "./src/com/LocaZilla/Dados/operador/Operador.txt";
+        File arquivo = new File(caminhoArquivo);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(arquivo));
+            Object[] linhas = br.lines().toArray();
+            
+            for (int i = 0; i < linhas.length; i++) {
+                String linha = linhas[i].toString();
+                Operador objetoObterOperador = new Operador();
+                String vetorString [] = linha.split(";");
+                String nome = vetorString[1];
+                jComboBoxOperadores.addItem(nome);
+            }
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TelaInicialOperador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
     
     ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
         
@@ -98,7 +131,12 @@ public class TelaInicialOperador extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/LocazillaSemFundo.png"))); // NOI18N
 
-        jComboBoxOperadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxOperadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        jComboBoxOperadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxOperadoresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -194,6 +232,14 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButtonFecharKeyPressed
+
+    private void jComboBoxOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOperadoresActionPerformed
+        // TODO add your handling code here:
+        ImageIcon imagem = new ImageIcon("./src/com/LocaZilla/Dados/operador/ImagemOperador/" + jComboBoxOperadores.getSelectedItem().toString() + ".jpeg");
+        imagem.setImage(imagem.getImage().getScaledInstance(86, 86, 0));
+        jLabelimagemOperador.setIcon(imagem);
+        
+    }//GEN-LAST:event_jComboBoxOperadoresActionPerformed
 
     
     /**

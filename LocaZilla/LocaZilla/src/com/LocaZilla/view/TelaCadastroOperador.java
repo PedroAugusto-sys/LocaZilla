@@ -28,10 +28,17 @@ import javax.swing.JPasswordField;
  * @author pedro
  */
 public class TelaCadastroOperador extends javax.swing.JFrame {
-
+    
+    
+    
+    
+    
+    
     //Atributos
     
     IOperadorControle operadorControle = new OperadorControle();
+    ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
+    
     
     /**
      * Creates new form TelaCadastroOperador
@@ -39,7 +46,15 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
     public TelaCadastroOperador() {
         initComponents();
         
-       
+        
+        
+        
+        
+        
+        
+        
+        
+       //-------------------------------------
         jTextURLOperador.setEnabled(false);
         jTextIDOperador.setEnabled(false);
         this.setLocationRelativeTo(null);
@@ -49,6 +64,9 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro);
         }
+        
+        //-------------------------------------
+        
         
     }
     
@@ -109,6 +127,7 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Cadastro de Operador");
         setBackground(new java.awt.Color(153, 153, 153));
+        setIconImage(img.getImage());
 
         jButtonFotoOperadorNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/uploadicon_1.png"))); // NOI18N
         jButtonFotoOperadorNovo.addActionListener(new java.awt.event.ActionListener() {
