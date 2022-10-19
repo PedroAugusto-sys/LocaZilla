@@ -39,7 +39,6 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         
         
         
-        
     }
     
     
@@ -70,21 +69,26 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         try {
             BufferedReader br = new BufferedReader(new FileReader(arquivo));
             Object[] linhas = br.lines().toArray();
-            
             for (int i = 0; i < linhas.length; i++) {
                 String linha = linhas[i].toString();
                 String vetorString [] = linha.split(";");
-                String pass = vetorString[2];
-                
-                if (pass == String.valueOf(jPasswordFieldSenhaOperador.getPassword())) {
-                          super.dispose();
-                          TelaPrincipal telaPrincipal = new TelaPrincipal(); // objeto tela principal
-                          telaPrincipal.setVisible(true); // mostrar tela
-                }else{
-                    JOptionPane.showMessageDialog(this, "Senha incorreta");
+                String user = vetorString[1];
+                if(jComboBoxOperadores.getSelectedItem().toString().equals(user)){
+                    String pass = vetorString[2];
+                    String senhaChar = new String(jPasswordFieldSenhaOperador.getPassword());
+                    if (pass.equals(senhaChar)) {
+                              super.dispose();
+                              TelaPrincipal telaPrincipal = new TelaPrincipal(); // objeto tela principal
+                              telaPrincipal.setVisible(true); // mostrar tela
+                    }
+                    
+                    else{
+                        JOptionPane.showMessageDialog(this, "Senha incorreta");
+                    }
                 }
+                
+                
             }
-            
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TelaInicialOperador.class.getName()).log(Level.SEVERE, null, ex);
@@ -239,6 +243,7 @@ public class TelaInicialOperador extends javax.swing.JFrame {
     private void jButtonLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogarActionPerformed
         // TODO add your handling code here:
         confirmarLogin();
+        
     }//GEN-LAST:event_jButtonLogarActionPerformed
     
     

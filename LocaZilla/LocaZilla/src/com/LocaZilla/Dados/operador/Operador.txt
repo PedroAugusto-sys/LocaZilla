@@ -1,1 +1,1 @@
-1;teste;teste;.\src\com\LocaZilla\Dados\operador\ImagemOperador\teste.jpeg
+1;ADMIN;admin123;.\src\com\LocaZilla\Dados\operador\ImagemOperador\ADMIN.jpeg
