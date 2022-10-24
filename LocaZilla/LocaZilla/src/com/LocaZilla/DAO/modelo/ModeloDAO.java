@@ -4,7 +4,9 @@
  */
 package com.LocaZilla.DAO.modelo;
 
+import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.Tools.modelo.GeradorIdentificardorModelo;
+import com.LocaZilla.model.marca.Marca;
 import com.LocaZilla.model.modelo.Modelo;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -78,12 +80,13 @@ public class ModeloDAO implements IModeloDAO {
             String linha = "";
             while((linha=br.readLine())!=null){
                 Modelo objetoModelo = new Modelo();
+                MarcaDAO objeto  = new MarcaDAO();
                 String vetorString[] = linha.split(";");
                 objetoModelo.setIdModelo(Integer.parseInt(vetorString[0]));
                 objetoModelo.setDescricao(vetorString[1]);
                 objetoModelo.setUrl(vetorString[2]);
-                objetoModelo.setMarca(vetorString[3]);
-                
+                int idMarca = Integer.parseInt((String)vetorString[3]);
+                objetoModelo.setMarca(objeto.buscar(idMarca));
                 
                 listaDeModelo.add(objetoModelo);
             }

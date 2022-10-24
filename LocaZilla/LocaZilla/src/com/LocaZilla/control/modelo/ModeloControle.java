@@ -4,23 +4,29 @@
  */
 package com.LocaZilla.control.modelo;
 
+import com.LocaZilla.DAO.modelo.ModeloDAO;
+import com.LocaZilla.model.modelo.Modelo;
+import java.util.ArrayList;
+import com.LocaZilla.DAO.modelo.IModeloDAO;
+import java.util.Iterator;
+
 /**
  *
  * @author pedro
  */
 public class ModeloControle implements IModeloControle{
-    IModeloControle modeloPersistencia = null;
-    public ModeloControle(){
-        this.modeloPersistencia = new OperadorDAO();
-    }
-    
-    private boolean buscarOperador(String nome)throws Exception{
-        try {
-            ArrayList<Operador> listagem = operadorPersistencia.listagemOperador();
-            Iterator<Operador> lista = listagem.iterator();
+            IModeloDAO modeloPersistencia = null;
+            public ModeloControle(){
+            this.modeloPersistencia = new ModeloDAO();
+        }
+            
+    private boolean buscarModelo (String descricao)throws Exception{
+            try {
+            ArrayList<Modelo> listagem = modeloPersistencia.listagem();
+            Iterator<Modelo> lista = listagem.iterator();
             while(lista.hasNext()){
-                 Operador aux = lista.next();
-                if(aux.getNomeOperador().equalsIgnoreCase(nome)){
+                 Modelo aux = lista.next();
+                if(aux.getDescricao().equalsIgnoreCase(descricao)){
                     return true;
                 }
             }
@@ -28,73 +34,58 @@ public class ModeloControle implements IModeloControle{
         } catch (Exception erro) {
             throw erro;
         }
+        }
+    @Override
+    public void incluir(Modelo objeto) throws Exception {
+       if(buscarModelo(objeto.getDescricao())){
+            throw new Exception("Modelo já foi cadastrado");
+        }
+        modeloPersistencia.incluir(objeto);
+    }
+
+    @Override
+    public void alterar(Modelo objeto) throws Exception {
+       if(buscarModelo(objeto.getDescricao())){
+            throw new Exception("Modelo já cadastrado");
+        }
+        modeloPersistencia.alterar(objeto);
+    }
+
+    @Override
+    public ArrayList<Modelo> listagem() throws Exception {
+         return modeloPersistencia.listagem();
     }
     
-    private boolean buscarFotoOperador(String url) throws Exception{
-        try{
-            ArrayList<Operador> listagem = operadorPersistencia.listagemOperador();
-            Iterator<Operador> lista = listagem.iterator();
-            while (lista.hasNext()) {
-                  Operador aux = lista.next();
-                if(aux.getUrlOperador().equalsIgnoreCase(url)){
-                    return true;
-                }
-            }
-            return false;
-        } catch (Exception erro){
-            throw erro;
-        }
-    }
-        
-        private boolean verificarVazio(Operador objeto){
-        if(objeto.getNomeOperador().equals("")) {
-            return true;
-        }
-        else{if(objeto.getSenhaOperador().equals("")) {
-            return true;
-        }
-            return false;
-        }
-    }
-        
+    
+    //EXCESSÕES==================
+    
     @Override
-    public void incluirOperador(Operador objeto) throws Exception {
-        if(verificarVazio(objeto)) {
-            throw new Exception("Preencha os campos corretamente");
+    public void mesmaFoto(Modelo url)throws Exception{
+        ArrayList<Modelo> lista = listagem();
+        
+        for(int i = 0; i < lista.size(); i++){
+            if(url.getUrl().equals(lista.get(i).getUrl())){
+            throw new Exception("Foto ja adicionada");
         }
             
-        if(buscarOperador(objeto.getNomeOperador())){
-            throw new Exception("Operador já foi cadastrado");
         }
-        operadorPersistencia.incluirOperador(objeto);
+    }
+    
+     @Override
+    public void semFoto(Modelo url)throws Exception{
+            if(url.getUrl().equals("")){
+                throw new Exception("Selecione a imagem do modelo para continuar");
+        }
+
     }
     
     
-    @Override
-    public void alterarOperador(Operador objeto) throws Exception {
-        if(verificarVazio(objeto)) {
-            throw new Exception("Preencha os campos corretamente");
+     @Override
+    public void vazio(Modelo desc) throws Exception {
+        if(desc.getDescricao().equals("")){
+             throw new Exception("Nenhum modelo sendo cadastrado");
         }
-        operadorPersistencia.alterarOperador(objeto);    
+        
     }
     
-    
-    
-    @Override
-    public ArrayList<Operador> listagemOperador() throws Exception {
-         return operadorPersistencia.listagemOperador();
-        }
-    
-    @Override
-    public void alterarSenhaOperador(Operador objeto) throws Exception{
-        if(verificarVazio(objeto)) {
-            throw new Exception("Preencha os campos corretamente");
-        }
-            
-        if(buscarOperador(objeto.getNomeOperador())){
-            throw new Exception("Operador já foi cadastrado");
-        }
-        operadorPersistencia.incluirOperador(objeto);
-    
-    }
 }

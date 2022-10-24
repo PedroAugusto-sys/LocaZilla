@@ -15,4 +15,11 @@ public interface IModeloControle {
      void incluir(Modelo objeto)throws Exception;
     void alterar(Modelo objeto)throws Exception;
     ArrayList<Modelo> listagem()throws Exception;
+    
+    
+    //Excessões
+    void vazio (Modelo desc)throws Exception;
+    void semFoto(Modelo url)throws Exception;
+    void mesmaFoto(Modelo url)throws Exception;
+    
 }
