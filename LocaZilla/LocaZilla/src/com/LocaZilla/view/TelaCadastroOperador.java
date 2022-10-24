@@ -451,7 +451,7 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
             jLabelFotoOperadorNovo.setIcon(iconLogo);
             
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, "Selecione uma marca válida já cadastrada!");
+            JOptionPane.showMessageDialog(this, "Selecione um operador válido já cadastrado!");
         }
         
         
