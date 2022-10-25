@@ -10,7 +10,7 @@ import com.LocaZilla.model.marca.Marca;
  *
  * @author pedro
  */
-public class Modelo {
+public class Modelo implements Comparable<Modelo> {
     private int idModelo = 0;
     private String descricao = "";
     private String url = "";
@@ -61,13 +61,13 @@ public class Modelo {
         this.marca = marca;
     }
 
-    
-    
-    
-    
-    
-    @Override
+     @Override
     public String toString() {
         return idModelo + ";" + descricao + ";" + url + ";" + marca.getId() +"\n";
+    }
+     @Override
+    public int compareTo(Modelo id) {
+     if(this.idModelo == id.getIdModelo()) return (this.idModelo++);
+     else return(this.idModelo - id.getIdModelo());
     }
 }

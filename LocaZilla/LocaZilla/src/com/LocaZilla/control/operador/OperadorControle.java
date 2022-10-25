@@ -19,8 +19,11 @@ import java.util.Iterator;
 public class OperadorControle implements IOperadorControle {
     
     IOperadorDAO operadorPersistencia = null;
+    
     public OperadorControle(){
+        
         this.operadorPersistencia = new OperadorDAO();
+   
     }
     
     private boolean buscarOperador(String nome)throws Exception{

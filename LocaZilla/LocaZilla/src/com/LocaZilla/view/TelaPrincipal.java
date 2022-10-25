@@ -59,6 +59,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuCadastros = new javax.swing.JMenu();
         jMenuCadastrosClientes = new javax.swing.JMenuItem();
         jMenuItemCadastrosMarcas = new javax.swing.JMenuItem();
+        jMenuItemCadastrosModelo = new javax.swing.JMenuItem();
         jMenuConsultas = new javax.swing.JMenu();
         jMenuControle = new javax.swing.JMenu();
         jMenuOutros = new javax.swing.JMenu();
@@ -101,6 +102,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuCadastros.add(jMenuItemCadastrosMarcas);
+
+        jMenuItemCadastrosModelo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItemCadastrosModelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/modeloicon.png"))); // NOI18N
+        jMenuItemCadastrosModelo.setText("Modelo");
+        jMenuItemCadastrosModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastrosModeloActionPerformed(evt);
+            }
+        });
+        jMenuCadastros.add(jMenuItemCadastrosModelo);
 
         jMenuBarLocazilla.add(jMenuCadastros);
 
@@ -254,6 +265,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItemCadastrosModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrosModeloActionPerformed
+        // TODO add your handling code here:
+         super.dispose();
+        
+        TelaCadastroModelo telacadastro = new TelaCadastroModelo();
+        telacadastro.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItemCadastrosModeloActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -299,6 +319,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuControle;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemCadastrosMarcas;
+    private javax.swing.JMenuItem jMenuItemCadastrosModelo;
     private javax.swing.JMenuItem jMenuItemLogOff;
     private javax.swing.JMenu jMenuOutros;
     // End of variables declaration//GEN-END:variables

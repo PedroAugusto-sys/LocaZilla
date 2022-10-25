@@ -128,6 +128,7 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         setTitle("Cadastro de Operador");
         setBackground(new java.awt.Color(153, 153, 153));
         setIconImage(img.getImage());
+        setPreferredSize(new java.awt.Dimension(800, 700));
 
         jButtonFotoOperadorNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/uploadicon_1.png"))); // NOI18N
         jButtonFotoOperadorNovo.addActionListener(new java.awt.event.ActionListener() {

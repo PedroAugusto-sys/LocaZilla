@@ -87,6 +87,11 @@ public class MarcaControle implements IMarcaControle {
     public ArrayList<Marca> listagem() throws Exception {
          return marcaPersistencia.listagem();
         }
+      
+   public Marca buscar (int id) throws Exception{
+       
+       return marcaPersistencia.buscar(id);
+    }
 }
 
         

@@ -73,32 +73,24 @@ public class ModeloDAO implements IModeloDAO {
 
     @Override
     public ArrayList<Modelo> listagem() throws Exception {
-        try {
-            ArrayList<Modelo> listaDeModelo = new ArrayList<Modelo>();
+         ArrayList<Modelo> listaModelos = new ArrayList<Modelo>();
             FileReader fr = new FileReader(nomeDoArquivoNoDisco);
             BufferedReader br  = new BufferedReader(fr);
             String linha = "";
-            while((linha=br.readLine())!=null){
+             while((linha=br.readLine())!=null){
                 Modelo objetoModelo = new Modelo();
                 MarcaDAO objeto  = new MarcaDAO();
-                String vetorString[] = linha.split(";");
-                objetoModelo.setIdModelo(Integer.parseInt(vetorString[0]));
-                objetoModelo.setDescricao(vetorString[1]);
-                objetoModelo.setUrl(vetorString[2]);
-                int idMarca = Integer.parseInt((String)vetorString[3]);
+                Object banco[]= linha.split(";");
+                objetoModelo.setIdModelo(Integer.parseInt((String) banco[0]));
+                objetoModelo.setDescricao((String) banco[1]);
+                objetoModelo.setUrl((String) banco[2]);
+                int idMarca = Integer.parseInt((String)banco[3]);
+                // chamar o metodo busca da marca
                 objetoModelo.setMarca(objeto.buscar(idMarca));
-                
-                listaDeModelo.add(objetoModelo);
+                listaModelos.add(objetoModelo);
             }
          br.close();
-         return listaDeModelo;
-        } catch(Exception erro){
-         throw erro;
-        }
+         return listaModelos; 
     }
-    
-    
-    
-  
-    
+   
 }

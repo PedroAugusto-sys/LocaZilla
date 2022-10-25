@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * @author pedro
  */
 public interface IModeloControle {
-     void incluir(Modelo objeto)throws Exception;
-    void alterar(Modelo objeto)throws Exception;
-    ArrayList<Modelo> listagem()throws Exception;
+     void incluirModelo(Modelo objeto)throws Exception;
+    void alterarModelo(Modelo objeto)throws Exception;
+    ArrayList<Modelo> listagemModelo()throws Exception;
     
     
     //Excessões

@@ -15,10 +15,15 @@ import java.util.Iterator;
  * @author pedro
  */
 public class ModeloControle implements IModeloControle{
+    
+    
             IModeloDAO modeloPersistencia = null;
+            
             public ModeloControle(){
+                
             this.modeloPersistencia = new ModeloDAO();
-        }
+       
+            }
             
     private boolean buscarModelo (String descricao)throws Exception{
             try {
@@ -36,7 +41,7 @@ public class ModeloControle implements IModeloControle{
         }
         }
     @Override
-    public void incluir(Modelo objeto) throws Exception {
+    public void incluirModelo(Modelo objeto) throws Exception {
        if(buscarModelo(objeto.getDescricao())){
             throw new Exception("Modelo já foi cadastrado");
         }
@@ -44,7 +49,7 @@ public class ModeloControle implements IModeloControle{
     }
 
     @Override
-    public void alterar(Modelo objeto) throws Exception {
+    public void alterarModelo(Modelo objeto) throws Exception {
        if(buscarModelo(objeto.getDescricao())){
             throw new Exception("Modelo já cadastrado");
         }
@@ -52,7 +57,7 @@ public class ModeloControle implements IModeloControle{
     }
 
     @Override
-    public ArrayList<Modelo> listagem() throws Exception {
+    public ArrayList<Modelo> listagemModelo() throws Exception {
          return modeloPersistencia.listagem();
     }
     
@@ -61,7 +66,7 @@ public class ModeloControle implements IModeloControle{
     
     @Override
     public void mesmaFoto(Modelo url)throws Exception{
-        ArrayList<Modelo> lista = listagem();
+        ArrayList<Modelo> lista = listagemModelo();
         
         for(int i = 0; i < lista.size(); i++){
             if(url.getUrl().equals(lista.get(i).getUrl())){
