@@ -267,7 +267,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemCadastrosModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrosModeloActionPerformed
         // TODO add your handling code here:
-         super.dispose();
         
         TelaCadastroModelo telacadastro = new TelaCadastroModelo();
         telacadastro.setVisible(true);

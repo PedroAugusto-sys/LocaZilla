@@ -63,7 +63,7 @@ public class Modelo implements Comparable<Modelo> {
 
      @Override
     public String toString() {
-        return idModelo + ";" + descricao + ";" + url + ";" + marca.getId() +"\n";
+        return idModelo + ";" + descricao + ";" + url + ";" + marca.getId();
     }
      @Override
     public int compareTo(Modelo id) {

@@ -6,6 +6,7 @@ package com.LocaZilla.view;
 
 
 import com.LocaZilla.model.operador.Operador;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,6 +41,7 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         
         
     }
+ 
     
     
     public void preencherCombobox(){
@@ -121,9 +123,19 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImage(img.getImage());
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel1KeyPressed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setForeground(new java.awt.Color(60, 63, 65));
@@ -138,6 +150,11 @@ public class TelaInicialOperador extends javax.swing.JFrame {
                 jButtonLogarActionPerformed(evt);
             }
         });
+        jButtonLogar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonLogarKeyPressed(evt);
+            }
+        });
 
         jButtonFechar.setBackground(new java.awt.Color(51, 51, 51));
         jButtonFechar.setForeground(new java.awt.Color(240, 188, 69));
@@ -147,16 +164,16 @@ public class TelaInicialOperador extends javax.swing.JFrame {
                 jButtonFecharActionPerformed(evt);
             }
         });
-        jButtonFechar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButtonFecharKeyPressed(evt);
-            }
-        });
 
         jLabelimagemOperador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/operadorPadrao2.png"))); // NOI18N
 
         jPasswordFieldSenhaOperador.setBackground(new java.awt.Color(51, 51, 51));
         jPasswordFieldSenhaOperador.setForeground(new java.awt.Color(240, 188, 69));
+        jPasswordFieldSenhaOperador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldSenhaOperadorKeyPressed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/LocazillaSemFundo.png"))); // NOI18N
 
@@ -251,15 +268,6 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonFecharActionPerformed
 
-    private void jButtonFecharKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonFecharKeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyChar() == 0x1B ){
-            System.exit(1);
-        }
-        
-        
-    }//GEN-LAST:event_jButtonFecharKeyPressed
-
     private void jComboBoxOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOperadoresActionPerformed
         // TODO add your handling code here:
         ImageIcon imagem = new ImageIcon("./src/com/LocaZilla/Dados/operador/ImagemOperador/" + 
@@ -267,6 +275,28 @@ public class TelaInicialOperador extends javax.swing.JFrame {
                 imagem.setImage(imagem.getImage().getScaledInstance(86, 86, 0));
                 jLabelimagemOperador.setIcon(imagem);
     }//GEN-LAST:event_jComboBoxOperadoresActionPerformed
+
+    private void jButtonLogarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonLogarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLogarKeyPressed
+
+    private void jPasswordFieldSenhaOperadorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaOperadorKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            confirmarLogin();
+        }
+    }//GEN-LAST:event_jPasswordFieldSenhaOperadorKeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formKeyPressed
+
+    private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            System.exit(1);
+        }
+    }//GEN-LAST:event_jPanel1KeyPressed
 
     
     /**

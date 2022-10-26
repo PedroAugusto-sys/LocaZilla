@@ -100,20 +100,19 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
             
             while (lista.hasNext()) {
                 try {
-                    String[] saida = new String[4];
+                    String[] saida = new String[5];
                     Modelo aux = lista.next();
                     saida[0] = "" + aux.getIdModelo();
                     saida[1] = aux.getDescricao();
                     saida[2] = aux.getUrl();
-                    saida [3] = objetoMarca.buscar(aux.getMarca().getId()).getUrl();
-                   
-                    ImageIcon iconlogo = new ImageIcon(aux.getUrl());
-                    
-
-                    
-                    //Incluir nova linha na Tabela
-                    Object[] dados = {saida[0], saida[1], saida[2],saida[3],iconlogo};
-                    model.addRow(dados);
+                    saida[3]= "";
+                    saida [4] = objetoMarca.buscar(aux.getMarca().getId()).getUrl();
+//                    
+//
+//                    
+//Incluir nova linha na Tabela
+                    //Object[] dados = {saida[0], saida[1], saida[2],saida[3],iconlogo};
+                    model.addRow(saida);
                     
                 } catch (Exception ex) {
                     Logger.getLogger(TelaCadastroModelo.class.getName()).log(Level.SEVERE, null, ex);
@@ -481,22 +480,64 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                     objeto.setMarca(lista.get(i));
                 }
             }
+            
+
+//String caminhoArquivo = "./src/com/LocaZilla/Dados/operador/Operador.txt";
+        
+//File arquivo = new File(caminhoArquivo);
+        
+//        try {
+//            BufferedReader br = new BufferedReader(new FileReader(arquivo));
+//            Object[] linhas = br.lines().toArray();
+//            for (int i = 0; i < linhas.length; i++) {
+//                String linha = linhas[i].toString();
+//                String vetorString [] = linha.split(";");
+//                String user = vetorString[1];
+//                if(jComboBoxOperadores.getSelectedItem().toString().equals(user)){
+//                    String pass = vetorString[2];
+//                    String senhaChar = new String(jPasswordFieldSenhaOperador.getPassword());
+//                    if (pass.equals(senhaChar)) {
+//                              super.dispose();
+//                              TelaPrincipal telaPrincipal = new TelaPrincipal(); // objeto tela principal
+//                              telaPrincipal.setVisible(true); // mostrar tela
+//                    }
+//                    
+//                    else{
+//                        JOptionPane.showMessageDialog(this, "Senha incorreta");
+//                    }
+//                }
+//                
+//                
+//            }
+//            
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(TelaInicialOperador.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+            
+//            ImageIcon imagem = new ImageIcon("./src/com/LocaZilla/Dados/operador/ImagemOperador/" + 
+//                jComboBoxOperadores.getSelectedItem().toString() + ".jpeg");
+//                imagem.setImage(imagem.getImage().getScaledInstance(86, 86, 0));
+//                jLabelimagemOperador.setIcon(imagem);
+
+
+
+
             modeloControle.vazio(objeto);
             modeloControle.semFoto(objeto);
             modeloControle.mesmaFoto(objeto);       
             modeloControle.incluirModelo(objeto);
             imprimirDadosNaGrid(modeloControle.listagemModelo());
-            jTextFieldDescricaoModelo.setText("");
-            jTextFieldDescricaoModelo.setText("");  
-            jTextFieldUrlModelo.setText("");
-            JLabelModelo.setIcon(null);
+            
             
             
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
          
-         
+         jTextFieldDescricaoModelo.setText("");
+         jTextFieldDescricaoModelo.setText("");  
+         jTextFieldUrlModelo.setText("");
+         JLabelModelo.setIcon(null);
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUploadActionPerformed

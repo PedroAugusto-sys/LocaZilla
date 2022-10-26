@@ -31,10 +31,16 @@ public class TabelaimagemModelo extends DefaultTableCellRenderer {
         }
         
         if(value != null){
-            ImageIcon iconLogo = new ImageIcon(table.getValueAt(row, column-1).toString());
+            ImageIcon iconLogo = null;
+            if(column == 3){
+                iconLogo = new ImageIcon(table.getValueAt(row, column-1).toString());
+            }
+            if(column == 4){
+                iconLogo = new ImageIcon(table.getValueAt(row, column).toString());
+            }
             int tamanho = table.getRowHeight();
             int recuo = 20 * tamanho/ 100;
-            icone.setText((String) value);
+            icone.setText("");
             iconLogo.setImage(iconLogo.getImage().getScaledInstance(
                 tamanho - recuo,tamanho - recuo,1));
             icone.setIcon(iconLogo);
