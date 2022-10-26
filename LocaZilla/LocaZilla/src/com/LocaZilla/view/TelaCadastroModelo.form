@@ -198,6 +198,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldIDOModelo">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="24" style="1"/>
         </Property>
@@ -227,6 +228,7 @@
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldDescricaoModeloKeyPressed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldDescricaoModeloKeyTyped"/>
       </Events>
       <AuxValues>
@@ -246,9 +248,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldUrlModelo">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="24" style="3"/>
         </Property>
+        <Property name="focusable" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[60, 30]"/>
         </Property>
@@ -283,9 +287,9 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="0">
                 <Column editable="false" title="IDENTIFICADOR" type="java.lang.Object"/>
-                <Column editable="false" title="MODELO" type="java.lang.Object"/>
+                <Column editable="false" title="NOME" type="java.lang.Object"/>
                 <Column editable="false" title="URL" type="java.lang.Object"/>
-                <Column editable="false" title="LOGO" type="java.lang.Object"/>
+                <Column editable="false" title="MODELO" type="java.lang.Object"/>
                 <Column editable="false" title="MARCA" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -336,6 +340,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableModelosMouseClicked"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTableModelosKeyPressed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -350,6 +355,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxModeloActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jComboBoxModeloKeyPressed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -446,6 +452,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jButtonIncluirKeyPressed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -477,6 +484,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonAbrirCadastrarActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jToggleButtonAbrirCadastrarKeyPressed"/>
       </Events>
     </Component>
   </SubComponents>

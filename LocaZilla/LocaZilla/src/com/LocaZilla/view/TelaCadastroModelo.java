@@ -11,6 +11,7 @@ import com.LocaZilla.control.modelo.IModeloControle;
 import com.LocaZilla.control.modelo.ModeloControle;
 import com.LocaZilla.model.marca.Marca;
 import com.LocaZilla.model.modelo.Modelo;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -200,6 +201,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(240, 188, 69));
         jLabel5.setText("Id");
 
+        jTextFieldIDOModelo.setEditable(false);
         jTextFieldIDOModelo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
@@ -210,6 +212,9 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jTextFieldDescricaoModelo.setToolTipText("");
         jTextFieldDescricaoModelo.setPreferredSize(new java.awt.Dimension(60, 30));
         jTextFieldDescricaoModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldDescricaoModeloKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldDescricaoModeloKeyTyped(evt);
             }
@@ -219,7 +224,9 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(240, 188, 69));
         jLabel4.setText("URL");
 
+        jTextFieldUrlModelo.setEditable(false);
         jTextFieldUrlModelo.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jTextFieldUrlModelo.setFocusable(false);
         jTextFieldUrlModelo.setPreferredSize(new java.awt.Dimension(60, 30));
         jTextFieldUrlModelo.setVerifyInputWhenFocusTarget(false);
         jTextFieldUrlModelo.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +243,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
 
             },
             new String [] {
-                "IDENTIFICADOR", "MODELO", "URL", "LOGO", "MARCA"
+                "IDENTIFICADOR", "NOME", "URL", "MODELO", "MARCA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -260,6 +267,11 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                 jTableModelosMouseClicked(evt);
             }
         });
+        jTableModelos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTableModelosKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableModelos);
         if (jTableModelos.getColumnModel().getColumnCount() > 0) {
             jTableModelos.getColumnModel().getColumn(4).setCellRenderer(new com.LocaZilla.Tools.modelo.TabelaimagemModelo());
@@ -270,6 +282,11 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jComboBoxModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxModeloActionPerformed(evt);
+            }
+        });
+        jComboBoxModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jComboBoxModeloKeyPressed(evt);
             }
         });
 
@@ -298,6 +315,11 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIncluirActionPerformed(evt);
+            }
+        });
+        jButtonIncluir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonIncluirKeyPressed(evt);
             }
         });
 
@@ -337,6 +359,11 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jToggleButtonAbrirCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButtonAbrirCadastrarActionPerformed(evt);
+            }
+        });
+        jToggleButtonAbrirCadastrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jToggleButtonAbrirCadastrarKeyPressed(evt);
             }
         });
 
@@ -434,9 +461,9 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
 
             this.jTextFieldIDOModelo.setText((String) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 0));
             this.jTextFieldDescricaoModelo.setText((String) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 1));
-            this.jTextFieldUrlModelo.setText((String) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 3));
-
-            String nomeArquivo = (String) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 3);
+            this.jTextFieldUrlModelo.setText((String) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 2));
+            
+            String nomeArquivo = (String) this.jTableModelos.getValueAt(jTableModelos.getSelectedRow(), 2);
 
             jTextFieldUrlModelo.setText(nomeArquivo);
             ImageIcon iconLogo = new ImageIcon(nomeArquivo);
@@ -481,47 +508,6 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                 }
             }
             
-
-//String caminhoArquivo = "./src/com/LocaZilla/Dados/operador/Operador.txt";
-        
-//File arquivo = new File(caminhoArquivo);
-        
-//        try {
-//            BufferedReader br = new BufferedReader(new FileReader(arquivo));
-//            Object[] linhas = br.lines().toArray();
-//            for (int i = 0; i < linhas.length; i++) {
-//                String linha = linhas[i].toString();
-//                String vetorString [] = linha.split(";");
-//                String user = vetorString[1];
-//                if(jComboBoxOperadores.getSelectedItem().toString().equals(user)){
-//                    String pass = vetorString[2];
-//                    String senhaChar = new String(jPasswordFieldSenhaOperador.getPassword());
-//                    if (pass.equals(senhaChar)) {
-//                              super.dispose();
-//                              TelaPrincipal telaPrincipal = new TelaPrincipal(); // objeto tela principal
-//                              telaPrincipal.setVisible(true); // mostrar tela
-//                    }
-//                    
-//                    else{
-//                        JOptionPane.showMessageDialog(this, "Senha incorreta");
-//                    }
-//                }
-//                
-//                
-//            }
-//            
-//        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(TelaInicialOperador.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-            
-//            ImageIcon imagem = new ImageIcon("./src/com/LocaZilla/Dados/operador/ImagemOperador/" + 
-//                jComboBoxOperadores.getSelectedItem().toString() + ".jpeg");
-//                imagem.setImage(imagem.getImage().getScaledInstance(86, 86, 0));
-//                jLabelimagemOperador.setIcon(imagem);
-
-
-
-
             modeloControle.vazio(objeto);
             modeloControle.semFoto(objeto);
             modeloControle.mesmaFoto(objeto);       
@@ -601,6 +587,41 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
     private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxModeloActionPerformed
+
+    private void jTextFieldDescricaoModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoModeloKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jTextFieldDescricaoModeloKeyPressed
+
+    private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jButtonIncluirKeyPressed
+
+    private void jToggleButtonAbrirCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jToggleButtonAbrirCadastrarKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jToggleButtonAbrirCadastrarKeyPressed
+
+    private void jComboBoxModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxModeloKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jComboBoxModeloKeyPressed
+
+    private void jTableModelosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableModelosKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jTableModelosKeyPressed
 
     /**
      * @param args the command line arguments

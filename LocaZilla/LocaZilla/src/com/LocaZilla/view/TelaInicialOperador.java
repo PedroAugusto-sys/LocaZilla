@@ -183,6 +183,11 @@ public class TelaInicialOperador extends javax.swing.JFrame {
                 jComboBoxOperadoresActionPerformed(evt);
             }
         });
+        jComboBoxOperadores.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jComboBoxOperadoresKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -285,6 +290,9 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             confirmarLogin();
         }
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
     }//GEN-LAST:event_jPasswordFieldSenhaOperadorKeyPressed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -297,6 +305,13 @@ public class TelaInicialOperador extends javax.swing.JFrame {
             System.exit(1);
         }
     }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void jComboBoxOperadoresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxOperadoresKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jComboBoxOperadoresKeyPressed
 
     
     /**

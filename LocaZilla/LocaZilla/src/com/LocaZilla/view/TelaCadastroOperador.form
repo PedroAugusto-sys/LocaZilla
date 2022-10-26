@@ -211,6 +211,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarTelaMarcasActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jButtonVoltarTelaMarcasKeyPressed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -324,6 +325,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableOperadoresMouseClicked"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTableOperadoresKeyPressed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="jTableOperadores.setAlignmentX(5.0F);&#xa;&#xa;jTableOperadores.setColumnSelectionAllowed(true);&#xa;&#xa;jTableOperadores.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));&#xa;&#xa;jTableOperadores.setFillsViewportHeight(true);&#xa;&#xa;jTableOperadores.setFocusCycleRoot(true);&#xa;&#xa;jTableOperadores.setGridColor(new java.awt.Color(240, 188, 69));&#xa;&#xa;jTableOperadores.setRowHeight(100);&#xa;&#xa;jTableOperadores.setShowGrid(false);"/>
@@ -348,6 +350,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jButtonIncluirKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAlterar">
@@ -367,9 +370,13 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAlterarActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jButtonAlterarKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldSenha">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldSenhaKeyPressed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPasswordField()"/>
       </AuxValues>

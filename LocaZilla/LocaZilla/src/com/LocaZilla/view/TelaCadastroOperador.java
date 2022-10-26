@@ -10,6 +10,7 @@ import com.LocaZilla.control.operador.IOperadorControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.operador.Operador;
 import com.LocaZilla.control.operador.OperadorControle;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -151,6 +152,11 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
                 jButtonVoltarTelaMarcasActionPerformed(evt);
             }
         });
+        jButtonVoltarTelaMarcas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonVoltarTelaMarcasKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -233,6 +239,11 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
                 jTableOperadoresMouseClicked(evt);
             }
         });
+        jTableOperadores.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTableOperadoresKeyPressed(evt);
+            }
+        });
         jTableOperadores.setAlignmentX(5.0F);
 
         jTableOperadores.setColumnSelectionAllowed(true);
@@ -263,6 +274,11 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
                 jButtonIncluirActionPerformed(evt);
             }
         });
+        jButtonIncluir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonIncluirKeyPressed(evt);
+            }
+        });
 
         jButtonAlterar.setBackground(new java.awt.Color(240, 188, 69));
         jButtonAlterar.setFont(new java.awt.Font("Segoe UI Black", 3, 12)); // NOI18N
@@ -271,6 +287,17 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAlterarActionPerformed(evt);
+            }
+        });
+        jButtonAlterar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonAlterarKeyPressed(evt);
+            }
+        });
+
+        jTextFieldSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldSenhaKeyPressed(evt);
             }
         });
 
@@ -469,7 +496,45 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         // TODO add your handling code here:            
             char e = evt.getKeyChar();
             evt.setKeyChar(Character.toUpperCase(e));
+            if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
     }//GEN-LAST:event_jTextNomeOperadorNovoKeyPressed
+
+    private void jButtonVoltarTelaMarcasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jButtonVoltarTelaMarcasKeyPressed
+
+    private void jTextFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSenhaKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jTextFieldSenhaKeyPressed
+
+    private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jButtonIncluirKeyPressed
+
+    private void jButtonAlterarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonAlterarKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jButtonAlterarKeyPressed
+
+    private void jTableOperadoresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableOperadoresKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jTableOperadoresKeyPressed
 
     /**
      * @param args the command line arguments

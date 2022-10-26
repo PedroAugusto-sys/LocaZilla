@@ -9,6 +9,7 @@ import com.LocaZilla.control.marca.IMarcaControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.marca.Marca;
 import com.LocaZilla.control.marca.MarcaControle;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -85,11 +86,21 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setForeground(new java.awt.Color(204, 255, 51));
+        jPanel3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel3KeyPressed(evt);
+            }
+        });
 
         jButtonVoltarTelaMarcas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/funcoes/Voltar.png"))); // NOI18N
         jButtonVoltarTelaMarcas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVoltarTelaMarcasActionPerformed(evt);
+            }
+        });
+        jButtonVoltarTelaMarcas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonVoltarTelaMarcasKeyPressed(evt);
             }
         });
 
@@ -145,6 +156,9 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             }
         });
         jTextFieldDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldDescricaoKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldDescricaoKeyTyped(evt);
             }
@@ -175,6 +189,11 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                 jButtonAlterarActionPerformed(evt);
             }
         });
+        jButtonAlterar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonAlterarKeyPressed(evt);
+            }
+        });
 
         jButtonIncluir.setBackground(new java.awt.Color(240, 188, 69));
         jButtonIncluir.setFont(new java.awt.Font("Segoe UI Black", 3, 12)); // NOI18N
@@ -183,6 +202,11 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIncluirActionPerformed(evt);
+            }
+        });
+        jButtonIncluir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonIncluirKeyPressed(evt);
             }
         });
 
@@ -239,6 +263,11 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                 jTableMarcasMouseClicked(evt);
             }
         });
+        jTableMarcas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTableMarcasKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableMarcas);
         if (jTableMarcas.getColumnModel().getColumnCount() > 0) {
             jTableMarcas.getColumnModel().getColumn(3).setCellRenderer(new com.LocaZilla.Tools.marca.TabelaimagemMarca());
@@ -255,6 +284,11 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jButtonUpload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUploadActionPerformed(evt);
+            }
+        });
+        jButtonUpload.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonUploadKeyPressed(evt);
             }
         });
 
@@ -518,6 +552,55 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
+
+    private void jButtonVoltarTelaMarcasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jButtonVoltarTelaMarcasKeyPressed
+
+    private void jTextFieldDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyPressed
+         
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jTextFieldDescricaoKeyPressed
+
+    private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jButtonIncluirKeyPressed
+
+    private void jButtonAlterarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonAlterarKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jButtonAlterarKeyPressed
+
+    private void jPanel3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel3KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jPanel3KeyPressed
+
+    private void jButtonUploadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonUploadKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jButtonUploadKeyPressed
+
+    private void jTableMarcasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableMarcasKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+            super.dispose();
+        }
+    }//GEN-LAST:event_jTableMarcasKeyPressed
 
     /**
      * @param args the command line arguments
