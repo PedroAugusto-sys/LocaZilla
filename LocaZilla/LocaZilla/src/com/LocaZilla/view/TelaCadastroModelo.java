@@ -489,7 +489,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
              ArrayList<Marca> lista = objetoMarca.listagem();
             for (int i = 0; i < lista.size(); i++) {
                 if (jComboBoxMarca.getSelectedItem().equals(lista.get(i).getDescricao())) {
-                    objetoMarca.alterar(lista.get(i));
+                    obj.setMarca(lista.get(i));
                 }
             }
                     

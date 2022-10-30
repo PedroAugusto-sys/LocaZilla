@@ -50,9 +50,7 @@ public class ModeloControle implements IModeloControle{
 
     @Override
     public void alterarModelo(Modelo objeto) throws Exception {
-       if(buscarModelo(objeto.getDescricao())){
-            throw new Exception("Modelo já cadastrado");
-        }
+
         modeloPersistencia.alterar(objeto);
     }
 
