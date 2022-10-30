@@ -444,17 +444,28 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
            // TODO add your handling code here:
-         try {
-            Marca obj = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(), jTextFieldUrl.getText());
-            marcaControle.alterar(obj);
-            imprimirDadosNaGrid(marcaControle.listagem());
-            jTextFieldDescricao.setText("");
-            jTextFieldUrl.setText("");  
-            JLabelLogo.setIcon(null);
+           if(jTextFieldUrl.getText().equals("")){
+               JOptionPane.showMessageDialog(this, "Selecione uma marca antes de alterar.");
+           }else{
+               try {
+            
+                Marca obj = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(), jTextFieldUrl.getText());
+                marcaControle.alterar(obj);
+                imprimirDadosNaGrid(marcaControle.listagem());
+                jTextFieldDescricao.setText("");
+                jTextFieldUrl.setText("");  
+                JLabelLogo.setIcon(null);
             
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro.getMessage());
+                JOptionPane.showMessageDialog(this, erro.getMessage());
+                jTextFieldDescricao.setText("");
+                jTextFieldUrl.setText("");  
+                JLabelLogo.setIcon(null);
+                jTextFieldIdentificador.setText("");
         }
+           }
+           
+         
 
 
     }//GEN-LAST:event_jButtonAlterarActionPerformed

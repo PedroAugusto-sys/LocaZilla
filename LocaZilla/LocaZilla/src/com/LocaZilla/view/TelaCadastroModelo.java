@@ -79,7 +79,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                 String linha = linhas[i].toString();
                 String vetorString [] = linha.split(";");
                 String marca = vetorString[1];
-                jComboBoxModelo.addItem(marca);
+                jComboBoxMarca.addItem(marca);
             }
             
             
@@ -147,7 +147,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableModelos = new javax.swing.JTable();
         JLabelModelo = new javax.swing.JLabel();
-        jComboBoxModelo = new javax.swing.JComboBox<>();
+        jComboBoxMarca = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jButtonAlterar = new javax.swing.JButton();
@@ -278,15 +278,15 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         }
         jTableModelos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jComboBoxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
-        jComboBoxModelo.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        jComboBoxMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxModeloActionPerformed(evt);
+                jComboBoxMarcaActionPerformed(evt);
             }
         });
-        jComboBoxModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+        jComboBoxMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jComboBoxModeloKeyPressed(evt);
+                jComboBoxMarcaKeyPressed(evt);
             }
         });
 
@@ -373,6 +373,9 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -386,27 +389,26 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldIDOModelo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7))
+                        .addComponent(jToggleButtonAbrirCadastrar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldUrlModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldDescricaoModelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jToggleButtonAbrirCadastrar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(jButtonUpload)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+                                .addComponent(jTextFieldIDOModelo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldUrlModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldDescricaoModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                .addComponent(jButtonUpload)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,13 +432,13 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                             .addComponent(jTextFieldUrlModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jToggleButtonAbrirCadastrar))
+                            .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)))
                     .addComponent(JLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(93, 93, 93)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToggleButtonAbrirCadastrar)
+                .addGap(65, 65, 65)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
         );
 
@@ -477,9 +479,20 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
+        if(jTextFieldIDOModelo.getText().equals("")){
+               JOptionPane.showMessageDialog(this, "Selecione uma modelo antes de alterar.");
+           }else{
         try {
-            Modelo obj = new Modelo(Integer.parseInt(jTextFieldIDOModelo.getText()), jTextFieldDescricaoModelo.getText(), jTextFieldUrlModelo.getText(), (Marca) jComboBoxModelo.getSelectedItem());
+            int idMarca = 0;
+            Modelo obj = new Modelo(Integer.parseInt(jTextFieldIDOModelo.getText()), jTextFieldDescricaoModelo.getText(), 
+                    jTextFieldUrlModelo.getText(), objetoMarca.buscar(idMarca));
+             ArrayList<Marca> lista = objetoMarca.listagem();
+            for (int i = 0; i < lista.size(); i++) {
+                if (jComboBoxMarca.getSelectedItem().equals(lista.get(i).getDescricao())) {
+                    objetoMarca.alterar(lista.get(i));
+                }
+            }
+                    
             modeloControle.alterarModelo(obj);
             imprimirDadosNaGrid(modeloControle.listagemModelo());
             jTextFieldDescricaoModelo.setText("");
@@ -488,6 +501,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
 
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
+            }
         }
 
     }//GEN-LAST:event_jButtonAlterarActionPerformed
@@ -503,7 +517,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                     objetoMarca.buscar(idMarca));
             ArrayList<Marca> lista = objetoMarca.listagem();
             for(int i = 0; i < lista.size(); i++){
-                if(jComboBoxModelo.getSelectedItem().equals(lista.get(i).getDescricao())){
+                if(jComboBoxMarca.getSelectedItem().equals(lista.get(i).getDescricao())){
                     objeto.setMarca(lista.get(i));
                 }
             }
@@ -584,9 +598,9 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextFieldDescricaoModeloKeyTyped
 
-    private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
+    private void jComboBoxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxModeloActionPerformed
+    }//GEN-LAST:event_jComboBoxMarcaActionPerformed
 
     private void jTextFieldDescricaoModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoModeloKeyPressed
         // TODO add your handling code here:
@@ -609,12 +623,12 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jToggleButtonAbrirCadastrarKeyPressed
 
-    private void jComboBoxModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxModeloKeyPressed
+    private void jComboBoxMarcaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxMarcaKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
-    }//GEN-LAST:event_jComboBoxModeloKeyPressed
+    }//GEN-LAST:event_jComboBoxMarcaKeyPressed
 
     private void jTableModelosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableModelosKeyPressed
         // TODO add your handling code here:
@@ -664,7 +678,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
     private javax.swing.JButton jButtonIncluir;
     private javax.swing.JButton jButtonUpload;
     private javax.swing.JButton jButtonVoltarTelaMarcas;
-    private javax.swing.JComboBox<String> jComboBoxModelo;
+    private javax.swing.JComboBox<String> jComboBoxMarca;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
