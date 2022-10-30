@@ -1,2 +1,2 @@
-1;TOYOTA;.\src\com\LocaZilla\Dados\marca\ImagemMarca\.jpeg
-2;CHEVROLET;.\src\com\LocaZilla\Dados\marca\ImagemMarca\CHEVROLET.jpeg
+1;CHEVROLET;C:\Users\pedro\Desktop\Chevrolet-logo.png
+2;TOYOTA;C:\Users\pedro\Desktop\toyota-logo.jpg

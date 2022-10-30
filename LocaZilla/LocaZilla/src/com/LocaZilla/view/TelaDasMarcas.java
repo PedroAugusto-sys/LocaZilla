@@ -495,9 +495,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                     File origemArquivo = new File(nomeDoArquivo);
                     File destinoArquivo = new File("./src/com/LocaZilla/Dados/marca/ImagemMarca/"+jTextFieldDescricao.getText()+".jpeg");
                     
-                    String saidaMascara = destinoArquivo+"";
-                    
-                    jTextFieldUrl.setText(saidaMascara.replace(".JPG",""));
                     
                     try {
                     
