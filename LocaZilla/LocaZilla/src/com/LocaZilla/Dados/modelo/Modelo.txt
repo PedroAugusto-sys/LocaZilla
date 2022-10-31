@@ -1,2 +1,2 @@
-1;COROLLA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\COROLLA.jpeg;1;TOYOTA;.\src\com\LocaZilla\Dados\marca\ImagemMarca\.jpeg
-2;TRACKER;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\TRACKER.jpeg;2;CHEVROLET;.\src\com\LocaZilla\Dados\marca\ImagemMarca\CHEVROLET.jpeg
+3;COROLA CROSS;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\COROLA CROSS.jpeg;1
+4;CAMARO;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\CAMARO.jpeg;2

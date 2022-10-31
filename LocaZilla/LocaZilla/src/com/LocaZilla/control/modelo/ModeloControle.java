@@ -45,12 +45,20 @@ public class ModeloControle implements IModeloControle{
        if(buscarModelo(objeto.getDescricao())){
             throw new Exception("Modelo já foi cadastrado");
         }
+       if(buscarModelo(objeto.getUrl())){
+           throw new Exception("Foto já foi cadastrada");
+       }
         modeloPersistencia.incluir(objeto);
     }
 
     @Override
     public void alterarModelo(Modelo objeto) throws Exception {
-
+            if(buscarModelo(objeto.getDescricao())){
+            throw new Exception("Modelo já foi cadastrado");
+        }
+            if(buscarModelo(objeto.getUrl())){
+           throw new Exception("Foto já foi cadastrada");
+       }
         modeloPersistencia.alterar(objeto);
     }
 

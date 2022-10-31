@@ -567,7 +567,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
 
                 String saidaMascara = destinoArquivo+"";    
 
-                jTextFieldUrlModelo.setText(saidaMascara.replace(".JPG",""));
+                jTextFieldUrlModelo.setText(saidaMascara.replace(".JPEG",""));
 
                 try {
 
