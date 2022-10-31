@@ -565,7 +565,9 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                 File origemArquivo = new File(nomeDoArquivo);
                 File destinoArquivo = new File("./src/com/LocaZilla/Dados/modelo/ImagemModelo/"+jTextFieldDescricaoModelo.getText()+".jpeg");
 
-                
+                String saidaMascara = destinoArquivo+"";    
+
+                jTextFieldUrlModelo.setText(saidaMascara.replace(".JPG",""));
 
                 try {
 

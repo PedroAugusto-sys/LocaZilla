@@ -1,2 +1,2 @@
-6;TRACKER;C:\Users\pedro\Desktop\1584543302554.jpg;1
-7;COROLLA;C:\Users\pedro\Desktop\corolla_gli_040_carPage_mobile.png;2
+1;COROLLA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\COROLLA.jpeg;1;TOYOTA;.\src\com\LocaZilla\Dados\marca\ImagemMarca\.jpeg
+2;TRACKER;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\TRACKER.jpeg;2;CHEVROLET;.\src\com\LocaZilla\Dados\marca\ImagemMarca\CHEVROLET.jpeg
