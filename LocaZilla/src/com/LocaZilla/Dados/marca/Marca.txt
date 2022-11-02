@@ -1,4 +1,2 @@
-1;BMW;.\src\com\LocaZilla\Dados\marca\ImagemMarca\bmw_logo.png
-2;CHEVROLET;.\src\com\LocaZilla\Dados\marca\ImagemMarca\Chevrolet-Logo.png
-3;TOYOTA;.\src\com\LocaZilla\Dados\marca\ImagemMarca\toyota_logo.png
-7;MERCEDES;.\src\com\LocaZilla\Dados\marca\ImagemMarca\mercedes-benz-social-distancing-logo.jpg
+1000002;CHEVROLET;.\src\com\LocaZilla\Dados\marca\ImagemMarca\Chevrolet-Logo.png
+1000004;BMW;.\src\com\LocaZilla\Dados\marca\ImagemMarca\images (1).png
