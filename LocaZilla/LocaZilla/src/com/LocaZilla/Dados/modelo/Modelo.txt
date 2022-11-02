@@ -1,2 +1,0 @@
-3;COROLA CROSS;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\COROLA CROSS.jpeg;1
-4;CAMARO;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\CAMARO.jpeg;2

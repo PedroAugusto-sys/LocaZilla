@@ -1,0 +1,4 @@
+4;BMW XM;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\bmw_xm.jpg;1
+5;CHEVROLET SEEKER;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\chevrolet seekeer.jpg;2
+6;TOYOTA COROLA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\toyota-corolla-cross.jpg;3
+8;AMG C43;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\download.jpg;7
