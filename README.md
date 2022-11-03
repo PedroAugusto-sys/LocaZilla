@@ -8,14 +8,12 @@
 - Marcas
 - Clientes
 
- - ### Consultas de: 📝
+   ### Consultas de: 📝
 - Clientes
 - Status do veículos
 - Financeiro
 
-
-
-- ## Ferramentas 📊
+   ### Ferramentas 📊
 
 Ferramentas | %
 ------------ | ------
