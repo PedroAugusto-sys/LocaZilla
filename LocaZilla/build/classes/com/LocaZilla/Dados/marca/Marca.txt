@@ -1,1 +1,2 @@
 1000002;CHEVROLET;.\src\com\LocaZilla\Dados\marca\ImagemMarca\Chevrolet-Logo.png
+1000004;BMW;.\src\com\LocaZilla\Dados\marca\ImagemMarca\images (1).png
