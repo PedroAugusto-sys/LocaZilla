@@ -1,1 +1,2 @@
-1000001;Eugenio;flamengo123;.\src\com\LocaZilla\Dados\operador\ImagemOperador\Eugenio.jpeg
+1;Eugenio;flamengo123;.\src\com\LocaZilla\Dados\operador\ImagemOperador\Eugenio.jpeg
+2;Danielzin;senai;.\src\com\LocaZilla\Dados\operador\ImagemOperador\Danielzin.jpeg

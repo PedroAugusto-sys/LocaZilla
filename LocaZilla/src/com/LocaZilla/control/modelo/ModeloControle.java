@@ -76,7 +76,7 @@ public class ModeloControle implements IModeloControle{
         
         for(int i = 0; i < lista.size(); i++){
             if(url.getUrl().equals(lista.get(i).getUrl())){
-            throw new Exception("Foto ja adicionada");
+            throw new Exception("Modelo com esta foto já foi adicionado");
         }
             
         }

@@ -4,11 +4,15 @@
  */
 package com.LocaZilla.view;
 
-import com.LocaZilla.Tools.geral.TabelaimagemMarca;
+
+import com.LocaZilla.view.TelaDasMarcas;
+
+import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.control.marca.IMarcaControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.marca.Marca;
 import com.LocaZilla.control.marca.MarcaControle;
+import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.nio.file.Files;
@@ -28,17 +32,27 @@ import java.nio.file.StandardCopyOption;
  */
 public class TelaDasMarcas extends javax.swing.JFrame {
     //Atributos 
+    
     IMarcaControle marcaControle = new MarcaControle();
     /**
      * Creates new form TelaDasMarcas
      */
     public TelaDasMarcas() {
         
+        //Apontador
+        MarcaDAO conferirBanco = new MarcaDAO();
+        
+        //Chama as instancias do MARCADAO
+        conferirBanco.conferirBancoDeDados();
+        conferirBanco.conferirBancoDeIDMarca();
+        
+        //Inicia os componentes da tela
         initComponents();
         jTextFieldIdentificador.setEnabled(false);
         jTextFieldUrl.setEnabled(false);
-        
         this.setLocationRelativeTo(null);
+        
+        //Imprime os dados da GRID
         try {
             imprimirDadosNaGrid(marcaControle.listagem());
         } catch (Exception erro) {
@@ -150,11 +164,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jTextFieldDescricao.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jTextFieldDescricao.setToolTipText("");
         jTextFieldDescricao.setPreferredSize(new java.awt.Dimension(60, 30));
-        jTextFieldDescricao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDescricaoActionPerformed(evt);
-            }
-        });
         jTextFieldDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldDescricaoKeyPressed(evt);
@@ -426,7 +435,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try {
-            Marca objeto = new Marca(0,jTextFieldDescricao.getText(),
+            Marca objeto = new Marca(0,jTextFieldDescricao.getText().trim(),
                                     jTextFieldUrl.getText());
             marcaControle.incluir(objeto);
             imprimirDadosNaGrid(marcaControle.listagem());
@@ -436,6 +445,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
+        jTextFieldIdentificador.setText("");
         jTextFieldDescricao.setText("");
         jTextFieldUrl.setText("");
         JLabelLogo.setIcon(null);
@@ -523,9 +533,9 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         // TODO add your handling code here:
             char e = evt.getKeyChar();
             evt.setKeyChar(Character.toUpperCase(e));
-//        if (!Character.isLetter(e)) {
-//            evt.consume();
-//        }
+            if(Character.isDigit(e)){
+                evt.consume();
+            }
 //            if (Character.isLowerCase(e)) {
 //            evt.setKeyChar(Character.toUpperCase(e));
 //            }
@@ -533,6 +543,10 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     private void jTextFieldIdentificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificadorActionPerformed
         // TODO add your handling code here:
+        
+        
+        
+        
     }//GEN-LAST:event_jTextFieldIdentificadorActionPerformed
 
     private void jTableMarcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMarcasMouseClicked
@@ -558,14 +572,18 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     private void jButtonVoltarTelaMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasActionPerformed
         // TODO add your handling code here:
         
-        super.dispose();
+        try {
+            
+            TelaCadastroModelo.preencherCombobox();
+            
+        } catch (Exception e) {
+            
+        }
+        
+        
+        this.dispose();
         
     }//GEN-LAST:event_jButtonVoltarTelaMarcasActionPerformed
-
-    private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
 
     private void jButtonVoltarTelaMarcasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasKeyPressed
         // TODO add your handling code here:
@@ -576,9 +594,11 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     private void jTextFieldDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyPressed
          
+        
         if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
+        
     }//GEN-LAST:event_jTextFieldDescricaoKeyPressed
 
     private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed

@@ -4,6 +4,7 @@
  */
 package com.LocaZilla.view;
 
+import com.LocaZilla.DAO.marca.MarcaDAO;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -33,7 +34,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         
+        
+        
+        
+        
         initComponents();
+        
+        MarcaDAO conferirBanco = new MarcaDAO();
+        conferirBanco.conferirBancoDeIDMarca();
+        
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         customizeMenuBar(jMenuBarLocazilla);
         //jLabelBackgroundTelaPrincipal.setBackground(Color.BLACK);;

@@ -8,8 +8,11 @@ import com.LocaZilla.Tools.geral.GeradorIdentificadorMarca;
 import com.LocaZilla.model.marca.Marca;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 
 /**
@@ -18,8 +21,10 @@ import java.util.ArrayList;
  */
 public class MarcaDAO implements IMarcaDAO{
     private String nomeDoArquivoNoDisco;
+    private String nomeDoArquivoIDNoDisco;
     public MarcaDAO() {
         nomeDoArquivoNoDisco = "./src/com/LocaZilla/Dados/marca/Marca.txt";
+        nomeDoArquivoIDNoDisco = "./src/com/LocaZilla/Dados/marca/idGerado.txt";
         
         //./src/com/locagyn/arquivosdedados/Marca.txt
     }
@@ -139,6 +144,37 @@ public class MarcaDAO implements IMarcaDAO{
        
     }
    
+    public void conferirBancoDeDados(){
+        
+        try {
+            File bancodedados = new File(nomeDoArquivoNoDisco);
+            if(!bancodedados.exists()){
+               
+                bancodedados.createNewFile();
+                
+            }
+        } catch (Exception e) {
+        }
+        
+        
+    }
     
+    public void conferirBancoDeIDMarca(){
+        
+        try {
+            File bancodedadosID = new File(nomeDoArquivoIDNoDisco);
+            
+            if (!bancodedadosID.exists()) {
+                try (FileWriter escritorBanco = new FileWriter(bancodedadosID)) {
+                    bancodedadosID.createNewFile();
+                    escritorBanco.write("100000");
+                    escritorBanco.close();
+                }
+            }
+            
+        } catch (IOException e) {
+        }
+        
+    }
     
 }

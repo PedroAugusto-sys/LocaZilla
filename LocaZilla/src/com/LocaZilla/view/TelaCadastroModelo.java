@@ -4,6 +4,8 @@
  */
 package com.LocaZilla.view;
 
+import com.LocaZilla.DAO.marca.MarcaDAO;
+import com.LocaZilla.DAO.modelo.ModeloDAO;
 import com.LocaZilla.Tools.modelo.TabelaimagemModelo;
 import com.LocaZilla.control.marca.IMarcaControle;
 import com.LocaZilla.control.marca.MarcaControle;
@@ -49,13 +51,29 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
     
     public TelaCadastroModelo() {
         
+        
+        MarcaDAO conferirBanco = new MarcaDAO();
+        
+        conferirBanco.conferirBancoDeIDMarca();
+        
+        ModeloDAO bancoDeDadosModelo = new ModeloDAO();
+        bancoDeDadosModelo.conferirBancoDeDados();
+        
+        
+        
         initComponents();
         jTextFieldDescricaoModelo.setEditable(true);
         jTextFieldDescricaoModelo.requestFocusInWindow();
         jTextFieldUrlModelo.setEditable(false);
         jTextFieldIDOModelo.setEnabled(false);
+        
+        
         preencherCombobox();
+        
+        
+        
         this.setLocationRelativeTo(null);
+        
         
         
         
@@ -67,13 +85,14 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
     }
     
     
-    public void preencherCombobox(){
+    public static void preencherCombobox(){
         String caminhoArquivo = "./src/com/LocaZilla/Dados/marca/Marca.txt";
         File arquivo = new File(caminhoArquivo);
         
         try {
             BufferedReader br = new BufferedReader(new FileReader(arquivo));
             Object[] linhas = br.lines().toArray();
+            jComboBoxMarca.removeAllItems();
             
             for (int i = 0; i < linhas.length; i++) {
                 String linha = linhas[i].toString();
@@ -517,7 +536,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
             int idMarca = 0;
             objetoMarca.buscar(idMarca);
             
-            Modelo objeto = new Modelo(0, jTextFieldDescricaoModelo.getText(), jTextFieldUrlModelo.getText(), 
+            Modelo objeto = new Modelo(0, jTextFieldDescricaoModelo.getText().trim(), jTextFieldUrlModelo.getText(), 
                     objetoMarca.buscar(jComboBoxMarca.getSelectedItem().toString()));
             ArrayList<Marca> lista = objetoMarca.listagem();
             for(int i = 0; i < lista.size(); i++){
@@ -681,7 +700,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
     private javax.swing.JButton jButtonIncluir;
     private javax.swing.JButton jButtonUpload;
     private javax.swing.JButton jButtonVoltarTelaMarcas;
-    private javax.swing.JComboBox<String> jComboBoxMarca;
+    public static javax.swing.JComboBox<String> jComboBoxMarca;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

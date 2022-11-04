@@ -8,6 +8,7 @@ import com.LocaZilla.Tools.geral.GeradorIdentificadorMarca;
 import com.LocaZilla.model.operador.Operador;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -125,4 +126,21 @@ public class OperadorDAO implements IOperadorDAO{
         }
         
     }
+    
+    
+    public void conferirBancoDeDados(){
+        
+        try {
+            File bancodedados = new File(nomeDoArquivoNoDisco);
+            if(!bancodedados.exists()){
+               
+                bancodedados.createNewFile();
+                
+            }
+        } catch (Exception e) {
+        }
+        
+        
+    }
+    
 }

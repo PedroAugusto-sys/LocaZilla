@@ -4,6 +4,8 @@
  */
 package com.LocaZilla.view;
 
+import com.LocaZilla.DAO.marca.MarcaDAO;
+import com.LocaZilla.DAO.operador.OperadorDAO;
 import javax.swing.JOptionPane;
 import com.LocaZilla.Tools.operador.TabelaImagemOperador;
 import com.LocaZilla.control.operador.IOperadorControle;
@@ -47,12 +49,11 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
     public TelaCadastroOperador() {
         initComponents();
         
+        MarcaDAO conferirBanco = new MarcaDAO();
+        conferirBanco.conferirBancoDeIDMarca();
+        OperadorDAO operadorBanco = new OperadorDAO();
         
-        
-        
-        
-        
-        
+        operadorBanco.conferirBancoDeDados();
         
         
        //-------------------------------------

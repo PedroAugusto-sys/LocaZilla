@@ -10,6 +10,7 @@ import com.LocaZilla.model.marca.Marca;
 import com.LocaZilla.model.modelo.Modelo;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -91,5 +92,18 @@ public class ModeloDAO implements IModeloDAO {
          br.close();
          return listaModelos; 
     }
-   
+    public void conferirBancoDeDados(){
+        
+        try {
+            File bancodedados = new File(nomeDoArquivoNoDisco);
+            if(!bancodedados.exists()){
+               
+                bancodedados.createNewFile();
+                
+            }
+        } catch (Exception e) {
+        }
+        
+        
+    }
 }

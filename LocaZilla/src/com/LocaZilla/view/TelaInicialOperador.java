@@ -5,6 +5,7 @@
 package com.LocaZilla.view;
 
 
+import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.model.operador.Operador;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
@@ -31,12 +32,16 @@ public class TelaInicialOperador extends javax.swing.JFrame {
      */
     public TelaInicialOperador() {
         
+        MarcaDAO conferirBanco = new MarcaDAO();
+        
+        conferirBanco.conferirBancoDeIDMarca();
+        conferirBanco.conferirBancoDeDados();
+        
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
         jLabelimagemOperador.setText("");
         preencherCombobox();
-        
         
         
         
