@@ -128,19 +128,6 @@ public class OperadorDAO implements IOperadorDAO{
     }
     
     
-    public void conferirBancoDeDados(){
-        
-        try {
-            File bancodedados = new File(nomeDoArquivoNoDisco);
-            if(!bancodedados.exists()){
-               
-                bancodedados.createNewFile();
-                
-            }
-        } catch (Exception e) {
-        }
-        
-        
-    }
+
     
 }

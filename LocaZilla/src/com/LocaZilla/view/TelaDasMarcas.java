@@ -6,7 +6,7 @@ package com.LocaZilla.view;
 
 
 import com.LocaZilla.view.TelaDasMarcas;
-
+import com.LocaZilla.control.marca.MarcaControle;
 import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.control.marca.IMarcaControle;
 import javax.swing.JOptionPane;
@@ -40,7 +40,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     public TelaDasMarcas() {
         
         //Apontador
-        MarcaDAO conferirBanco = new MarcaDAO();
+        MarcaControle conferirBanco = new MarcaControle();
         
         //Chama as instancias do MARCADAO
         conferirBanco.conferirBancoDeDados();
@@ -98,7 +98,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         setIconImage(img.getImage());
         setResizable(false);
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel3.setBackground(java.awt.SystemColor.control);
         jPanel3.setForeground(new java.awt.Color(204, 255, 51));
         jPanel3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -142,15 +142,15 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Identificador");
 
         jLabel3.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Descrição");
 
         jLabel4.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("URL");
 
         jTextFieldIdentificador.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
@@ -182,7 +182,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Logo");
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
@@ -283,8 +283,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         }
         jTableMarcas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        JLabelLogo.setBackground(new java.awt.Color(153, 153, 153));
-        JLabelLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        JLabelLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(240, 188, 69), new java.awt.Color(240, 188, 69)));
         JLabelLogo.setFocusable(false);
         JLabelLogo.setName(""); // NOI18N
         JLabelLogo.setOpaque(true);
@@ -330,18 +329,15 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(160, 160, 160)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(154, 154, 154)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))))
+                        .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

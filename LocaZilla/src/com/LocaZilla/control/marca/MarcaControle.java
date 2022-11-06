@@ -7,6 +7,9 @@ package com.LocaZilla.control.marca;
 import com.LocaZilla.DAO.marca.IMarcaDAO;
 import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.model.marca.Marca;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -99,6 +102,40 @@ public class MarcaControle implements IMarcaControle {
    public Marca buscar (String descricao) throws Exception{
        
        return marcaPersistencia.buscar(descricao);
+    }
+   
+   
+   public void conferirBancoDeIDMarca(){
+        
+        try {
+            File bancodedadosID = new File("./src/LocaZilla/Dados/marca/idGerado.txt");
+            
+            if (!bancodedadosID.exists()) {
+                try (FileWriter escritorBanco = new FileWriter(bancodedadosID)) {
+                    bancodedadosID.createNewFile();
+                    escritorBanco.write("100000");
+                    escritorBanco.close();
+                }
+            }
+            
+        } catch (IOException e) {
+        }
+        
+    }
+   
+       public void conferirBancoDeDados(){
+        
+        try {
+            File bancodedados = new File("./src/com/LocaZilla/Dados/marca/Marca.txt");
+            if(!bancodedados.exists()){
+               
+                bancodedados.createNewFile();
+                
+            }
+        } catch (Exception e) {
+        }
+        
+        
     }
    
    

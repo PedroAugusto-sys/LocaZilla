@@ -5,6 +5,7 @@
 package com.LocaZilla.view;
 
 import com.LocaZilla.DAO.marca.MarcaDAO;
+import com.LocaZilla.control.marca.MarcaControle;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -40,7 +41,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         initComponents();
         
-        MarcaDAO conferirBanco = new MarcaDAO();
+        MarcaControle conferirBanco = new MarcaControle();
         conferirBanco.conferirBancoDeIDMarca();
         
         setExtendedState(JFrame.MAXIMIZED_BOTH);

@@ -144,37 +144,8 @@ public class MarcaDAO implements IMarcaDAO{
        
     }
    
-    public void conferirBancoDeDados(){
-        
-        try {
-            File bancodedados = new File(nomeDoArquivoNoDisco);
-            if(!bancodedados.exists()){
-               
-                bancodedados.createNewFile();
-                
-            }
-        } catch (Exception e) {
-        }
-        
-        
-    }
+
     
-    public void conferirBancoDeIDMarca(){
-        
-        try {
-            File bancodedadosID = new File(nomeDoArquivoIDNoDisco);
-            
-            if (!bancodedadosID.exists()) {
-                try (FileWriter escritorBanco = new FileWriter(bancodedadosID)) {
-                    bancodedadosID.createNewFile();
-                    escritorBanco.write("100000");
-                    escritorBanco.close();
-                }
-            }
-            
-        } catch (IOException e) {
-        }
-        
-    }
+
     
 }

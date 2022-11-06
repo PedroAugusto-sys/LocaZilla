@@ -6,6 +6,8 @@ package com.LocaZilla.view;
 
 import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.DAO.modelo.ModeloDAO;
+import com.LocaZilla.control.marca.MarcaControle;
+import com.LocaZilla.control.modelo.ModeloControle;
 import com.LocaZilla.Tools.modelo.TabelaimagemModelo;
 import com.LocaZilla.control.marca.IMarcaControle;
 import com.LocaZilla.control.marca.MarcaControle;
@@ -52,11 +54,11 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
     public TelaCadastroModelo() {
         
         
-        MarcaDAO conferirBanco = new MarcaDAO();
+        MarcaControle conferirBanco = new MarcaControle();
         
         conferirBanco.conferirBancoDeIDMarca();
         
-        ModeloDAO bancoDeDadosModelo = new ModeloDAO();
+        ModeloControle bancoDeDadosModelo = new ModeloControle();
         bancoDeDadosModelo.conferirBancoDeDados();
         
         
@@ -217,14 +219,14 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         );
 
         jLabel5.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Id");
 
         jTextFieldIDOModelo.setEditable(false);
         jTextFieldIDOModelo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Descrição");
 
         jTextFieldDescricaoModelo.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
@@ -240,7 +242,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("URL");
 
         jTextFieldUrlModelo.setEditable(false);
@@ -297,6 +299,8 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         }
         jTableModelos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
+        JLabelModelo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(240, 188, 69), new java.awt.Color(240, 188, 69)));
+
         jComboBoxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         jComboBoxMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +314,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Marca");
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
@@ -364,7 +368,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         );
 
         jLabel7.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Modelo");
 
         jButtonUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/uploadicon_1.png"))); // NOI18N
@@ -395,17 +399,13 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                 .addComponent(jScrollPane2)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(23, 23, 23))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jToggleButtonAbrirCadastrar)
@@ -437,18 +437,19 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldIDOModelo))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldIDOModelo)
+                                .addComponent(jLabel5)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jButtonUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldDescricaoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextFieldUrlModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldUrlModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -457,8 +458,8 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButtonAbrirCadastrar)
-                .addGap(65, 65, 65)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
         );
 
         pack();

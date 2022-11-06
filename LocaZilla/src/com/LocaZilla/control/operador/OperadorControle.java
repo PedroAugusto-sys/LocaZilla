@@ -7,6 +7,7 @@ package com.LocaZilla.control.operador;
 import com.LocaZilla.DAO.operador.IOperadorDAO;
 import com.LocaZilla.DAO.operador.OperadorDAO;
 import com.LocaZilla.model.operador.Operador;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -108,6 +109,21 @@ public class OperadorControle implements IOperadorControle {
         }
         operadorPersistencia.incluirOperador(objeto);
     
+    }
+    
+        public void conferirBancoDeDados(){
+        
+        try {
+            File bancodedados = new File("./src/com/LocaZilla/Dados/operador/Operador.txt");
+            if(!bancodedados.exists()){
+               
+                bancodedados.createNewFile();
+                
+            }
+        } catch (Exception e) {
+        }
+        
+        
     }
     
 }

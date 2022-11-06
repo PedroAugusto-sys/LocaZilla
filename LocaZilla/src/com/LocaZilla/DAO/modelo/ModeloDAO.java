@@ -92,18 +92,5 @@ public class ModeloDAO implements IModeloDAO {
          br.close();
          return listaModelos; 
     }
-    public void conferirBancoDeDados(){
-        
-        try {
-            File bancodedados = new File(nomeDoArquivoNoDisco);
-            if(!bancodedados.exists()){
-               
-                bancodedados.createNewFile();
-                
-            }
-        } catch (Exception e) {
-        }
-        
-        
-    }
+
 }

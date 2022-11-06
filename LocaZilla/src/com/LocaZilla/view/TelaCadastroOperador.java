@@ -6,6 +6,8 @@ package com.LocaZilla.view;
 
 import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.DAO.operador.OperadorDAO;
+import com.LocaZilla.control.marca.MarcaControle;
+import com.LocaZilla.control.operador.OperadorControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.Tools.operador.TabelaImagemOperador;
 import com.LocaZilla.control.operador.IOperadorControle;
@@ -49,9 +51,11 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
     public TelaCadastroOperador() {
         initComponents();
         
-        MarcaDAO conferirBanco = new MarcaDAO();
+        MarcaControle conferirBanco = new MarcaControle();
+        
         conferirBanco.conferirBancoDeIDMarca();
-        OperadorDAO operadorBanco = new OperadorDAO();
+        
+        OperadorControle operadorBanco = new OperadorControle();
         
         operadorBanco.conferirBancoDeDados();
         
@@ -194,15 +198,18 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nome :");
 
         jLabel4.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Senha :");
 
+        jLabelFotoOperadorNovo.setForeground(new java.awt.Color(153, 153, 153));
+        jLabelFotoOperadorNovo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(240, 188, 69), new java.awt.Color(240, 188, 69)));
+
         jLabel5.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Id:");
 
         jTextNomeOperadorNovo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -212,9 +219,11 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(240, 188, 69));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Url:");
 
+        jTableOperadores.setBackground(new java.awt.Color(51, 51, 51));
+        jTableOperadores.setForeground(new java.awt.Color(240, 188, 69));
         jTableOperadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -327,39 +336,35 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
                                 .addComponent(jTextNomeOperadorNovo)
                                 .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabelFotoOperadorNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonFotoOperadorNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(169, 169, 169))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonFotoOperadorNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(174, 174, 174))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelFotoOperadorNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonFotoOperadorNovo))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelFotoOperadorNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonFotoOperadorNovo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jTextIDOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextNomeOperadorNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
+                            .addComponent(jTextNomeOperadorNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -367,7 +372,11 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jTextURLOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
         );

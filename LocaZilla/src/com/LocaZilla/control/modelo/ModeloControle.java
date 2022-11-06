@@ -8,6 +8,7 @@ import com.LocaZilla.DAO.modelo.ModeloDAO;
 import com.LocaZilla.model.modelo.Modelo;
 import java.util.ArrayList;
 import com.LocaZilla.DAO.modelo.IModeloDAO;
+import java.io.File;
 import java.util.Iterator;
 
 /**
@@ -96,6 +97,21 @@ public class ModeloControle implements IModeloControle{
         if(desc.getDescricao().equals("")){
              throw new Exception("Nenhum modelo sendo cadastrado");
         }
+        
+    }
+    
+        public void conferirBancoDeDados(){
+        
+        try {
+            File bancodedados = new File("./src/com/LocaZilla/Dados/modelo/Modelo.txt");
+            if(!bancodedados.exists()){
+               
+                bancodedados.createNewFile();
+                
+            }
+        } catch (Exception e) {
+        }
+        
         
     }
     

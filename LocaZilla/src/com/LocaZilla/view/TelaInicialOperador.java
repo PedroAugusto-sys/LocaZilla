@@ -6,6 +6,7 @@ package com.LocaZilla.view;
 
 
 import com.LocaZilla.DAO.marca.MarcaDAO;
+import com.LocaZilla.control.marca.MarcaControle;
 import com.LocaZilla.model.operador.Operador;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
@@ -32,7 +33,8 @@ public class TelaInicialOperador extends javax.swing.JFrame {
      */
     public TelaInicialOperador() {
         
-        MarcaDAO conferirBanco = new MarcaDAO();
+        //MarcaDAO conferirBanco = new MarcaDAO();
+        MarcaControle conferirBanco = new MarcaControle();
         
         conferirBanco.conferirBancoDeIDMarca();
         conferirBanco.conferirBancoDeDados();
