@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import com.LocaZilla.control.operador.OperadorControle;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -35,15 +36,16 @@ public class TelaInicialOperador extends javax.swing.JFrame {
         
         //MarcaDAO conferirBanco = new MarcaDAO();
         MarcaControle conferirBanco = new MarcaControle();
-        
         conferirBanco.conferirBancoDeIDMarca();
-        conferirBanco.conferirBancoDeDados();
-        
+        OperadorControle operadorControle = new OperadorControle();
+
+        operadorControle.conferirBancoDeDados();
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
         jLabelimagemOperador.setText("");
         preencherCombobox();
+        
         
         
         
