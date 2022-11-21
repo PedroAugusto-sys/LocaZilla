@@ -56,10 +56,12 @@ public class MarcaControle implements IMarcaControle {
     }
         
         private boolean verificarVazio(Marca objeto){
-        if(objeto.getDescricao().equals("") || objeto.getUrl().equals("")) {
-            return true;
+            Integer aux = null;
             
-        } else{
+        if(objeto.getDescricao().equals("") || objeto.getUrl().equals("")|| (aux.equals(objeto.getId()))) {
+            return true;  
+        } 
+        else{
             return false;
         }
     }

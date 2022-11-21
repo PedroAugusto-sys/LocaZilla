@@ -4,7 +4,6 @@
  */
 package com.LocaZilla.view;
 
-
 import com.LocaZilla.view.TelaDasMarcas;
 import com.LocaZilla.control.marca.MarcaControle;
 import com.LocaZilla.DAO.marca.MarcaDAO;
@@ -25,43 +24,43 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.nio.file.StandardCopyOption;
 
-
 /**
  *
  * @author ejmcc
  */
 public class TelaDasMarcas extends javax.swing.JFrame {
     //Atributos 
-    
+
     IMarcaControle marcaControle = new MarcaControle();
+
     /**
      * Creates new form TelaDasMarcas
      */
     public TelaDasMarcas() {
-        
+
         //Apontador
         MarcaControle conferirBanco = new MarcaControle();
-        
+
         //Chama as instancias do MARCADAO
         conferirBanco.conferirBancoDeDados();
         conferirBanco.conferirBancoDeIDMarca();
-        
+
         //Inicia os componentes da tela
         initComponents();
         jTextFieldIdentificador.setEnabled(false);
         jTextFieldUrl.setEnabled(false);
         this.setLocationRelativeTo(null);
-        
+
         //Imprime os dados da GRID
         try {
             imprimirDadosNaGrid(marcaControle.listagem());
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro);
         }
-        
+
     }
-    
-     ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
+
+    ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -400,138 +399,139 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     private void jTextFieldUrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUrlActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_jTextFieldUrlActionPerformed
 
-    private void imprimirDadosNaGrid(ArrayList<Marca> listaDeMarcas){
+    private void imprimirDadosNaGrid(ArrayList<Marca> listaDeMarcas) {
         try {
-            DefaultTableModel model =  (DefaultTableModel) jTableMarcas.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTableMarcas.getModel();
             //Limpa a tabela 
             model.setNumRows(0);
             Iterator<Marca> lista = listaDeMarcas.iterator();
-            while(lista.hasNext()){
-                String[] saida= new String[4];
+            while (lista.hasNext()) {
+                String[] saida = new String[4];
                 Marca aux = lista.next();
-                saida[0]= aux.getId()+"";
-                saida[1]= aux.getDescricao();
+                saida[0] = aux.getId() + "";
+                saida[1] = aux.getDescricao();
                 saida[2] = aux.getUrl();
-                saida[3] = "" ;
+                saida[3] = "";
                 //Incluir nova linha na Tabela
                 model.addRow(saida);
-         } 
+            }
             jTableMarcas.setModel(model);
-        } catch(Exception erro){
-            JOptionPane.showMessageDialog(this, erro.getMessage());
-      } 
-               
-    }
-    
-    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            Marca objeto = new Marca(0,jTextFieldDescricao.getText().trim(),
-                                    jTextFieldUrl.getText());
-            marcaControle.incluir(objeto);
-            imprimirDadosNaGrid(marcaControle.listagem());
-            
-            
-            
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-        jTextFieldIdentificador.setText("");
-        jTextFieldDescricao.setText("");
-        jTextFieldUrl.setText("");
-        JLabelLogo.setIcon(null);
+
+    }
+
+    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            Marca objeto = new Marca(0, jTextFieldDescricao.getText().trim(),
+                    jTextFieldUrl.getText());
+            marcaControle.incluir(objeto);
+            imprimirDadosNaGrid(marcaControle.listagem());
+            jTextFieldIdentificador.setText("");
+            jTextFieldDescricao.setText("");
+            jTextFieldUrl.setText("");
+            JLabelLogo.setIcon(null);
+            
+                
+                
+        } catch (Exception erro) {
+            
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
-           // TODO add your handling code here:
-           if(jTextFieldUrl.getText().equals("")){
-               JOptionPane.showMessageDialog(this, "Selecione uma marca antes de alterar.");
-           }else{
-               try {
-            
-                Marca obj = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(), 
+        if (jTextFieldUrl.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Selecione uma marca antes de alterar.");
+        }
+        if(jTextFieldIdentificador.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Não é possível alterar uma marca fora do sistema");
+        }else {
+            try {
+
+                Marca obj = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(),
                         jTextFieldUrl.getText());
                 marcaControle.alterar(obj);
                 imprimirDadosNaGrid(marcaControle.listagem());
                 jTextFieldDescricao.setText("");
-                jTextFieldUrl.setText("");  
+                jTextFieldUrl.setText("");
                 JLabelLogo.setIcon(null);
-            
-        } catch (Exception erro) {
+
+            } catch (Exception erro) {
                 JOptionPane.showMessageDialog(this, erro.getMessage());
-                
+
+            }
+            jTextFieldDescricao.setText("");
+            jTextFieldUrl.setText("");
+            JLabelLogo.setIcon(null);
+            jTextFieldIdentificador.setText("");
+
         }
-                jTextFieldDescricao.setText("");
-                jTextFieldUrl.setText("");  
-                JLabelLogo.setIcon(null);
-                jTextFieldIdentificador.setText("");
-               
-           }
-           
-         
 
 
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void jButtonUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUploadActionPerformed
         // TODO add your handling code here:
-        
+
         //Ao apertar UPLOAD, isso acontece. 
-       try {
+        try {
             JFileChooser fc = new JFileChooser();
             fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            fc.addChoosableFileFilter(new FileNameExtensionFilter("Image files",new String[] { "png", "jpg", "jpeg", "gif" }));
+            fc.addChoosableFileFilter(new FileNameExtensionFilter("Image files", new String[]{"png", "jpg", "jpeg", "gif"}));
             fc.setCurrentDirectory(new File("C:\\"));
             Action details = fc.getActionMap().get("Go Up");
             details.actionPerformed(null);
             details.actionPerformed(null);
             fc.showOpenDialog(this);
             File arquivo = fc.getSelectedFile();
-            if(arquivo != null){
-                
+            if (arquivo != null) {
+
                 String nomeDoArquivo = arquivo.getPath();
                 jTextFieldUrl.setText(nomeDoArquivo);
                 ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
                 iconLogo.setImage(iconLogo.getImage().getScaledInstance(
-                    JLabelLogo.getWidth(),JLabelLogo.getHeight(),1));
-                    JLabelLogo.setIcon(iconLogo);     
-                    File origemArquivo = new File(nomeDoArquivo);
-                    File destinoArquivo = new File("./src/com/LocaZilla/Dados/marca/ImagemMarca/"+arquivo.getName());
-                    
-                                    String saidaMascara = destinoArquivo+"";    
+                        JLabelLogo.getWidth(), JLabelLogo.getHeight(), 1));
+                JLabelLogo.setIcon(iconLogo);
+                File origemArquivo = new File(nomeDoArquivo);
+                File destinoArquivo = new File("./src/com/LocaZilla/Dados/marca/ImagemMarca/" + arquivo.getName());
 
-                                    jTextFieldUrl.setText(saidaMascara.replace(".JPEG",""));
-                    
-                    try {
-                    
-                    Files.copy(origemArquivo.toPath(), destinoArquivo.toPath(),StandardCopyOption.REPLACE_EXISTING);
-                    
+                String saidaMascara = destinoArquivo + "";
+
+                jTextFieldUrl.setText(saidaMascara.replace(".JPEG", ""));
+
+                try {
+
+                    Files.copy(origemArquivo.toPath(), destinoArquivo.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
                 } catch (Exception e) {
                 }
-             
+
             }
-            
-       }    catch (Exception erro) {
+
+        } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-       
-       
-       
+
+
     }//GEN-LAST:event_jButtonUploadActionPerformed
 
     private void jTextFieldDescricaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyTyped
         // TODO add your handling code here:
-            char e = evt.getKeyChar();
-            evt.setKeyChar(Character.toUpperCase(e));
-            if(Character.isDigit(e)){
-                evt.consume();
-            }
+        char e = evt.getKeyChar();
+        evt.setKeyChar(Character.toUpperCase(e));
+        if (Character.isDigit(e)) {
+            evt.consume();
+        }
 //            if (Character.isLowerCase(e)) {
 //            evt.setKeyChar(Character.toUpperCase(e));
 //            }
@@ -539,27 +539,25 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     private void jTextFieldIdentificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificadorActionPerformed
         // TODO add your handling code here:
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jTextFieldIdentificadorActionPerformed
 
     private void jTableMarcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMarcasMouseClicked
         // TODO add your handling code here:
-          try {
-              
+        try {
+
             this.jTextFieldIdentificador.setText((String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 0));
             this.jTextFieldDescricao.setText((String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 1));
             this.jTextFieldUrl.setText((String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 2));
-            
+
             String nomeArquivo = (String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 2);
-            
+
             jTextFieldUrl.setText(nomeArquivo);
             ImageIcon iconLogo = new ImageIcon(nomeArquivo);
             iconLogo.setImage(iconLogo.getImage().getScaledInstance(JLabelLogo.getWidth(), JLabelLogo.getHeight(), java.awt.Image.SCALE_SMOOTH));
             JLabelLogo.setIcon(iconLogo);
-            
+
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, "Selecione uma marca válida já cadastrada!");
         }
@@ -567,67 +565,65 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     private void jButtonVoltarTelaMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasActionPerformed
         // TODO add your handling code here:
-        
+
         try {
-            
+
             TelaCadastroModelo.preencherCombobox();
-            
+
         } catch (Exception e) {
-            
+
         }
-        
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_jButtonVoltarTelaMarcasActionPerformed
 
     private void jButtonVoltarTelaMarcasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             super.dispose();
         }
     }//GEN-LAST:event_jButtonVoltarTelaMarcasKeyPressed
 
     private void jTextFieldDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyPressed
-         
-        
-        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             super.dispose();
         }
-        
+
     }//GEN-LAST:event_jTextFieldDescricaoKeyPressed
 
     private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             super.dispose();
         }
     }//GEN-LAST:event_jButtonIncluirKeyPressed
 
     private void jButtonAlterarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonAlterarKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             super.dispose();
         }
     }//GEN-LAST:event_jButtonAlterarKeyPressed
 
     private void jPanel3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel3KeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             super.dispose();
         }
     }//GEN-LAST:event_jPanel3KeyPressed
 
     private void jButtonUploadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonUploadKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             super.dispose();
         }
     }//GEN-LAST:event_jButtonUploadKeyPressed
 
     private void jTableMarcasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableMarcasKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             super.dispose();
         }
     }//GEN-LAST:event_jTableMarcasKeyPressed

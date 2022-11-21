@@ -4,12 +4,7 @@
  */
 package com.LocaZilla.view;
 
-import com.LocaZilla.DAO.marca.MarcaDAO;
-import com.LocaZilla.DAO.operador.OperadorDAO;
 import com.LocaZilla.control.marca.MarcaControle;
-import com.LocaZilla.control.operador.OperadorControle;
-import javax.swing.JOptionPane;
-import com.LocaZilla.Tools.operador.TabelaImagemOperador;
 import com.LocaZilla.control.operador.IOperadorControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.operador.Operador;
@@ -25,7 +20,6 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.nio.file.StandardCopyOption;
-import javax.swing.JPasswordField;
 
 
 /**

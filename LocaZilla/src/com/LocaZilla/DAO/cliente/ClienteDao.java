@@ -151,9 +151,12 @@ public class ClienteDao implements IClienteDao {
             objetoCliente.setEndereco((Endereco) vetorString[6]);
             objetoCliente.setIdentidade((String) vetorString[7]);
             objetoCliente.setTipo(((Cliente.TipoCliente) vetorString[8]));
+            
+            
+            
             if (objetoCliente.getCpf_cnpj().equals(cpf_cnpj)) {
                 br.close();
-                return new Cliente();
+                return new Cliente(0, cpf_cnpj, linha, linha, linha, telefone, linha, TipoCliente.PESSOA_FISICA, endereco);
             }
 
         }
