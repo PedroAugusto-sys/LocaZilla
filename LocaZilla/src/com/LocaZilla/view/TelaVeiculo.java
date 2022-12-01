@@ -4,6 +4,8 @@
  */
 package com.LocaZilla.view;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author hugo_
@@ -18,6 +20,11 @@ public class TelaVeiculo extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    
+    
+    ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,6 +37,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
         jPanelFundo = new javax.swing.JPanel();
         jPanelCadastroVeiculo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButtonVoltarTelaMarcas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableVeiculo = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -63,7 +71,9 @@ public class TelaVeiculo extends javax.swing.JFrame {
         jButtonAlterar = new javax.swing.JButton();
         jButtonIncluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Veículos");
+        setIconImage(img.getImage());
         setPreferredSize(new java.awt.Dimension(850, 500));
 
         jPanelFundo.setBackground(java.awt.SystemColor.control);
@@ -75,12 +85,21 @@ public class TelaVeiculo extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(240, 188, 69));
         jLabel1.setText("Cadastro de Veículos");
 
+        jButtonVoltarTelaMarcas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/funcoes/Voltar.png"))); // NOI18N
+        jButtonVoltarTelaMarcas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarTelaMarcasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCadastroVeiculoLayout = new javax.swing.GroupLayout(jPanelCadastroVeiculo);
         jPanelCadastroVeiculo.setLayout(jPanelCadastroVeiculoLayout);
         jPanelCadastroVeiculoLayout.setHorizontalGroup(
             jPanelCadastroVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastroVeiculoLayout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jButtonVoltarTelaMarcas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(226, 226, 226))
         );
@@ -88,7 +107,9 @@ public class TelaVeiculo extends javax.swing.JFrame {
             jPanelCadastroVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCadastroVeiculoLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addGroup(jPanelCadastroVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonVoltarTelaMarcas)
+                    .addComponent(jLabel1))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -315,16 +336,15 @@ public class TelaVeiculo extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jComboBoxTIPOVeiculo, javax.swing.GroupLayout.Alignment.LEADING, 0, 147, Short.MAX_VALUE)
-                        .addComponent(jComboBoxCOMBUSTIVEL, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jComboBoxTIPOVeiculo, 0, 193, Short.MAX_VALUE)
+                    .addComponent(jComboBoxCOMBUSTIVEL, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextFieldPRECOvenda, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                     .addComponent(jTextFieldPRECOcompra)
                     .addComponent(jTextFieldKM)
                     .addComponent(jTextFieldRENAVAM))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanelFundoLayout.setVerticalGroup(
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,8 +402,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
                     .addGroup(jPanelFundoLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(72, 72, 72)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -480,6 +499,11 @@ public class TelaVeiculo extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_jButtonIncluirKeyPressed
 
+    private void jButtonVoltarTelaMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasActionPerformed
+        super.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVoltarTelaMarcasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -522,6 +546,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonIncluir;
+    private javax.swing.JButton jButtonVoltarTelaMarcas;
     private javax.swing.JComboBox<String> jComboBoxCOMBUSTIVEL;
     private javax.swing.JComboBox<String> jComboBoxMODELO;
     private javax.swing.JComboBox<String> jComboBoxSITUACAO;
