@@ -8,7 +8,7 @@ package com.LocaZilla.model.marca;
  * @author pedro
  */
 public class Marca implements Comparable<Marca> {
-private int id = 0;
+    private int id = 0;
     private String descricao = "";
     private String url = "";
     //Metodos

@@ -70,6 +70,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuCadastrosClientes = new javax.swing.JMenuItem();
         jMenuItemCadastrosMarcas = new javax.swing.JMenuItem();
         jMenuItemCadastrosModelo = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuConsultas = new javax.swing.JMenu();
         jMenuControle = new javax.swing.JMenu();
         jMenuOutros = new javax.swing.JMenu();
@@ -93,7 +94,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuCadastros.setText("Cadastros");
 
-        jMenuCadastrosClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuCadastrosClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuCadastrosClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/ClienteCadastro.png"))); // NOI18N
         jMenuCadastrosClientes.setText("Clientes");
         jMenuCadastrosClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +124,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItemCadastrosModelo);
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setText("Veículos");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenuCadastros.add(jMenuItem2);
+
         jMenuBarLocazilla.add(jMenuCadastros);
 
         jMenuConsultas.setText("Consultas");
@@ -143,7 +153,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuOutros.add(jMenuItemLogOff);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ADD, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/OperadorCadastro.png"))); // NOI18N
         jMenuItem1.setText("Cadastrar Operador");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -283,6 +293,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItemCadastrosModeloActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        
+        TelaVeiculo telaveiculo = new TelaVeiculo();
+        telaveiculo.setVisible(true);
+             
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -327,6 +345,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuConsultas;
     private javax.swing.JMenu jMenuControle;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemCadastrosMarcas;
     private javax.swing.JMenuItem jMenuItemCadastrosModelo;
     private javax.swing.JMenuItem jMenuItemLogOff;

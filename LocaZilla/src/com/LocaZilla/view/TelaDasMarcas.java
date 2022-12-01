@@ -6,7 +6,7 @@ package com.LocaZilla.view;
 
 import com.LocaZilla.view.TelaDasMarcas;
 import com.LocaZilla.control.marca.MarcaControle;
-import com.LocaZilla.DAO.marca.MarcaDAO;
+//import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.control.marca.IMarcaControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.marca.Marca;
@@ -453,9 +453,10 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         if (jTextFieldUrl.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecione uma marca antes de alterar.");
         }
-        if(jTextFieldIdentificador.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Não é possível alterar uma marca fora do sistema");
-        }else {
+//        if(jTextFieldIdentificador.getText().equals("")){
+//            JOptionPane.showMessageDialog(this, "Não é possível alterar uma marca fora do sistema");
+//        }
+        else {
             try {
 
                 Marca obj = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(),

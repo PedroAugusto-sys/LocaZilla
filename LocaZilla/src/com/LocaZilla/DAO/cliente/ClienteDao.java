@@ -6,7 +6,8 @@ package com.LocaZilla.DAO.cliente;
 
 import com.LocaZilla.Tools.geral.GeradorIdentificadorMarca;
 import com.LocaZilla.model.cliente.Cliente;
-import com.LocaZilla.model.cliente.Cliente.TipoCliente;
+//import com.LocaZilla.model.cliente.Cliente.TipoCliente;
+import com.LocaZilla.model.cliente.TipoCliente;
 import com.LocaZilla.model.cliente.Endereco;
 import com.LocaZilla.model.cliente.Telefone;
 import java.io.BufferedReader;
@@ -26,6 +27,9 @@ public class ClienteDao implements IClienteDao {
     public ClienteDao() {
         nomeDoArquivoNoDisco = "./src/com/LocaZilla/Dados/cliente/Cliente.txt";
     }
+
+    Endereco objetoEndereco = new Endereco();
+    Telefone objetoTelefone = new Telefone();
 
     @Override
     public void incluir(Cliente objeto) throws Exception {
@@ -56,7 +60,10 @@ public class ClienteDao implements IClienteDao {
             while ((linha = br.readLine()) != null) {
                 if (linha.contains(objeto.getId() + "")) {
                     banco += objeto.getId() + ";" + objeto.getNome() + ";" + objeto.getRazaoSocial() + ";" + objeto.getCpf_cnpj() + ";"
-                            + objeto.getTelefone() + ";" + objeto.getEmail() + ";" + objeto.getEndereco() + ";" + objeto.getIdentidade() + ";" + objeto.getTipo() + "\n";
+                            + objetoTelefone.getDdi() + ";" + objetoTelefone.getDdd() + ";" + objetoTelefone.getNumero() + ";"
+                            + objeto.getEmail() + ";" + objetoEndereco.getBairro() + ";" + objetoEndereco.getCidade() + ";"
+                            + objetoEndereco.getComplemento() + ";" + objetoEndereco.getEstado() + ";" + objetoEndereco.getLogradouro() + ";"
+                            + objetoEndereco.getCep() + ";" + objeto.getIdentidade() + ";" + objeto.getTipoCliente() + "\n";
                 } else {
                     banco += linha + "\n";
                 }
@@ -82,17 +89,32 @@ public class ClienteDao implements IClienteDao {
             while ((linha = br.readLine()) != null) {
 
                 Cliente objetoCliente = new Cliente();
-                Object vetorString[] = linha.split(";");
-                objetoCliente.setId(Integer.parseInt((String) vetorString[0]));
-                objetoCliente.setNome((String) vetorString[1]);
-                objetoCliente.setCpf_cnpj((String) vetorString[2]);
-                objetoCliente.setRazaoSocial((String) vetorString[3]);
-                objetoCliente.setTelefone((Telefone) vetorString[4]);
-                objetoCliente.setEmail((String) vetorString[5]);
-                objetoCliente.setEndereco((Endereco) vetorString[6]);
-                objetoCliente.setIdentidade((String) vetorString[7]);
-                objetoCliente.setTipo(((Cliente.TipoCliente) vetorString[8]));
-                listaDeClientes.add(objetoCliente);
+                String vetorString[] = linha.split(";");
+                objetoCliente.setId(Integer.parseInt(vetorString[0]));
+                objetoCliente.setNome(vetorString[1]);
+                objetoCliente.setRazaoSocial(vetorString[2]);
+                objetoCliente.setCpf_cnpj(vetorString[3]);
+                Telefone telefone = new Telefone();
+                telefone.setDdi(Integer.parseInt(vetorString[4]));
+                telefone.setDdd(Integer.parseInt(vetorString[5]));
+                telefone.setNumero(Integer.parseInt(vetorString[6]));
+                //objetoCliente.setTelefone((Telefone) vetorString[4]);
+                objetoCliente.setEmail((String) vetorString[7]);
+                Endereco endereco = new Endereco();
+                endereco.setBairro(vetorString[8]);
+                endereco.setCidade(vetorString[9]);
+                endereco.setComplemento(vetorString[10]);
+                endereco.setEstado(vetorString[11]);
+                endereco.setLogradouro(vetorString[12]);
+                endereco.setCep(Integer.parseInt(vetorString[13]));
+                //objetoCliente.setEndereco((Endereco) vetorString[6]);
+
+                if (vetorString[14].equals(TipoCliente.PESSOA_FISICA)) {
+                    objetoCliente.setTipo(TipoCliente.PESSOA_FISICA);
+                } else {
+                    objetoCliente.setTipo(TipoCliente.PESSOA_JURIDICA);
+
+                }
 
             }
             br.close();
@@ -110,21 +132,37 @@ public class ClienteDao implements IClienteDao {
         String linha = "";
         while ((linha = br.readLine()) != null) {
             Cliente objetoCliente = new Cliente();
-            Object vetorString[] = linha.split(";");
-            objetoCliente.setId(Integer.parseInt((String) vetorString[0]));
-            objetoCliente.setNome((String) vetorString[1]);
-            objetoCliente.setCpf_cnpj((String) vetorString[2]);
-            objetoCliente.setRazaoSocial((String) vetorString[3]);
-            objetoCliente.setTelefone((Telefone) vetorString[4]);
-            objetoCliente.setEmail((String) vetorString[5]);
-            objetoCliente.setEndereco((Endereco) vetorString[6]);
-            objetoCliente.setIdentidade((String) vetorString[7]);
-            objetoCliente.setTipo(((Cliente.TipoCliente) vetorString[8]));
+            String vetorString[] = linha.split(";");
+            objetoCliente.setId(Integer.parseInt(vetorString[0]));
+            objetoCliente.setNome(vetorString[1]);
+            objetoCliente.setRazaoSocial(vetorString[2]);
+            objetoCliente.setCpf_cnpj(vetorString[3]);
+            Telefone telefone = new Telefone();
+            telefone.setDdi(Integer.parseInt(vetorString[4]));
+            telefone.setDdd(Integer.parseInt(vetorString[5]));
+            telefone.setNumero(Integer.parseInt(vetorString[6]));
+            //objetoCliente.setTelefone((Telefone) vetorString[4]);
+            objetoCliente.setEmail((String) vetorString[7]);
+            Endereco endereco = new Endereco();
+            endereco.setBairro(vetorString[8]);
+            endereco.setCidade(vetorString[9]);
+            endereco.setComplemento(vetorString[10]);
+            endereco.setEstado(vetorString[11]);
+            endereco.setLogradouro(vetorString[12]);
+            endereco.setCep(Integer.parseInt(vetorString[13]));
+            //objetoCliente.setEndereco((Endereco) vetorString[6]);
+
+            if (vetorString[14].equals(TipoCliente.PESSOA_FISICA)) {
+                objetoCliente.setTipo(TipoCliente.PESSOA_FISICA);
+            } else {
+                objetoCliente.setTipo(TipoCliente.PESSOA_JURIDICA);
+
+            }
 
             if (objetoCliente.getId() == id) {
                 br.close();
 
-                return new Cliente();
+                return objetoCliente;
             }
 
         }
@@ -137,26 +175,40 @@ public class ClienteDao implements IClienteDao {
 
         FileReader fr = new FileReader(nomeDoArquivoNoDisco);
         BufferedReader br = new BufferedReader(fr);
-        // ArrayList<Marca> lista = listagem();
         String linha = "";
         while ((linha = br.readLine()) != null) {
             Cliente objetoCliente = new Cliente();
-            Object vetorString[] = linha.split(";");
-            objetoCliente.setId(Integer.parseInt((String) vetorString[0]));
-            objetoCliente.setNome((String) vetorString[1]);
-            objetoCliente.setCpf_cnpj((String) vetorString[2]);
-            objetoCliente.setRazaoSocial((String) vetorString[3]);
-            objetoCliente.setTelefone((Telefone) vetorString[4]);
-            objetoCliente.setEmail((String) vetorString[5]);
-            objetoCliente.setEndereco((Endereco) vetorString[6]);
-            objetoCliente.setIdentidade((String) vetorString[7]);
-            objetoCliente.setTipo(((Cliente.TipoCliente) vetorString[8]));
-            
-            
-            
+            String vetorString[] = linha.split(";");
+            objetoCliente.setId(Integer.parseInt(vetorString[0]));
+            objetoCliente.setNome(vetorString[1]);
+            objetoCliente.setRazaoSocial(vetorString[2]);
+            objetoCliente.setCpf_cnpj(vetorString[3]);
+            Telefone telefone = new Telefone();
+            telefone.setDdi(Integer.parseInt(vetorString[4]));
+            telefone.setDdd(Integer.parseInt(vetorString[5]));
+            telefone.setNumero(Integer.parseInt(vetorString[6]));
+            //objetoCliente.setTelefone((Telefone) vetorString[4]);
+            objetoCliente.setEmail((String) vetorString[7]);
+            Endereco endereco = new Endereco();
+            endereco.setBairro(vetorString[8]);
+            endereco.setCidade(vetorString[9]);
+            endereco.setComplemento(vetorString[10]);
+            endereco.setEstado(vetorString[11]);
+            endereco.setLogradouro(vetorString[12]);
+            endereco.setCep(Integer.parseInt(vetorString[13]));
+            //objetoCliente.setEndereco((Endereco) vetorString[6]);
+
+            if (vetorString[14].equals(TipoCliente.PESSOA_FISICA)) {
+                objetoCliente.setTipo(TipoCliente.PESSOA_FISICA);
+            } else {
+                objetoCliente.setTipo(TipoCliente.PESSOA_JURIDICA);
+
+            }
+
             if (objetoCliente.getCpf_cnpj().equals(cpf_cnpj)) {
                 br.close();
-                return new Cliente(0, cpf_cnpj, linha, linha, linha, telefone, linha, TipoCliente.PESSOA_FISICA, endereco);
+
+                return objetoCliente;
             }
 
         }

@@ -30,9 +30,6 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
     
     
     
-    
-    
-    
     //Atributos
     
     IOperadorControle operadorControle = new OperadorControle();

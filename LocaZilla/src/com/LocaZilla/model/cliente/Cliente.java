@@ -18,10 +18,10 @@ public class Cliente implements Comparable<Cliente>{
     private Telefone telefone;
     private String email;
     private Endereco endereco;
-    private TipoCliente tipo;
+    private TipoCliente tipoCliente;
     
     //Constructor
-    public Cliente(int id, String cpf_cnpj, String nome, String razaoSocial, String identidade, Telefone telefone, String email, TipoCliente tipo, Endereco endereco) {
+    public Cliente(int id, String cpf_cnpj, String nome, String razaoSocial, String identidade, Telefone telefone, String email, TipoCliente tipoCliente, Endereco endereco) {
         this.id = id;
         this.cpf_cnpj = cpf_cnpj;
         this.nome = nome;
@@ -29,7 +29,7 @@ public class Cliente implements Comparable<Cliente>{
         this.identidade = identidade;
         this.telefone = telefone;
         this.email = email;
-        this.tipo = tipo;
+        this.tipoCliente = tipoCliente;
         this.endereco = endereco;
     }
     
@@ -95,12 +95,12 @@ public class Cliente implements Comparable<Cliente>{
         this.email = email;
     }
 
-    public TipoCliente getTipo() {
-        return tipo;
+    public TipoCliente getTipoCliente() {
+        return tipoCliente;
     }
 
-    public void setTipo(TipoCliente tipo) {
-        this.tipo = tipo;
+    public void setTipo(TipoCliente tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
     public Endereco getEndereco() {
@@ -113,7 +113,10 @@ public class Cliente implements Comparable<Cliente>{
 
     @Override
     public String toString(){
-        return id+";"+nome+";"+razaoSocial+";"+cpf_cnpj+";"+telefone+";"+email+";"+endereco+";"+identidade+";"+tipo;
+        return id+";"+nome+";"+razaoSocial+";"+cpf_cnpj+";"+telefone.getDdi()+";"+telefone.getDdd()+";"
+                +telefone.getNumero()+";"+email+";"+endereco.getBairro()+";"+";"+endereco.getCidade()+";"
+                +endereco.getComplemento()+";"+endereco.getEstado()+";"+endereco.getLogradouro()+";" 
+                +endereco.getCep()+";"+identidade+";"+tipoCliente;
     }
     
     @Override
@@ -123,9 +126,7 @@ public class Cliente implements Comparable<Cliente>{
 
     }
     
-    public enum TipoCliente {
-        PESSOA_FISICA, PESSOA_JURIDICA
-    }
+
 
     
     
