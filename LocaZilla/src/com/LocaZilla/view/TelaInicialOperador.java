@@ -5,13 +5,20 @@
 package com.LocaZilla.view;
 
 
+import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.control.marca.MarcaControle;
+import com.LocaZilla.model.operador.Operador;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import com.LocaZilla.control.operador.OperadorControle;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;

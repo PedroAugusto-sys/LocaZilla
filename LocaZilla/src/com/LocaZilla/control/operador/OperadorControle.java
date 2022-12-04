@@ -60,10 +60,17 @@ public class OperadorControle implements IOperadorControle {
     }
 
     private boolean verificarVazio(Operador objeto) {
-        Integer aux = null;
-        if (objeto.getNomeOperador().equals("")||objeto.getSenhaOperador().equals("")||objeto.getUrlOperador().equals("")||(aux.equals(objeto.getIdOperador()))){
+        if (objeto.getNomeOperador().equals("")) {
             return true;
-        } else{
+        } else {
+            if (objeto.getSenhaOperador().equals("")) {
+                return true;
+            }
+            else{
+                if(objeto.getUrlOperador().equals("")){
+                    return true;
+                }
+            }
             return false;
         }
     }

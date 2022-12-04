@@ -4,9 +4,10 @@
  */
 package com.LocaZilla.view;
 
+
 import com.LocaZilla.view.TelaDasMarcas;
 import com.LocaZilla.control.marca.MarcaControle;
-//import com.LocaZilla.DAO.marca.MarcaDAO;
+import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.control.marca.IMarcaControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.marca.Marca;
@@ -24,43 +25,43 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.nio.file.StandardCopyOption;
 
+
 /**
  *
  * @author ejmcc
  */
 public class TelaDasMarcas extends javax.swing.JFrame {
     //Atributos 
-
+    
     IMarcaControle marcaControle = new MarcaControle();
-
     /**
      * Creates new form TelaDasMarcas
      */
     public TelaDasMarcas() {
-
+        
         //Apontador
         MarcaControle conferirBanco = new MarcaControle();
-
+        
         //Chama as instancias do MARCADAO
         conferirBanco.conferirBancoDeDados();
         conferirBanco.conferirBancoDeIDMarca();
-
+        
         //Inicia os componentes da tela
         initComponents();
         jTextFieldIdentificador.setEnabled(false);
         jTextFieldUrl.setEnabled(false);
         this.setLocationRelativeTo(null);
-
+        
         //Imprime os dados da GRID
         try {
             imprimirDadosNaGrid(marcaControle.listagem());
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro);
         }
-
+        
     }
-
-    ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
+    
+     ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,7 +91,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         JLabelLogo = new javax.swing.JLabel();
         jButtonUpload = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Marcas");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -140,19 +141,18 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Identificador");
+        jLabel2.setText("Id");
 
-        jLabel3.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Descrição");
 
-        jLabel4.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("URL");
 
-        jTextFieldIdentificador.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jTextFieldIdentificador.setPreferredSize(new java.awt.Dimension(60, 30));
         jTextFieldIdentificador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +160,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldDescricao.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jTextFieldDescricao.setToolTipText("");
         jTextFieldDescricao.setPreferredSize(new java.awt.Dimension(60, 30));
         jTextFieldDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -172,7 +171,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldUrl.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jTextFieldUrl.setPreferredSize(new java.awt.Dimension(60, 30));
         jTextFieldUrl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +178,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Logo");
 
@@ -310,30 +308,26 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                         .addComponent(jButtonVoltarTelaMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButtonUpload, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonUpload, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(164, 164, 164))))
+                        .addGap(223, 223, 223))))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(160, 160, 160)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                    .addGap(160, 160, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap())
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE))
@@ -342,37 +336,36 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonVoltarTelaMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButtonVoltarTelaMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addGap(15, 15, 15)))))
-                .addContainerGap(278, Short.MAX_VALUE))
+                                .addGap(29, 29, 29)))))
+                .addContainerGap(286, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(7, 7, 7)
-                            .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                     .addContainerGap()))
@@ -383,9 +376,9 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 3, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,140 +392,138 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     private void jTextFieldUrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUrlActionPerformed
         // TODO add your handling code here:
-
-
+        
+        
     }//GEN-LAST:event_jTextFieldUrlActionPerformed
 
-    private void imprimirDadosNaGrid(ArrayList<Marca> listaDeMarcas) {
+    private void imprimirDadosNaGrid(ArrayList<Marca> listaDeMarcas){
         try {
-            DefaultTableModel model = (DefaultTableModel) jTableMarcas.getModel();
+            DefaultTableModel model =  (DefaultTableModel) jTableMarcas.getModel();
             //Limpa a tabela 
             model.setNumRows(0);
             Iterator<Marca> lista = listaDeMarcas.iterator();
-            while (lista.hasNext()) {
-                String[] saida = new String[4];
+            while(lista.hasNext()){
+                String[] saida= new String[4];
                 Marca aux = lista.next();
-                saida[0] = aux.getId() + "";
-                saida[1] = aux.getDescricao();
+                saida[0]= aux.getId()+"";
+                saida[1]= aux.getDescricao();
                 saida[2] = aux.getUrl();
-                saida[3] = "";
+                saida[3] = "" ;
                 //Incluir nova linha na Tabela
                 model.addRow(saida);
-            }
+         } 
             jTableMarcas.setModel(model);
-        } catch (Exception erro) {
+        } catch(Exception erro){
             JOptionPane.showMessageDialog(this, erro.getMessage());
-        }
-
+      } 
+               
     }
-
+    
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         // TODO add your handling code here:
-
+        
         try {
-            Marca objeto = new Marca(0, jTextFieldDescricao.getText().trim(),
-                    jTextFieldUrl.getText());
+            Marca objeto = new Marca(0,jTextFieldDescricao.getText().trim(),
+                                    jTextFieldUrl.getText());
             marcaControle.incluir(objeto);
             imprimirDadosNaGrid(marcaControle.listagem());
-            jTextFieldIdentificador.setText("");
-            jTextFieldDescricao.setText("");
-            jTextFieldUrl.setText("");
-            JLabelLogo.setIcon(null);
             
-                
-                
+            
+            
         } catch (Exception erro) {
-            
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-
+        jTextFieldIdentificador.setText("");
+        jTextFieldDescricao.setText("");
+        jTextFieldUrl.setText("");
+        JLabelLogo.setIcon(null);
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
-        if (jTextFieldUrl.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Selecione uma marca antes de alterar.");
-        }
-//        if(jTextFieldIdentificador.getText().equals("")){
-//            JOptionPane.showMessageDialog(this, "Não é possível alterar uma marca fora do sistema");
-//        }
-        else {
-            try {
-
-                Marca obj = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(),
+           // TODO add your handling code here:
+           if(jTextFieldUrl.getText().equals("")){
+               JOptionPane.showMessageDialog(this, "Selecione uma marca antes de alterar.");
+           }else{
+               try {
+            
+                Marca obj = new Marca(Integer.parseInt(jTextFieldIdentificador.getText()), jTextFieldDescricao.getText(), 
                         jTextFieldUrl.getText());
                 marcaControle.alterar(obj);
                 imprimirDadosNaGrid(marcaControle.listagem());
                 jTextFieldDescricao.setText("");
-                jTextFieldUrl.setText("");
+                jTextFieldUrl.setText("");  
                 JLabelLogo.setIcon(null);
-
-            } catch (Exception erro) {
+            
+        } catch (Exception erro) {
                 JOptionPane.showMessageDialog(this, erro.getMessage());
-
-            }
-            jTextFieldDescricao.setText("");
-            jTextFieldUrl.setText("");
-            JLabelLogo.setIcon(null);
-            jTextFieldIdentificador.setText("");
-
+                
         }
+                jTextFieldDescricao.setText("");
+                jTextFieldUrl.setText("");  
+                JLabelLogo.setIcon(null);
+                jTextFieldIdentificador.setText("");
+               
+           }
+           
+         
 
 
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void jButtonUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUploadActionPerformed
         // TODO add your handling code here:
-
+        
         //Ao apertar UPLOAD, isso acontece. 
-        try {
+       try {
             JFileChooser fc = new JFileChooser();
             fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            fc.addChoosableFileFilter(new FileNameExtensionFilter("Image files", new String[]{"png", "jpg", "jpeg", "gif"}));
+            fc.addChoosableFileFilter(new FileNameExtensionFilter("Image files",new String[] { "png", "jpg", "jpeg", "gif" }));
             fc.setCurrentDirectory(new File("C:\\"));
             Action details = fc.getActionMap().get("Go Up");
             details.actionPerformed(null);
             details.actionPerformed(null);
             fc.showOpenDialog(this);
             File arquivo = fc.getSelectedFile();
-            if (arquivo != null) {
-
+            if(arquivo != null){
+                
                 String nomeDoArquivo = arquivo.getPath();
                 jTextFieldUrl.setText(nomeDoArquivo);
                 ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
                 iconLogo.setImage(iconLogo.getImage().getScaledInstance(
-                        JLabelLogo.getWidth(), JLabelLogo.getHeight(), 1));
-                JLabelLogo.setIcon(iconLogo);
-                File origemArquivo = new File(nomeDoArquivo);
-                File destinoArquivo = new File("./src/com/LocaZilla/Dados/marca/ImagemMarca/" + arquivo.getName());
+                    JLabelLogo.getWidth(),JLabelLogo.getHeight(),1));
+                    JLabelLogo.setIcon(iconLogo);     
+                    File origemArquivo = new File(nomeDoArquivo);
+                    File destinoArquivo = new File("./src/com/LocaZilla/Dados/marca/ImagemMarca/"+arquivo.getName());
+                    
+                                    String saidaMascara = destinoArquivo+"";    
 
-                String saidaMascara = destinoArquivo + "";
-
-                jTextFieldUrl.setText(saidaMascara.replace(".JPEG", ""));
-
-                try {
-
-                    Files.copy(origemArquivo.toPath(), destinoArquivo.toPath(), StandardCopyOption.REPLACE_EXISTING);
-
+                                    jTextFieldUrl.setText(saidaMascara.replace(".JPEG",""));
+                    
+                    try {
+                    
+                    Files.copy(origemArquivo.toPath(), destinoArquivo.toPath(),StandardCopyOption.REPLACE_EXISTING);
+                    
                 } catch (Exception e) {
                 }
-
+             
             }
-
-        } catch (Exception erro) {
+            
+       }    catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-
-
+       
+       
+       
     }//GEN-LAST:event_jButtonUploadActionPerformed
 
     private void jTextFieldDescricaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyTyped
         // TODO add your handling code here:
-        char e = evt.getKeyChar();
-        evt.setKeyChar(Character.toUpperCase(e));
-        if (Character.isDigit(e)) {
-            evt.consume();
-        }
+            char e = evt.getKeyChar();
+            evt.setKeyChar(Character.toUpperCase(e));
+            if(Character.isDigit(e)){
+                evt.consume();
+            }
 //            if (Character.isLowerCase(e)) {
 //            evt.setKeyChar(Character.toUpperCase(e));
 //            }
@@ -540,25 +531,27 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     private void jTextFieldIdentificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificadorActionPerformed
         // TODO add your handling code here:
-
-
+        
+        
+        
+        
     }//GEN-LAST:event_jTextFieldIdentificadorActionPerformed
 
     private void jTableMarcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMarcasMouseClicked
         // TODO add your handling code here:
-        try {
-
+          try {
+              
             this.jTextFieldIdentificador.setText((String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 0));
             this.jTextFieldDescricao.setText((String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 1));
             this.jTextFieldUrl.setText((String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 2));
-
+            
             String nomeArquivo = (String) this.jTableMarcas.getValueAt(jTableMarcas.getSelectedRow(), 2);
-
+            
             jTextFieldUrl.setText(nomeArquivo);
             ImageIcon iconLogo = new ImageIcon(nomeArquivo);
             iconLogo.setImage(iconLogo.getImage().getScaledInstance(JLabelLogo.getWidth(), JLabelLogo.getHeight(), java.awt.Image.SCALE_SMOOTH));
             JLabelLogo.setIcon(iconLogo);
-
+            
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, "Selecione uma marca válida já cadastrada!");
         }
@@ -566,65 +559,67 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     private void jButtonVoltarTelaMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasActionPerformed
         // TODO add your handling code here:
-
+        
         try {
-
+            
             TelaCadastroModelo.preencherCombobox();
-
+            
         } catch (Exception e) {
-
+            
         }
-
+        
+        
         this.dispose();
-
+        
     }//GEN-LAST:event_jButtonVoltarTelaMarcasActionPerformed
 
     private void jButtonVoltarTelaMarcasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaMarcasKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
     }//GEN-LAST:event_jButtonVoltarTelaMarcasKeyPressed
 
     private void jTextFieldDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyPressed
-
-        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+         
+        
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
-
+        
     }//GEN-LAST:event_jTextFieldDescricaoKeyPressed
 
     private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
     }//GEN-LAST:event_jButtonIncluirKeyPressed
 
     private void jButtonAlterarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonAlterarKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
     }//GEN-LAST:event_jButtonAlterarKeyPressed
 
     private void jPanel3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel3KeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
     }//GEN-LAST:event_jPanel3KeyPressed
 
     private void jButtonUploadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonUploadKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
     }//GEN-LAST:event_jButtonUploadKeyPressed
 
     private void jTableMarcasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableMarcasKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+        if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
     }//GEN-LAST:event_jTableMarcasKeyPressed

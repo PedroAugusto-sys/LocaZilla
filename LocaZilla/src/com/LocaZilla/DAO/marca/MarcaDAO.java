@@ -26,6 +26,7 @@ public class MarcaDAO implements IMarcaDAO{
         nomeDoArquivoNoDisco = "./src/com/LocaZilla/Dados/marca/Marca.txt";
         nomeDoArquivoIDNoDisco = "./src/com/LocaZilla/Dados/marca/idGerado.txt";
         
+        //./src/com/locagyn/arquivosdedados/Marca.txt
     }
     
     @Override
