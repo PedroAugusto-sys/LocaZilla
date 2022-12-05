@@ -4,7 +4,6 @@
  */
 package com.LocaZilla.view;
 
-import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.control.marca.MarcaControle;
 import java.awt.Color;
 import java.awt.Component;
@@ -19,10 +18,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.MenuElement;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 import java.awt.Dimension;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
-import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -43,6 +38,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         MarcaControle conferirBanco = new MarcaControle();
         conferirBanco.conferirBancoDeIDMarca();
+        conferirBanco.conferirBancoDeDados();
         
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         customizeMenuBar(jMenuBarLocazilla);

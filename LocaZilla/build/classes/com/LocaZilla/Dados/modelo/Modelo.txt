@@ -1,6 +1,0 @@
-100005;COROLLA CROSS;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\corolla-cross.jpg;100003
-100006;CAMARO;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\camaro-chevrolet.jpg;100004
-100009;FORD KA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\FordKa.jfif;100007
-100010;FIESTA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\Fiesta.jfif;100007
-100011;HONDA CIVIC;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\Civic.jfif;100008
-100012;CORSA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\Chevrolet-Corsa-GL-1998.jpg;100004

@@ -39,6 +39,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
      */
     public TelaDasMarcas() {
         
+        
         //Apontador
         MarcaControle conferirBanco = new MarcaControle();
         
@@ -59,6 +60,9 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, erro);
         }
         
+        
+        
+            
     }
     
      ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
@@ -422,12 +426,11 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         // TODO add your handling code here:
         
-        try {
+         try {
             Marca objeto = new Marca(0,jTextFieldDescricao.getText().trim(),
                                     jTextFieldUrl.getText());
             marcaControle.incluir(objeto);
             imprimirDadosNaGrid(marcaControle.listagem());
-            
             
             
         } catch (Exception erro) {
@@ -438,9 +441,9 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jTextFieldUrl.setText("");
         JLabelLogo.setIcon(null);
     }//GEN-LAST:event_jButtonIncluirActionPerformed
-
+        
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
-        // TODO add your handling code here:
+
            // TODO add your handling code here:
            if(jTextFieldUrl.getText().equals("")){
                JOptionPane.showMessageDialog(this, "Selecione uma marca antes de alterar.");
@@ -471,11 +474,18 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
+  
+    
     private void jButtonUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUploadActionPerformed
-        // TODO add your handling code here:
+            
+         
+        
+          // TODO add your handling code here:
         
         //Ao apertar UPLOAD, isso acontece. 
-       try {
+        if(jTextFieldDescricao.getText()!=""){
+            
+             try {
             JFileChooser fc = new JFileChooser();
             fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
             fc.addChoosableFileFilter(new FileNameExtensionFilter("Image files",new String[] { "png", "jpg", "jpeg", "gif" }));
@@ -486,7 +496,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             fc.showOpenDialog(this);
             File arquivo = fc.getSelectedFile();
             if(arquivo != null){
-                
                 String nomeDoArquivo = arquivo.getPath();
                 jTextFieldUrl.setText(nomeDoArquivo);
                 ImageIcon iconLogo = new ImageIcon(nomeDoArquivo);
@@ -494,7 +503,8 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                     JLabelLogo.getWidth(),JLabelLogo.getHeight(),1));
                     JLabelLogo.setIcon(iconLogo);     
                     File origemArquivo = new File(nomeDoArquivo);
-                    File destinoArquivo = new File("./src/com/LocaZilla/Dados/marca/ImagemMarca/"+arquivo.getName());
+                    if(jTextFieldDescricao.getText()!=""){
+                    File destinoArquivo = new File("./src/com/LocaZilla/Dados/marca/ImagemMarca/"+jTextFieldDescricao.getText()+".jpeg");
                     
                                     String saidaMascara = destinoArquivo+"";    
 
@@ -507,14 +517,19 @@ public class TelaDasMarcas extends javax.swing.JFrame {
                 } catch (Exception e) {
                 }
              
+            }else{
+                JOptionPane.showMessageDialog(this, "É necessário inserir uma descrição antes de inserir a marca.");
+            }
+             
             }
             
        }    catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
        
-       
-       
+        } else{
+            jButtonUpload.setEnabled(false);
+        }
     }//GEN-LAST:event_jButtonUploadActionPerformed
 
     private void jTextFieldDescricaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyTyped
