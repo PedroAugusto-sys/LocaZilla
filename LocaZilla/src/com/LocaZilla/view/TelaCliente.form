@@ -136,10 +136,8 @@
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jTextFieldTelefone2" max="32767" attributes="0"/>
                                       <Component id="jTextFieldEmail" alignment="0" pref="230" max="32767" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jTextFieldTelefone1" alignment="0" pref="90" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldTelefone" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="jTextFieldTelefone1" alignment="0" pref="90" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldTelefone" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -198,9 +196,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldTelefone2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -233,6 +229,10 @@
                                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTelefone2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>

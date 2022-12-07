@@ -17,7 +17,7 @@ public interface IClienteDAO {
     void alterar (Cliente objeto, TipoDoCliente tipoDoCliente) throws Exception;
     ArrayList<Cliente> listagem(TipoDoCliente tipoDoCliente) throws Exception;
     Cliente buscar(int id, TipoDoCliente tipoDoCliente) throws Exception;
-    public void verTxt() throws Exception;
+    public void conferirTxt() throws Exception;
 
     
 }
