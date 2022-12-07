@@ -286,6 +286,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaDasMarcas telaCadastroMarcas = new TelaDasMarcas();
         telaCadastroMarcas.setVisible(true);
         
+        MarcaControle conferirBanco = new MarcaControle();
+        conferirBanco.conferirBancoDeIDMarca();
+        
     }//GEN-LAST:event_jMenuItemCadastrosMarcasActionPerformed
 
     private void jMenuItemLogOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLogOffActionPerformed

@@ -166,6 +166,26 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
         jTextFieldDescricao.setToolTipText("");
         jTextFieldDescricao.setPreferredSize(new java.awt.Dimension(60, 30));
+        jTextFieldDescricao.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jTextFieldDescricaoComponentAdded(evt);
+            }
+        });
+        jTextFieldDescricao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldDescricaoFocusGained(evt);
+            }
+        });
+        jTextFieldDescricao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldDescricaoMouseClicked(evt);
+            }
+        });
+        jTextFieldDescricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDescricaoActionPerformed(evt);
+            }
+        });
         jTextFieldDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldDescricaoKeyPressed(evt);
@@ -268,6 +288,14 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jTableMarcas.setGridColor(new java.awt.Color(240, 188, 69));
         jTableMarcas.setRowHeight(100);
         jTableMarcas.setShowGrid(false);
+        jTableMarcas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTableMarcasFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTableMarcasFocusLost(evt);
+            }
+        });
         jTableMarcas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableMarcasMouseClicked(evt);
@@ -290,6 +318,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         JLabelLogo.setOpaque(true);
 
         jButtonUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/uploadicon_1.png"))); // NOI18N
+        jButtonUpload.setEnabled(false);
         jButtonUpload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUploadActionPerformed(evt);
@@ -535,10 +564,17 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     private void jTextFieldDescricaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyTyped
         // TODO add your handling code here:
             char e = evt.getKeyChar();
+            char upload = evt.getKeyChar();
             evt.setKeyChar(Character.toUpperCase(e));
             if(Character.isDigit(e)){
                 evt.consume();
             }
+            if(Character.isLetter(upload)) {
+                jButtonUpload.setEnabled(true);
+            } else {
+                jButtonUpload.setEnabled(false);
+            }
+            
 //            if (Character.isLowerCase(e)) {
 //            evt.setKeyChar(Character.toUpperCase(e));
 //            }
@@ -596,8 +632,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarTelaMarcasKeyPressed
 
     private void jTextFieldDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoKeyPressed
-         
-        
+      
         if(evt.getKeyCode()==KeyEvent.VK_ESCAPE){
             super.dispose();
         }
@@ -638,6 +673,35 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             super.dispose();
         }
     }//GEN-LAST:event_jTableMarcasKeyPressed
+
+    private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
+
+    private void jTextFieldDescricaoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoComponentAdded
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextFieldDescricaoComponentAdded
+
+    private void jTextFieldDescricaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDescricaoMouseClicked
+
+    private void jTextFieldDescricaoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoFocusGained
+        // TODO add your handling code here:
+        //jButtonUpload.setEnabled(true);
+    }//GEN-LAST:event_jTextFieldDescricaoFocusGained
+
+    private void jTableMarcasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableMarcasFocusGained
+        // TODO add your handling code here:
+        jButtonUpload.setEnabled(true);
+    }//GEN-LAST:event_jTableMarcasFocusGained
+
+    private void jTableMarcasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableMarcasFocusLost
+        // TODO add your handling code here:
+        jButtonUpload.setEnabled(false);
+    }//GEN-LAST:event_jTableMarcasFocusLost
 
     /**
      * @param args the command line arguments

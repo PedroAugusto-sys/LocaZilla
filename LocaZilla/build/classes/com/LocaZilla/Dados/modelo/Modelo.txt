@@ -1,0 +1,1 @@
+2;CORSA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\Corsa.jpg;1

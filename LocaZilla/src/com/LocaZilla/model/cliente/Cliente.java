@@ -11,36 +11,40 @@ package com.LocaZilla.model.cliente;
 public class Cliente {
 
     private int id;
+    private String cpf;
+    private String cnpj;
     private String nome;
-    private String cpf_cnpj;
-    private String email;
     private String razaoSocial;
     private String identidade;
+    private String email;
     private Telefone telefone;
     private Endereco endereco;
     private TipoDoCliente tipoDoCliente;
 
-    
-    
-    
-    //Metodos
-    public Cliente(int id, String nome, String cpf_cnpj, String email, String razaoSocial, String identidade, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente) {
+    public Cliente() {
+    }
+
+    public Cliente(int id, String cpf, String nome, String identidade, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente) {
         this.id = id;
+        this.cpf = cpf;
         this.nome = nome;
-        this.cpf_cnpj = cpf_cnpj;
-        this.email = email;
-        this.razaoSocial = razaoSocial;
         this.identidade = identidade;
+        this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
         this.tipoDoCliente = tipoDoCliente;
     }
 
-    public Cliente() {
-
+    public Cliente(int id, String cnpj, String razaoSocial, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente) {
+        this.id = id;
+        this.cnpj = cnpj;
+        this.razaoSocial = razaoSocial;
+        this.email = email;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.tipoDoCliente = tipoDoCliente;
     }
 
-    //Gets+Sets    
     public int getId() {
         return id;
     }
@@ -49,28 +53,28 @@ public class Cliente {
         this.id = id;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCpf_cnpj() {
-        return cpf_cnpj;
-    }
-
-    public void setCpf_cnpj(String cpf_cnpj) {
-        this.cpf_cnpj = cpf_cnpj;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getRazaoSocial() {
@@ -87,6 +91,14 @@ public class Cliente {
 
     public void setIdentidade(String identidade) {
         this.identidade = identidade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Telefone getTelefone() {
@@ -113,9 +125,27 @@ public class Cliente {
         this.tipoDoCliente = tipoDoCliente;
     }
 
-    @Override
-    public String toString() {
-        return id + ";" + nome + ";" + cpf_cnpj + ";" + email + ";" + razaoSocial + ";" + identidade + ";" + telefone + ";" + endereco + ";" + tipoDoCliente;
+    public String toString(TipoDoCliente tipoDoCliente) {
+
+        if (tipoDoCliente.equals(TipoDoCliente.PESSOA_FISICA)) {
+            return id + ";"
+                    + cpf + ";"
+                    + nome + ";"
+                    + identidade + ";"
+                    + telefone.toString() + ";"
+                    + email + ";"
+                    + endereco.toString();
+        }
+        if (tipoDoCliente.equals(TipoDoCliente.PESSOA_JURIDICA)) {
+            return id + ";"
+                    + razaoSocial + ";"
+                    + cnpj + ";"
+                    + telefone.toString() + ";"
+                    + email + ";"
+                    + endereco.toString();
+        } else {
+            return null;
+        }
     }
 
 }

@@ -137,6 +137,7 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 700));
 
         jButtonFotoOperadorNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/uploadicon_1.png"))); // NOI18N
+        jButtonFotoOperadorNovo.setEnabled(false);
         jButtonFotoOperadorNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFotoOperadorNovoActionPerformed(evt);
@@ -215,6 +216,9 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         jTextNomeOperadorNovo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextNomeOperadorNovoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextNomeOperadorNovoKeyTyped(evt);
             }
         });
 
@@ -308,6 +312,9 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
         jTextFieldSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldSenhaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldSenhaKeyTyped(evt);
             }
         });
 
@@ -551,6 +558,27 @@ public class TelaCadastroOperador extends javax.swing.JFrame {
             super.dispose();
         }
     }//GEN-LAST:event_jTableOperadoresKeyPressed
+
+    private void jTextNomeOperadorNovoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeOperadorNovoKeyTyped
+        // TODO add your handling code here:
+        
+        char e = evt.getKeyChar();
+        if(Character.isLetter(e)) {
+           jButtonFotoOperadorNovo.setEnabled(true);
+        } else {
+           jButtonFotoOperadorNovo.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTextNomeOperadorNovoKeyTyped
+
+    private void jTextFieldSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSenhaKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if(Character.isLetter(e)) {
+           jButtonFotoOperadorNovo.setEnabled(true);
+        } else {
+           jButtonFotoOperadorNovo.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTextFieldSenhaKeyTyped
 
     /**
      * @param args the command line arguments
