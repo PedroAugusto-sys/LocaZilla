@@ -1,0 +1,1 @@
+1;CHEVROLET;.\src\com\LocaZilla\Dados\marca\ImagemMarca\CHEVROLET.jpeg

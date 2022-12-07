@@ -4,10 +4,6 @@
  */
 package com.LocaZilla.view;
 
-import com.LocaZilla.DAO.marca.MarcaDAO;
-import com.LocaZilla.DAO.modelo.ModeloDAO;
-import com.LocaZilla.control.marca.MarcaControle;
-import com.LocaZilla.control.modelo.ModeloControle;
 import com.LocaZilla.Tools.modelo.TabelaimagemModelo;
 import com.LocaZilla.control.marca.IMarcaControle;
 import com.LocaZilla.control.marca.MarcaControle;
@@ -649,7 +645,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
     private void jComboBoxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcaActionPerformed
         // TODO add your handling code here:
         ImageIcon imagem = new ImageIcon("./src/com/LocaZilla/Dados/marca/ImagemMarca/" + 
-                jComboBoxMarca.getSelectedItem().toString() + ".png");
+                jComboBoxMarca.getSelectedItem().toString() + ".jpeg");
                 imagem.setImage(imagem.getImage().getScaledInstance(114, 120, 0));
                 jLabelMarca.setIcon(imagem);
         
