@@ -283,6 +283,11 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jTableModelos.setGridColor(new java.awt.Color(240, 188, 69));
         jTableModelos.setRowHeight(100);
         jTableModelos.setShowGrid(false);
+        jTableModelos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTableModelosFocusGained(evt);
+            }
+        });
         jTableModelos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableModelosMouseClicked(evt);
@@ -372,6 +377,7 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         jLabel7.setText("Modelo");
 
         jButtonUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/LocaZilla/imagens/operador/uploadicon_1.png"))); // NOI18N
+        jButtonUpload.setEnabled(false);
         jButtonUpload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUploadActionPerformed(evt);
@@ -631,6 +637,12 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
         // TODO add your handling code here:
         char e = evt.getKeyChar();
         evt.setKeyChar(Character.toUpperCase(e));
+        
+        if(Character.isLetter(e)) {
+                jButtonUpload.setEnabled(true);
+        } else {
+                jButtonUpload.setEnabled(false);
+        }
 
     }//GEN-LAST:event_jTextFieldDescricaoModeloKeyTyped
 
@@ -678,6 +690,11 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
             super.dispose();
         }
     }//GEN-LAST:event_jTableModelosKeyPressed
+
+    private void jTableModelosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableModelosFocusGained
+        // TODO add your handling code here:
+        jButtonUpload.setEnabled(true);
+    }//GEN-LAST:event_jTableModelosFocusGained
 
     /**
      * @param args the command line arguments

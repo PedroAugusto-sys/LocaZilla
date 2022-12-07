@@ -7,6 +7,8 @@ package com.LocaZilla.DAO.cliente;
 import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.Tools.geral.GeradorIdentificadorMarca;
 import com.LocaZilla.model.cliente.Cliente;
+import com.LocaZilla.model.cliente.Endereco;
+import com.LocaZilla.model.cliente.Telefone;
 import com.LocaZilla.model.cliente.TipoDoCliente;
 import com.LocaZilla.model.modelo.Modelo;
 import java.io.BufferedReader;
@@ -77,25 +79,31 @@ public class ClienteDAO implements IClienteDAO {
             BufferedReader br  = new BufferedReader(fr);
             String linha = "";
              while((linha=br.readLine())!=null){
-                Cliente objCliente = new Cliente();
-                ClienteDAO objeto  = new ClienteDAO();
-                Object banco[]= linha.split(";");
-                objCliente.setId(Integer.parseInt((String) banco[0]));
-                //objCliente.setTipoDoCliente(objeto.buscarEndTel(linha, linha) banco[1]);
-                objCliente.setCpf_cnpj((String) banco[2]);
-                objCliente.setNome((String) banco[3]);
-                //NOME e RAZAO SOCIAL ficam no mesmo jtext
-                objCliente.setIdentidade((String) banco[4]);
-                objCliente.setEmail((String) banco[5]);
-                //objCliente.setTelefone((String) banco[6]);
-                //objCliente.setEndereco((String) banco[7]);
-                
-                listaClientes.add(objCliente);
-                
-                //USADO NA MARCA
-                // chamar o metodo busca da marca
-                //objCliente.setMarca(objeto.buscar(idMarca));
-                
+             Cliente objetoCliente = new Cliente();
+                    
+                    String vetorString[] = linha.split(";");
+                    objetoCliente.setId(Integer.parseInt(vetorString[0]));
+                    objetoCliente.setCpf_cnpj(vetorString[1]);
+                    objetoCliente.setNome(vetorString[2]);
+                    objetoCliente.setIdentidade(vetorString[3]);
+
+                    int ddi = Integer.parseInt(vetorString[4]);
+                    int ddd = Integer.parseInt(vetorString[5]);
+                    int numero = Integer.parseInt(vetorString[6]);
+                    Telefone telefone = new Telefone(ddi, ddd, numero);
+                    objetoCliente.setTelefone(telefone);
+                    objetoCliente.setEmail(vetorString[7]);
+
+                    String logradouro = vetorString[8];
+                    String complemento = vetorString[9];
+                    String bairro = vetorString[10];
+                    String cidade = vetorString[11];
+                    String estado = vetorString[12];
+                    int cep = Integer.parseInt(vetorString[13]);
+
+                    Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
+                    objetoCliente.setEndereco(endereco);
+                    listaClientes.add(objetoCliente);
             }
          br.close();
          return listaClientes; 
