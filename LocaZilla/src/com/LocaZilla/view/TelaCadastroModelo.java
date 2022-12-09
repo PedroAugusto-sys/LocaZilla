@@ -126,11 +126,6 @@ public class TelaCadastroModelo extends javax.swing.JFrame {
                     saida[2] = aux.getUrl();
                     saida[3]= "";
                     saida [4] = objetoMarca.buscar(aux.getMarca().getId()).getUrl();
-//                    
-//
-//                    
-//Incluir nova linha na Tabela
-                    //Object[] dados = {saida[0], saida[1], saida[2],saida[3],iconlogo};
                     model.addRow(saida);
                     
                 } catch (Exception ex) {

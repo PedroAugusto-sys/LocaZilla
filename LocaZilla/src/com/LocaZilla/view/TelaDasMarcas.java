@@ -6,13 +6,10 @@ package com.LocaZilla.view;
 
 
 import com.LocaZilla.view.TelaDasMarcas;
-import com.LocaZilla.control.marca.MarcaControle;
-import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.control.marca.IMarcaControle;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.marca.Marca;
 import com.LocaZilla.control.marca.MarcaControle;
-import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.nio.file.Files;
@@ -146,15 +143,12 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Id");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Descrição");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("URL");
 
         jTextFieldIdentificador.setPreferredSize(new java.awt.Dimension(60, 30));
@@ -166,11 +160,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
 
         jTextFieldDescricao.setToolTipText("");
         jTextFieldDescricao.setPreferredSize(new java.awt.Dimension(60, 30));
-        jTextFieldDescricao.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                jTextFieldDescricaoComponentAdded(evt);
-            }
-        });
         jTextFieldDescricao.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextFieldDescricaoFocusGained(evt);
@@ -179,11 +168,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         jTextFieldDescricao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextFieldDescricaoMouseClicked(evt);
-            }
-        });
-        jTextFieldDescricao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDescricaoActionPerformed(evt);
             }
         });
         jTextFieldDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -203,7 +187,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Logo");
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
@@ -457,7 +440,7 @@ public class TelaDasMarcas extends javax.swing.JFrame {
         
          try {
             Marca objeto = new Marca(0,jTextFieldDescricao.getText().trim(),
-                                    jTextFieldUrl.getText());
+                                                          jTextFieldUrl.getText());
             marcaControle.incluir(objeto);
             imprimirDadosNaGrid(marcaControle.listagem());
             
@@ -673,16 +656,6 @@ public class TelaDasMarcas extends javax.swing.JFrame {
             super.dispose();
         }
     }//GEN-LAST:event_jTableMarcasKeyPressed
-
-    private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
-
-    private void jTextFieldDescricaoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoComponentAdded
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTextFieldDescricaoComponentAdded
 
     private void jTextFieldDescricaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoMouseClicked
         // TODO add your handling code here:
