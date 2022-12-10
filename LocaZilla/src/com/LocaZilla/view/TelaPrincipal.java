@@ -18,6 +18,8 @@ import javax.swing.JPopupMenu;
 import javax.swing.MenuElement;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 import java.awt.Dimension;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -277,7 +279,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     private void jMenuCadastrosClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrosClientesActionPerformed
         // TODO add your handling code here:
-        TelaCliente telaCliente = new TelaCliente();
+        TelaCliente telaCliente = null;
+        try {
+            telaCliente = new TelaCliente();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         telaCliente.setVisible(true);
     }//GEN-LAST:event_jMenuCadastrosClientesActionPerformed
 
