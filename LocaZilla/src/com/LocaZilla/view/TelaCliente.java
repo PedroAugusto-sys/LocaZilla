@@ -13,7 +13,13 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import com.LocaZilla.model.cliente.Cliente;
+import com.LocaZilla.model.cliente.Endereco;
+import com.LocaZilla.model.cliente.Telefone;
+import com.LocaZilla.model.cliente.TipoDoCliente;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author hugo_
@@ -556,6 +562,61 @@ public class TelaCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void imprimirDadosNaGrid(ArrayList<Cliente> listaClientes, TipoDoCliente tipoDoCliente) {
+        try {
+            
+            if (tipoDoCliente.equals(tipoDoCliente.PESSOA_FISICA)) {
+                
+            DefaultTableModel model = (DefaultTableModel) jTableCliente.getModel();
+            
+            //Limpa a tabela
+            model.setNumRows(0);
+            Iterator<Cliente> lista = listaClientes.iterator();
+            
+                while (lista.hasNext()) {
+                    String[] saida = new String [7];
+                    Cliente aux = lista.next();
+
+                    saida[0] = aux.getId() + "";
+                    saida[1] = aux.getCpf();
+                    saida[2] = aux.getNome();
+                    saida[3] = aux.getIdentidade();
+                    saida[4] = aux.getEmail();
+                    saida[5] = aux.getTelefone().toString();
+                    saida[6] = aux.getEndereco().toString();
+
+                    model.addRow(saida);
+                }
+            }
+            
+            if (tipoDoCliente.equals(tipoDoCliente.PESSOA_JURIDICA)) {
+                
+            DefaultTableModel model = (DefaultTableModel) jTableCliente.getModel();
+            
+            //Limpa a tabela
+            model.setNumRows(0);
+            Iterator<Cliente> lista = listaClientes.iterator();
+            
+                while (lista.hasNext()) {
+                    String[] saida = new String [6];
+                    Cliente aux = lista.next();
+
+                    saida[0] = aux.getId() + "";
+                    saida[1] = aux.getCnpj();
+                    saida[2] = aux.getRazaoSocial();
+                    saida[3] = aux.getEmail();
+                    saida[4] = aux.getTelefone().toString();
+                    saida[5] = aux.getEndereco().toString();
+
+                    model.addRow(saida);
+                }
+            }
+            
+        } catch (Exception e) {
+        }
+    }
+    
+    
     private void jButtonVoltarTelaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaClienteActionPerformed
         super.dispose();
         
@@ -577,6 +638,7 @@ public class TelaCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEmailActionPerformed
 
+    
     private void jTextFieldDDIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDDIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDDIActionPerformed
@@ -586,29 +648,101 @@ public class TelaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
-            try {
-                //public Cliente(int id, String cpf, String nome, String identidade, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente)
-                    Cliente objetoCliente = new Cliente(0, jFormattedTextFieldCPFCNPJ.getText().trim(),
-                                                                                jTextFieldNomeRazaoSocial.getText().trim(),
-                                                                                jTextFieldRG.getText().trim(),
-                                                                                jComboBoxTipoPessoa.getSelectedItem(),
-                                                                                jTextFieldILogradouro.getText().trim(),
-                                                                                jTextFieldIComplemento.getText().trim());
+        try {
+            if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_FISICA)) {
                 
+                int ddi = Integer.parseInt(jTextFieldDDI.getText());
+                int ddd = Integer.parseInt(jTextFieldDDD.getText());
+                int numero = Integer.parseInt(jTextFieldTelefone.getText());
+                Telefone telefone = new Telefone(ddi, ddd, numero);
                 
-                    } catch (Exception e) {
-                 }
-        
-        
-        
-            if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", jTextFieldEmail.getText()))) 
-            {
-            JOptionPane.showMessageDialog(null, "Coloque um e-mail válido!", "Error", JOptionPane.ERROR_MESSAGE);
+                String logradouro = jTextFieldILogradouro.getText();
+                String complemento = jTextFieldIComplemento.getText();
+                int cep = Integer.parseInt(jFormattedTextFieldCEP.toString());
+                String bairro = jTextFieldIBairro.getText();
+                String cidade = jTextFieldCIDADE.getText();
+                String estado = jComboBoxEstado.getSelectedItem().toString();
+                Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
+                
+                Cliente clientePF = new Cliente(0, 
+                                jFormattedTextFieldCPFCNPJ.getText().toString(),
+                                jTextFieldNomeRazaoSocial.getText(),
+                                jTextFieldRG.getText(),
+                                jTextFieldEmail.getText(),
+                                telefone, endereco, TipoDoCliente.PESSOA_FISICA);
+                
+                imprimirDadosNaGrid(objetoClienteControle.listagem(TipoDoCliente.PESSOA_FISICA), TipoDoCliente.PESSOA_FISICA);
             }
-            else
-            {
+            
+            if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_JURIDICA)) {
+                               
+                int ddi = Integer.parseInt(jTextFieldDDI.getText());
+                int ddd = Integer.parseInt(jTextFieldDDD.getText());
+                int numero = Integer.parseInt(jTextFieldTelefone.getText());
+                Telefone telefone = new Telefone(ddi, ddd, numero);
+                
+                String logradouro = jTextFieldILogradouro.getText();
+                String complemento = jTextFieldIComplemento.getText();
+                int cep = Integer.parseInt(jFormattedTextFieldCEP.toString());
+                String bairro = jTextFieldIBairro.getText();
+                String cidade = jTextFieldCIDADE.getText();
+                String estado = jComboBoxEstado.getSelectedItem().toString();
+                Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
+                
+                Cliente clientePJ = new Cliente(0, 
+                                jFormattedTextFieldCPFCNPJ.getText(),
+                                jTextFieldNomeRazaoSocial.getText(),
+                                jTextFieldEmail.getText(),
+                                telefone, endereco, TipoDoCliente.PESSOA_JURIDICA); 
+                
+                imprimirDadosNaGrid(objetoClienteControle.listagem(TipoDoCliente.PESSOA_JURIDICA), TipoDoCliente.PESSOA_JURIDICA);
                 
             }
+            
+//                if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", jTextFieldEmail.getText()))) 
+//                {
+//                JOptionPane.showMessageDialog(null, "Coloque um e-mail válido!", "Error", JOptionPane.ERROR_MESSAGE);
+//                }
+//                else
+//                {
+//                
+//                }
+            
+            
+        } catch (Exception e) {
+        }
+        
+        
+        
+
+
+
+
+
+
+//              try {
+//                //public Cliente(int id, String cpf, String nome, String identidade, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente)
+//                    Cliente objetoCliente = new Cliente(0,  jFormattedTextFieldCPFCNPJ.getText().trim(),
+//                                                            jTextFieldNomeRazaoSocial.getText().trim(),
+//                                                            jTextFieldRG.getText().trim(),
+//                                                            jComboBoxTipoPessoa.getSelectedItem(),
+//                                                            jTextFieldILogradouro.getText().trim(),
+//                                                            jTextFieldIComplemento.getText().trim());
+//                
+//                
+//                    } catch (Exception e) {
+//                 }
+//        
+//        
+//        
+//            if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", jTextFieldEmail.getText()))) 
+//            {
+//            JOptionPane.showMessageDialog(null, "Coloque um e-mail válido!", "Error", JOptionPane.ERROR_MESSAGE);
+//            }
+//            else
+//            {
+//                
+//            }
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed
