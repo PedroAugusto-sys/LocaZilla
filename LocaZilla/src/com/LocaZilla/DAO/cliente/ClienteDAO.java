@@ -144,11 +144,11 @@ public class ClienteDAO implements IClienteDAO {
 
                     String logradouro = vetorString[8];
                     String complemento = vetorString[9];
-                    String bairro = vetorString[10];
-                    String cidade = vetorString[11];
-                    String estado = vetorString[12];
-                    int cep = Integer.parseInt(vetorString[13]);
-
+                    int cep = Integer.parseInt(vetorString[10]);
+                    String bairro = vetorString[11];
+                    String cidade = vetorString[12];
+                    String estado = vetorString[13];
+                    
                     Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
                     objetoCliente.setEndereco(endereco);
                     listaClientes.add(objetoCliente);
@@ -162,7 +162,8 @@ public class ClienteDAO implements IClienteDAO {
                 BufferedReader br = new BufferedReader(fr);
             
                 while ((linha = br.readLine()) != null) {
-                    Cliente objetoCliente = new Cliente();
+                Cliente objetoCliente = new Cliente();
+                
                     String vetorString[] = linha.split(";");
                     objetoCliente.setId(Integer.parseInt(vetorString[0]));
                     objetoCliente.setRazaoSocial(vetorString[1]);
@@ -177,10 +178,11 @@ public class ClienteDAO implements IClienteDAO {
 
                     String logradouro = vetorString[7];
                     String complemento = vetorString[8];
-                    String bairro = vetorString[9];
-                    String cidade = vetorString[10];
-                    String estado = vetorString[11];
-                    int cep = Integer.parseInt(vetorString[12]);
+                    int cep = Integer.parseInt(vetorString[9]);
+                    String bairro = vetorString[10];
+                    String cidade = vetorString[11];
+                    String estado = vetorString[12];
+                    
                     Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
                     objetoCliente.setEndereco(endereco);
                     listaClientes.add(objetoCliente);
@@ -198,50 +200,53 @@ public class ClienteDAO implements IClienteDAO {
 
     @Override
     public Cliente buscar(int id, TipoDoCliente tipoDoCliente) throws Exception {
-                if (tipoDoCliente == PESSOA_FISICA) {
+         
+        if (tipoDoCliente == PESSOA_FISICA) {
             caminho = nomeDoArquivoNoDiscoPF;
         }
         if (tipoDoCliente == PESSOA_JURIDICA) {
             caminho = nomeDoArquivoNoDiscoPJ;
         }
+        
         FileReader fr = new FileReader(caminho);
         BufferedReader br = new BufferedReader(fr);
         String linha = "";
 
         if (tipoDoCliente == PESSOA_FISICA) {
             while ((linha = br.readLine()) != null) {
+                
                 String vetorString[] = linha.split(";");
                 objetoCliente.setId(Integer.parseInt(vetorString[0]));
-                objetoCliente.setCpf(vetorString[1]);
-                objetoCliente.setNome(vetorString[2].replaceAll("_", " "));
+                objetoCliente.setNome(vetorString[1].replaceAll("_", " "));
+                objetoCliente.setCpf(vetorString[2]);
                 objetoCliente.setIdentidade(vetorString[3]);
                 
-                String[] telSeparado = vetorString[4].split(";");
-                int ddi = Integer.parseInt(telSeparado[0]);
-                int ddd = Integer.parseInt(telSeparado[1]);
-                int numero = Integer.parseInt(telSeparado[2]);
+                int ddi = Integer.parseInt(vetorString[4]);
+                int ddd = Integer.parseInt(vetorString[5]);
+                int numero = Integer.parseInt(vetorString[6]);
                 Telefone telefone = new Telefone(ddi, ddd, numero);
                 objetoCliente.setTelefone(telefone);
                 
-                objetoCliente.setEmail(vetorString[5]);
+                objetoCliente.setEmail(vetorString[7]);
                 
-                String[] endSeparado = vetorString[6].split(",");
-                String logradouro = endSeparado[0];
-                String complemento = endSeparado[1];
-                int cep = Integer.parseInt(endSeparado[2]);
-                String bairro = endSeparado[3];
-                String cidade = endSeparado[4];
-                String estado = endSeparado[5];
+                String logradouro = vetorString[8];
+                String complemento = vetorString[9];
+                int cep = Integer.parseInt(vetorString[10]);
+                String bairro = vetorString[11];
+                String cidade = vetorString[12];
+                String estado = vetorString[13];
                 Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
                 objetoCliente.setEndereco(endereco);
                 
                 if (objetoCliente.getId() == id) {
                     br.close();
-                    return new Cliente((Integer.parseInt(vetorString[0])), vetorString[1], vetorString[2], vetorString[3], vetorString[5], telefone, endereco, tipoDoCliente);
+                    return new Cliente((Integer.parseInt(vetorString[0])), vetorString[1], vetorString[2], vetorString[3], vetorString[7], telefone, endereco, tipoDoCliente);
                 }
             }
         }
         if (tipoDoCliente == PESSOA_JURIDICA) {
+            while ((linha = br.readLine()) != null) {
+                
             String vetorString[] = linha.split(";");
             objetoCliente.setId(Integer.parseInt(vetorString[0]));
             objetoCliente.setRazaoSocial(vetorString[1]);
@@ -270,6 +275,8 @@ public class ClienteDAO implements IClienteDAO {
                 br.close();
                 return new Cliente((Integer.parseInt(vetorString[0])), vetorString[2], vetorString[1], vetorString[4], telefone, endereco, tipoDoCliente);
             }
+            }
+            
         }
         return null;
 

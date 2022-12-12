@@ -37,6 +37,17 @@ public class TelaCliente extends javax.swing.JFrame {
         ClienteControle conferirBancoCliente = new ClienteControle();
         conferirBancoCliente.conferirTxt();
         
+        try {
+            
+            objetoClienteControle.conferirTxt();
+            
+            imprimirDadosNaGrid(objetoClienteControle.listagem(TipoDoCliente.PESSOA_FISICA), TipoDoCliente.PESSOA_FISICA);
+            imprimirDadosNaGrid(objetoClienteControle.listagem(TipoDoCliente.PESSOA_JURIDICA), TipoDoCliente.PESSOA_JURIDICA);
+        
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro);
+        }
+        
     }
     
     ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
@@ -62,7 +73,7 @@ public class TelaCliente extends javax.swing.JFrame {
         jLabelCPFORCNPJ = new javax.swing.JLabel();
         jLabelNOMEORRAZAOSOCI = new javax.swing.JLabel();
         jTextFieldNomeRazaoSocial = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jLabelRG = new javax.swing.JLabel();
         jTextFieldRG = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
@@ -72,7 +83,7 @@ public class TelaCliente extends javax.swing.JFrame {
         jButtonAlterar = new javax.swing.JButton();
         jButtonIncluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableCliente = new javax.swing.JTable();
+        jTableClienteCNPJ = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldDDD = new javax.swing.JTextField();
@@ -90,6 +101,8 @@ public class TelaCliente extends javax.swing.JFrame {
         jComboBoxEstado = new javax.swing.JComboBox<>();
         jFormattedTextFieldCPFCNPJ = new javax.swing.JFormattedTextField();
         jFormattedTextFieldCEP = new javax.swing.JFormattedTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableClienteCPF = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Cliente");
@@ -182,8 +195,8 @@ public class TelaCliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Identidade");
+        jLabelRG.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelRG.setText("Identidade");
 
         jTextFieldRG.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jTextFieldRG.addActionListener(new java.awt.event.ActionListener() {
@@ -240,11 +253,6 @@ public class TelaCliente extends javax.swing.JFrame {
                 jButtonIncluirActionPerformed(evt);
             }
         });
-        jButtonIncluir.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButtonIncluirKeyPressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -267,38 +275,39 @@ public class TelaCliente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTableCliente.setBackground(new java.awt.Color(51, 51, 51));
-        jTableCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(240, 188, 69)));
-        jTableCliente.setForeground(new java.awt.Color(240, 188, 69));
-        jTableCliente.setModel(new javax.swing.table.DefaultTableModel(
+        jTableClienteCNPJ.setBackground(new java.awt.Color(51, 51, 51));
+        jTableClienteCNPJ.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(240, 188, 69)));
+        jTableClienteCNPJ.setForeground(new java.awt.Color(240, 188, 69));
+        jTableClienteCNPJ.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "TIPO", "CPF/CNPJ", "NOME/RAZÃO SOCIAL", "IDENTIDADE", "EMAIL", "TELEFONE", "ENDEREÇO"
+                "ID", "RAZÃO SOCIAL", "CNPJ", "EMAIL", "TELEFONE", "ENDEREÇO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTableCliente.setColumnSelectionAllowed(true);
-        jTableCliente.setFillsViewportHeight(true);
-        jTableCliente.setFocusCycleRoot(true);
-        jTableCliente.setGridColor(new java.awt.Color(240, 188, 69));
-        jTableCliente.setMaximumSize(new java.awt.Dimension(2147483647, 0));
-        jTableCliente.setMinimumSize(new java.awt.Dimension(75, 0));
-        jTableCliente.setName(""); // NOI18N
-        jTableCliente.setPreferredSize(new java.awt.Dimension(300, 0));
-        jTableCliente.setRowHeight(100);
-        jScrollPane1.setViewportView(jTableCliente);
+        jTableClienteCNPJ.setColumnSelectionAllowed(true);
+        jTableClienteCNPJ.setFillsViewportHeight(true);
+        jTableClienteCNPJ.setFocusCycleRoot(true);
+        jTableClienteCNPJ.setGridColor(new java.awt.Color(240, 188, 69));
+        jTableClienteCNPJ.setMaximumSize(new java.awt.Dimension(2147483647, 0));
+        jTableClienteCNPJ.setMinimumSize(new java.awt.Dimension(75, 0));
+        jTableClienteCNPJ.setName(""); // NOI18N
+        jTableClienteCNPJ.setPreferredSize(new java.awt.Dimension(300, 0));
+        jTableClienteCNPJ.setRowHeight(100);
+        jScrollPane1.setViewportView(jTableClienteCNPJ);
+        jTableClienteCNPJ.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setText("DDI");
@@ -385,6 +394,11 @@ public class TelaCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldCPFCNPJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldCPFCNPJActionPerformed(evt);
+            }
+        });
 
         try {
             jFormattedTextFieldCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -392,12 +406,44 @@ public class TelaCliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        jTableClienteCPF.setBackground(new java.awt.Color(51, 51, 51));
+        jTableClienteCPF.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(240, 188, 69)));
+        jTableClienteCPF.setForeground(new java.awt.Color(240, 188, 69));
+        jTableClienteCPF.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "NOME", "CPF", "IDENTIDADE", "EMAIL", "TELEFONE", "ENDEREÇO"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableClienteCPF.setFillsViewportHeight(true);
+        jTableClienteCPF.setFocusCycleRoot(true);
+        jTableClienteCPF.setGridColor(new java.awt.Color(240, 188, 69));
+        jTableClienteCPF.setMaximumSize(new java.awt.Dimension(2147483647, 0));
+        jTableClienteCPF.setMinimumSize(new java.awt.Dimension(75, 0));
+        jTableClienteCPF.setName(""); // NOI18N
+        jTableClienteCPF.setPreferredSize(new java.awt.Dimension(300, 0));
+        jTableClienteCPF.setRowHeight(100);
+        jScrollPane2.setViewportView(jTableClienteCPF);
+        jTableClienteCPF.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+
         javax.swing.GroupLayout jPanelFundoLayout = new javax.swing.GroupLayout(jPanelFundo);
         jPanelFundo.setLayout(jPanelFundoLayout);
         jPanelFundoLayout.setHorizontalGroup(
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelCadastroVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
             .addGroup(jPanelFundoLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -438,7 +484,7 @@ public class TelaCliente extends javax.swing.JFrame {
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelFundoLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(jLabel7)
+                        .addComponent(jLabelRG)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldRG, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 6, Short.MAX_VALUE))
@@ -474,6 +520,14 @@ public class TelaCliente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFundoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanelFundoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanelFundoLayout.setVerticalGroup(
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,7 +540,7 @@ public class TelaCliente extends javax.swing.JFrame {
                         .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFundoLayout.createSequentialGroup()
                                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
+                                    .addComponent(jLabelRG)
                                     .addComponent(jTextFieldRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -542,8 +596,10 @@ public class TelaCliente extends javax.swing.JFrame {
                             .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel12)
                                 .addComponent(jTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -562,12 +618,14 @@ public class TelaCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    
     private void imprimirDadosNaGrid(ArrayList<Cliente> listaClientes, TipoDoCliente tipoDoCliente) {
         try {
             
-            if (tipoDoCliente.equals(tipoDoCliente.PESSOA_FISICA)) {
+            if (tipoDoCliente.equals(TipoDoCliente.PESSOA_FISICA)) {
                 
-            DefaultTableModel model = (DefaultTableModel) jTableCliente.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTableClienteCPF.getModel();
             
             //Limpa a tabela
             model.setNumRows(0);
@@ -578,8 +636,8 @@ public class TelaCliente extends javax.swing.JFrame {
                     Cliente aux = lista.next();
 
                     saida[0] = aux.getId() + "";
-                    saida[1] = aux.getCpf();
-                    saida[2] = aux.getNome();
+                    saida[1] = aux.getNome();
+                    saida[2] = aux.getCpf();
                     saida[3] = aux.getIdentidade();
                     saida[4] = aux.getEmail();
                     saida[5] = aux.getTelefone().toString();
@@ -589,9 +647,9 @@ public class TelaCliente extends javax.swing.JFrame {
                 }
             }
             
-            if (tipoDoCliente.equals(tipoDoCliente.PESSOA_JURIDICA)) {
+            if (tipoDoCliente.equals(TipoDoCliente.PESSOA_JURIDICA)) {
                 
-            DefaultTableModel model = (DefaultTableModel) jTableCliente.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTableClienteCNPJ.getModel();
             
             //Limpa a tabela
             model.setNumRows(0);
@@ -602,8 +660,8 @@ public class TelaCliente extends javax.swing.JFrame {
                     Cliente aux = lista.next();
 
                     saida[0] = aux.getId() + "";
-                    saida[1] = aux.getCnpj();
-                    saida[2] = aux.getRazaoSocial();
+                    saida[1] = aux.getRazaoSocial();
+                    saida[2] = aux.getCnpj();
                     saida[3] = aux.getEmail();
                     saida[4] = aux.getTelefone().toString();
                     saida[5] = aux.getEndereco().toString();
@@ -612,7 +670,8 @@ public class TelaCliente extends javax.swing.JFrame {
                 }
             }
             
-        } catch (Exception e) {
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
     }
     
@@ -644,11 +703,69 @@ public class TelaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDDIActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
-        
+        try {
+            
+            if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_FISICA)) {
+                
+                int ddi = Integer.parseInt(jTextFieldDDI.getText());
+                int ddd = Integer.parseInt(jTextFieldDDD.getText());
+                int numero = Integer.parseInt(jTextFieldTelefone.getText());
+                Telefone telefone = new Telefone(ddi, ddd, numero);
+                
+                String logradouro = jTextFieldILogradouro.getText();
+                String complemento = jTextFieldIComplemento.getText();
+                int cep = Integer.parseInt(jFormattedTextFieldCEP.toString());
+                String bairro = jTextFieldIBairro.getText();
+                String cidade = jTextFieldCIDADE.getText();
+                String estado = jComboBoxEstado.getSelectedItem().toString();
+                Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
+                
+                String alterar = jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 0).toString();
+                Cliente clientePF = new Cliente(Integer.parseInt(alterar), 
+                        jTextFieldNomeRazaoSocial.getText(),
+                        jFormattedTextFieldCPFCNPJ.getText(),
+                        jTextFieldRG.getText(), 
+                        jTextFieldEmail.getText(), 
+                        telefone, endereco, TipoDoCliente.PESSOA_FISICA);
+                
+                objetoClienteControle.alterar(clientePF, TipoDoCliente.PESSOA_FISICA);
+                imprimirDadosNaGrid(objetoClienteControle.listagem(TipoDoCliente.PESSOA_FISICA), TipoDoCliente.PESSOA_FISICA);
+            }
+            
+            if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_JURIDICA)) {
+                
+                int ddi = Integer.parseInt(jTextFieldDDI.getText());
+                int ddd = Integer.parseInt(jTextFieldDDD.getText());
+                int numero = Integer.parseInt(jTextFieldTelefone.getText());
+                Telefone telefone = new Telefone(ddi, ddd, numero);
+                
+                String logradouro = jTextFieldILogradouro.getText();
+                String complemento = jTextFieldIComplemento.getText();
+                int cep = Integer.parseInt(jFormattedTextFieldCEP.toString());
+                String bairro = jTextFieldIBairro.getText();
+                String cidade = jTextFieldCIDADE.getText();
+                String estado = jComboBoxEstado.getSelectedItem().toString();
+                Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
+                
+                String alterar = jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 0).toString();
+                Cliente clientePJ = new Cliente(Integer.parseInt(alterar), 
+                        jTextFieldNomeRazaoSocial.getText(),
+                        jFormattedTextFieldCPFCNPJ.getText(),
+                        jTextFieldEmail.getText(), 
+                        telefone, endereco, TipoDoCliente.PESSOA_JURIDICA);
+                
+                objetoClienteControle.alterar(clientePJ, TipoDoCliente.PESSOA_JURIDICA);
+                imprimirDadosNaGrid(objetoClienteControle.listagem(TipoDoCliente.PESSOA_JURIDICA), TipoDoCliente.PESSOA_JURIDICA);
+            }
+            
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         try {
+            
             if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_FISICA)) {
                 
                 int ddi = Integer.parseInt(jTextFieldDDI.getText());
@@ -665,11 +782,13 @@ public class TelaCliente extends javax.swing.JFrame {
                 Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
                 
                 Cliente clientePF = new Cliente(0, 
-                                jFormattedTextFieldCPFCNPJ.getText().toString(),
+                                jFormattedTextFieldCPFCNPJ.getText(),
                                 jTextFieldNomeRazaoSocial.getText(),
                                 jTextFieldRG.getText(),
                                 jTextFieldEmail.getText(),
                                 telefone, endereco, TipoDoCliente.PESSOA_FISICA);
+                
+                objetoClienteControle.incluir(clientePF, TipoDoCliente.PESSOA_FISICA);
                 
                 imprimirDadosNaGrid(objetoClienteControle.listagem(TipoDoCliente.PESSOA_FISICA), TipoDoCliente.PESSOA_FISICA);
             }
@@ -693,7 +812,9 @@ public class TelaCliente extends javax.swing.JFrame {
                                 jFormattedTextFieldCPFCNPJ.getText(),
                                 jTextFieldNomeRazaoSocial.getText(),
                                 jTextFieldEmail.getText(),
-                                telefone, endereco, TipoDoCliente.PESSOA_JURIDICA); 
+                                telefone, endereco, TipoDoCliente.PESSOA_JURIDICA);
+                
+                objetoClienteControle.incluir(clientePJ, TipoDoCliente.PESSOA_FISICA);
                 
                 imprimirDadosNaGrid(objetoClienteControle.listagem(TipoDoCliente.PESSOA_JURIDICA), TipoDoCliente.PESSOA_JURIDICA);
                 
@@ -709,17 +830,24 @@ public class TelaCliente extends javax.swing.JFrame {
 //                }
             
             
-        } catch (Exception e) {
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
         
+        jTextFieldCIDADE.setText("");
+        jTextFieldDDD.setText("");
+        jTextFieldDDI.setText("");
+        jTextFieldEmail.setText("");
+        jTextFieldIBairro.setText("");
+        jTextFieldIComplemento.setText("");
+        jTextFieldILogradouro.setText("");
+        jTextFieldRG.setText("");
+        jTextFieldTelefone.setText("");
+        jFormattedTextFieldCEP.setText("");
+        jFormattedTextFieldCPFCNPJ.setText("");
         
         
-
-
-
-
-
-
+      
 //              try {
 //                //public Cliente(int id, String cpf, String nome, String identidade, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente)
 //                    Cliente objetoCliente = new Cliente(0,  jFormattedTextFieldCPFCNPJ.getText().trim(),
@@ -744,10 +872,6 @@ public class TelaCliente extends javax.swing.JFrame {
 //                
 //            }
     }//GEN-LAST:event_jButtonIncluirActionPerformed
-
-    private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed
-                     
-    }//GEN-LAST:event_jButtonIncluirKeyPressed
 
     private void jTextFieldDDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDDDActionPerformed
         // TODO add your handling code here:
@@ -779,13 +903,25 @@ public class TelaCliente extends javax.swing.JFrame {
 
     private void jComboBoxTipoPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoPessoaActionPerformed
         // TODO add your handling code here:
+        
         if(jComboBoxTipoPessoa.getSelectedItem()=="Pessoa Física"){
+            
             jLabelCPFORCNPJ.setText("CPF:");
             jLabelNOMEORRAZAOSOCI.setText("Nome:");
+            jTextFieldRG.setVisible(true);
+            jLabelRG.setVisible(true);
+            try {
+                jFormattedTextFieldCPFCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            } catch (Exception e) {
+            }
         }else{
+            
             jLabelCPFORCNPJ.setText("CNPJ");
             jLabelNOMEORRAZAOSOCI.setText("Razão Social:");
+            jTextFieldRG.setVisible(false);
+            jLabelRG.setVisible(false);
             try {
+                
                 //XX. XXX. XXX/0001-XX
                 jFormattedTextFieldCPFCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
             } catch (ParseException ex) {
@@ -841,6 +977,10 @@ public class TelaCliente extends javax.swing.JFrame {
                 evt.consume();
             }
     }//GEN-LAST:event_jTextFieldTelefoneKeyTyped
+
+    private void jFormattedTextFieldCPFCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPFCNPJActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldCPFCNPJActionPerformed
 
     /**
      * @param args the command line arguments
@@ -899,17 +1039,19 @@ public class TelaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelCEP;
     private javax.swing.JLabel jLabelCPFORCNPJ;
     private javax.swing.JLabel jLabelNOMEORRAZAOSOCI;
+    private javax.swing.JLabel jLabelRG;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelCadastroVeiculo;
     private javax.swing.JPanel jPanelFundo;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableCliente;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableClienteCNPJ;
+    private javax.swing.JTable jTableClienteCPF;
     private javax.swing.JTextField jTextFieldCIDADE;
     private javax.swing.JTextField jTextFieldDDD;
     private javax.swing.JTextField jTextFieldDDI;

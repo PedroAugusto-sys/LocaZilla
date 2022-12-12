@@ -24,10 +24,10 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int id, String cpf, String nome, String identidade, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente) {
+    public Cliente(int id, String nome, String cpf, String identidade, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente) {
         this.id = id;
-        this.cpf = cpf;
         this.nome = nome;
+        this.cpf = cpf;
         this.identidade = identidade;
         this.email = email;
         this.telefone = telefone;
@@ -35,10 +35,10 @@ public class Cliente {
         this.tipoDoCliente = tipoDoCliente;
     }
 
-    public Cliente(int id, String cnpj, String razaoSocial, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente) {
+    public Cliente(int id, String razaoSocial, String cnpj, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente) {
         this.id = id;
-        this.cnpj = cnpj;
         this.razaoSocial = razaoSocial;
+        this.cnpj = cnpj;
         this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
@@ -129,8 +129,8 @@ public class Cliente {
 
         if (tipoDoCliente.equals(TipoDoCliente.PESSOA_FISICA)) {
             return id + ";"
-                    + cpf + ";"
                     + nome + ";"
+                    + cpf + ";"
                     + identidade + ";"
                     + telefone.toString() + ";"
                     + email + ";"

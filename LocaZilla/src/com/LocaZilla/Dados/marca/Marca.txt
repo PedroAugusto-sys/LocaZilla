@@ -1,1 +1,2 @@
 1;CHEVROLET;.\src\com\LocaZilla\Dados\marca\ImagemMarca\CHEVROLET.jpeg
+3;TESTE;.\src\com\LocaZilla\Dados\marca\ImagemMarca\TESTE.jpeg
