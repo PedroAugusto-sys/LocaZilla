@@ -164,7 +164,7 @@ public class TelaCliente extends javax.swing.JFrame {
         });
 
         jComboBoxTipoPessoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jComboBoxTipoPessoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pessoa Física", "Pessoa Jurídica" }));
+        jComboBoxTipoPessoa.setModel(new javax.swing.DefaultComboBoxModel(TipoDoCliente.values()));
         jComboBoxTipoPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTipoPessoaActionPerformed(evt);
@@ -405,6 +405,11 @@ public class TelaCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldCEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldCEPActionPerformed(evt);
+            }
+        });
 
         jTableClienteCPF.setBackground(new java.awt.Color(51, 51, 51));
         jTableClienteCPF.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(240, 188, 69)));
@@ -782,7 +787,7 @@ public class TelaCliente extends javax.swing.JFrame {
                 Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
                 
                 Cliente clientePF = new Cliente(0, 
-                                jFormattedTextFieldCPFCNPJ.getText(),
+                                jFormattedTextFieldCPFCNPJ.getText().toString(),
                                 jTextFieldNomeRazaoSocial.getText(),
                                 jTextFieldRG.getText(),
                                 jTextFieldEmail.getText(),
@@ -809,7 +814,7 @@ public class TelaCliente extends javax.swing.JFrame {
                 Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
                 
                 Cliente clientePJ = new Cliente(0, 
-                                jFormattedTextFieldCPFCNPJ.getText(),
+                                jFormattedTextFieldCPFCNPJ.getText().toString(),
                                 jTextFieldNomeRazaoSocial.getText(),
                                 jTextFieldEmail.getText(),
                                 telefone, endereco, TipoDoCliente.PESSOA_JURIDICA);
@@ -834,17 +839,17 @@ public class TelaCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
         
-        jTextFieldCIDADE.setText("");
-        jTextFieldDDD.setText("");
-        jTextFieldDDI.setText("");
-        jTextFieldEmail.setText("");
-        jTextFieldIBairro.setText("");
-        jTextFieldIComplemento.setText("");
-        jTextFieldILogradouro.setText("");
-        jTextFieldRG.setText("");
-        jTextFieldTelefone.setText("");
-        jFormattedTextFieldCEP.setText("");
-        jFormattedTextFieldCPFCNPJ.setText("");
+//        jTextFieldCIDADE.setText("");
+//        jTextFieldDDD.setText("");
+//        jTextFieldDDI.setText("");
+//        jTextFieldEmail.setText("");
+//        jTextFieldIBairro.setText("");
+//        jTextFieldIComplemento.setText("");
+//        jTextFieldILogradouro.setText("");
+//        jTextFieldRG.setText("");
+//        jTextFieldTelefone.setText("");
+//        jFormattedTextFieldCEP.setText("");
+//        jFormattedTextFieldCPFCNPJ.setText("");
         
         
       
@@ -910,6 +915,7 @@ public class TelaCliente extends javax.swing.JFrame {
             jLabelNOMEORRAZAOSOCI.setText("Nome:");
             jTextFieldRG.setVisible(true);
             jLabelRG.setVisible(true);
+            
             try {
                 jFormattedTextFieldCPFCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
             } catch (Exception e) {
@@ -981,6 +987,10 @@ public class TelaCliente extends javax.swing.JFrame {
     private void jFormattedTextFieldCPFCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPFCNPJActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldCPFCNPJActionPerformed
+
+    private void jFormattedTextFieldCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCEPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldCEPActionPerformed
 
     /**
      * @param args the command line arguments
