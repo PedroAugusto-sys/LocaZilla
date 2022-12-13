@@ -641,6 +641,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableClienteCNPJMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -885,6 +888,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableClienteCPFMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

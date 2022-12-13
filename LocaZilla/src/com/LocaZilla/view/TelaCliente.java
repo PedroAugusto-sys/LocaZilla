@@ -307,6 +307,11 @@ public class TelaCliente extends javax.swing.JFrame {
         jTableClienteCNPJ.setName(""); // NOI18N
         jTableClienteCNPJ.setPreferredSize(new java.awt.Dimension(300, 0));
         jTableClienteCNPJ.setRowHeight(15);
+        jTableClienteCNPJ.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableClienteCNPJMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableClienteCNPJ);
         jTableClienteCNPJ.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -421,6 +426,11 @@ public class TelaCliente extends javax.swing.JFrame {
         jTableClienteCPF.setName(""); // NOI18N
         jTableClienteCPF.setPreferredSize(new java.awt.Dimension(300, 0));
         jTableClienteCPF.setRowHeight(15);
+        jTableClienteCPF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableClienteCPFMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableClienteCPF);
         jTableClienteCPF.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -967,6 +977,78 @@ public class TelaCliente extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldTelefoneKeyTyped
+
+    private void jTableClienteCPFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClienteCPFMouseClicked
+        // TODO add your handling code here:
+        if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_FISICA)) {
+
+            jTextFieldNomeRazaoSocial.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 1).toString());
+            jTextFieldCpfCnpj.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 2).toString());
+            jTextFieldRG.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 3).toString());
+            jTextFieldEmail.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 4).toString());
+
+            String telefoneTodo = jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 5).toString();
+            String[] telefoneSplit = telefoneTodo.split(";");
+
+            jTextFieldDDI.setText(telefoneSplit[0]);
+            jTextFieldDDD.setText(telefoneSplit[1]);
+            jTextFieldTelefone.setText(telefoneSplit[2]);
+
+            String enderecoTodo = jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 6).toString();
+            String[] enderecoSplit = enderecoTodo.split(";");
+
+            jTextFieldILogradouro.setText(enderecoSplit[0]);
+            jTextFieldIComplemento.setText(enderecoSplit[1]);
+            jTextFieldCEP.setText(enderecoSplit[2]);
+            jTextFieldIBairro.setText(enderecoSplit[3]);
+            jTextFieldCIDADE.setText(enderecoSplit[4]);
+
+            for (int i = 0; i < 26; i++) {
+
+                if (enderecoSplit[5].equals(jComboBoxEstado.getItemAt(i))) {
+                    jComboBoxEstado.setSelectedIndex(i);
+                }
+            }
+
+            System.out.println(jTableClienteCPF.getSelectedRow() + " " + jTableClienteCPF.getSelectedColumn());
+        }
+
+    }//GEN-LAST:event_jTableClienteCPFMouseClicked
+
+    private void jTableClienteCNPJMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClienteCNPJMouseClicked
+        // TODO add your handling code here:
+        if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_JURIDICA)) {
+
+            jTextFieldNomeRazaoSocial.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 1).toString());
+            jTextFieldCpfCnpj.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 2).toString());
+            jTextFieldEmail.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 3).toString());
+
+            String telefoneTodo = jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 4).toString();
+            String[] telefoneSplit = telefoneTodo.split(";");
+
+            jTextFieldDDI.setText(telefoneSplit[0]);
+            jTextFieldDDD.setText(telefoneSplit[1]);
+            jTextFieldTelefone.setText(telefoneSplit[2]);
+
+            String enderecoTodo = jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 5).toString();
+            String[] enderecoSplit = enderecoTodo.split(";");
+
+            jTextFieldILogradouro.setText(enderecoSplit[0]);
+            jTextFieldIComplemento.setText(enderecoSplit[1]);
+            jTextFieldCEP.setText(enderecoSplit[2]);
+            jTextFieldIBairro.setText(enderecoSplit[3]);
+            jTextFieldCIDADE.setText(enderecoSplit[4]);
+
+            for (int i = 0; i < 26; i++) {
+
+                if (enderecoSplit[5].equals(jComboBoxEstado.getItemAt(i))) {
+                    jComboBoxEstado.setSelectedIndex(i);
+                }
+            }
+
+            System.out.println(jTableClienteCNPJ.getSelectedRow() + " " + jTableClienteCNPJ.getSelectedColumn());
+        }
+    }//GEN-LAST:event_jTableClienteCNPJMouseClicked
 
     /**
      * @param args the command line arguments
