@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Avell
  */
 public interface IClienteControle {
+    
     void incluir (Cliente objeto, TipoDoCliente tipoDoCliente) throws Exception;
     void alterar (Cliente objeto, TipoDoCliente tipoDoCliente) throws Exception;
     ArrayList<Cliente> listagem(TipoDoCliente tipoDoCliente) throws Exception;

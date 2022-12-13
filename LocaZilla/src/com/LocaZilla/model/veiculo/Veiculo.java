@@ -13,6 +13,7 @@ import java.util.Date;
 public class Veiculo {
     private int id;
     private String placa;
+    private Disponibilidade disponibilidade;
     private int renavam;
     private float precoDeCompra;
     private float precoDeVenda;
@@ -25,9 +26,11 @@ public class Veiculo {
     
     
     //Metodo
-    public Veiculo(int id, String placa, int renavam, float precoDeCompra, float precoDeVenda, Date anoFabricacao, Date anoModelo, TipoDoCombustivel combustivel, int quilometragem, TipoDoVeiculo tipoDoVeiculo) {
+
+    public Veiculo(int id, String placa, Disponibilidade disponibilidade, int renavam, float precoDeCompra, float precoDeVenda, Date anoFabricacao, Date anoModelo, TipoDoCombustivel combustivel, int quilometragem, TipoDoVeiculo tipoDoVeiculo) {   
         this.id = id;
         this.placa = placa;
+        this.disponibilidade = disponibilidade;
         this.renavam = renavam;
         this.precoDeCompra = precoDeCompra;
         this.precoDeVenda = precoDeVenda;
@@ -37,14 +40,10 @@ public class Veiculo {
         this.quilometragem = quilometragem;
         this.tipoDoVeiculo = tipoDoVeiculo;
     }
-    public Veiculo() {   
+
+    public Veiculo() {
     }
 
-    
-    
-    
-    
-    //get and setter
     public int getId() {
         return id;
     }
@@ -59,6 +58,14 @@ public class Veiculo {
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public Disponibilidade getDisponibilidade() {
+        return disponibilidade;
+    }
+
+    public void setDisponibilidade(Disponibilidade disponibilidade) {
+        this.disponibilidade = disponibilidade;
     }
 
     public int getRenavam() {
@@ -124,6 +131,8 @@ public class Veiculo {
     public void setTipoDoVeiculo(TipoDoVeiculo tipoDoVeiculo) {
         this.tipoDoVeiculo = tipoDoVeiculo;
     }
+
+    
 
     @Override
     public String toString() {
