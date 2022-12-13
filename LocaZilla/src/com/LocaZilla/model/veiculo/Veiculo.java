@@ -4,6 +4,7 @@
  */
 package com.LocaZilla.model.veiculo;
 
+import com.LocaZilla.model.modelo.Modelo;
 import java.util.Date;
 
 /**
@@ -11,6 +12,7 @@ import java.util.Date;
  * @author pedro
  */
 public class Veiculo {
+
     private int id;
     private String placa;
     private Disponibilidade disponibilidade;
@@ -22,12 +24,11 @@ public class Veiculo {
     private TipoDoCombustivel combustivel;
     private int quilometragem;
     private TipoDoVeiculo tipoDoVeiculo;
+    private Categoria categoria;
+    private Modelo modelo;
 
-    
-    
     //Metodo
-
-    public Veiculo(int id, String placa, Disponibilidade disponibilidade, int renavam, float precoDeCompra, float precoDeVenda, Date anoFabricacao, Date anoModelo, TipoDoCombustivel combustivel, int quilometragem, TipoDoVeiculo tipoDoVeiculo) {   
+    public Veiculo(int id, String placa, Disponibilidade disponibilidade, int renavam, float precoDeCompra, float precoDeVenda, Date anoFabricacao, Date anoModelo, TipoDoCombustivel combustivel, int quilometragem, TipoDoVeiculo tipoDoVeiculo, Categoria categoria, Modelo modelo) {
         this.id = id;
         this.placa = placa;
         this.disponibilidade = disponibilidade;
@@ -39,6 +40,8 @@ public class Veiculo {
         this.combustivel = combustivel;
         this.quilometragem = quilometragem;
         this.tipoDoVeiculo = tipoDoVeiculo;
+        this.categoria = categoria;
+        this.modelo = modelo;
     }
 
     public Veiculo() {
@@ -132,16 +135,37 @@ public class Veiculo {
         this.tipoDoVeiculo = tipoDoVeiculo;
     }
 
-    
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Modelo getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(Modelo modelo) {
+        this.modelo = modelo;
+    }
 
     @Override
     public String toString() {
-        return "Veiculo{" + "id=" + id + ", placa=" + placa + ", renavam=" + renavam + ", precoDeCompra=" + precoDeCompra + ", precoDeVenda=" + precoDeVenda + ", anoFabricacao=" + anoFabricacao + ", anoModelo=" + anoModelo + ", combustivel=" + combustivel + ", quilometragem=" + quilometragem + ", tipoDoVeiculo=" + tipoDoVeiculo + '}';
+        return id + ";"
+                + placa + ";"
+                + disponibilidade + ";"
+                + renavam + ";"
+                + precoDeCompra + ";"
+                + precoDeVenda + ";"
+                + anoFabricacao + ";"
+                + anoModelo + ";"
+                + combustivel + ";"
+                + quilometragem + ";"
+                + tipoDoVeiculo + ";"
+                + categoria.getId() + ";"
+                + modelo.getIdModelo();
     }
-    
-    
-    
-    
-    
-    
+
 }

@@ -14,19 +14,33 @@ import java.util.ArrayList;
  * @author pedro
  */
 public class VeiculoControle implements IVeiculoControle {
-    
+
     IVeiculoDAO veiculoPersistencia = null;
-    
+
     public VeiculoControle() {
         this.veiculoPersistencia = new VeiculoDAO();
     }
-    
-    private boolean buscarVeiculo(String modelo){
-        try {
-            ArrayList<Veiculo> listagemVeiculo = veiculoPersistencia.listagem();
-        } catch (Exception e) {
-        }
-        return false;
+
+    @Override
+    public void incluir(Veiculo objeto) throws Exception {
+        veiculoPersistencia.incluir(objeto);
     }
-    
+
+    @Override
+    public void alterar(Veiculo objeto) throws Exception {
+        veiculoPersistencia.alterar(objeto);
+    }
+
+    @Override
+    public ArrayList<Veiculo> listagem() throws Exception {
+        return veiculoPersistencia.listagem();
+    }
+
+    @Override
+    public Veiculo selecionarVeiculos(int id) throws Exception {
+        return veiculoPersistencia.selecionarVeiculos(id);
+    }
+
+
+
 }

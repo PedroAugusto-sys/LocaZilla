@@ -97,8 +97,8 @@ public class TelaMotorista extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jTextFieldURL = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jFormattedTextFieldVencimento = new javax.swing.JFormattedTextField();
         jComboBoxCategoria = new javax.swing.JComboBox<>();
+        jTextFieldVencimento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -244,6 +244,11 @@ public class TelaMotorista extends javax.swing.JFrame {
         jTableMotorista.setName(""); // NOI18N
         jTableMotorista.setPreferredSize(new java.awt.Dimension(300, 0));
         jTableMotorista.setRowHeight(15);
+        jTableMotorista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMotoristaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableMotorista);
         jTableMotorista.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -387,18 +392,12 @@ public class TelaMotorista extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Categoria");
 
-        try {
-            jFormattedTextFieldVencimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFormattedTextFieldVencimento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jFormattedTextFieldVencimentoKeyPressed(evt);
+        jComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "AB", "C", "D", "E" }));
+        jComboBoxCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCategoriaActionPerformed(evt);
             }
         });
-
-        jComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "AB", "C", "D", "E" }));
 
         javax.swing.GroupLayout jPanelFundoLayout = new javax.swing.GroupLayout(jPanelFundo);
         jPanelFundo.setLayout(jPanelFundoLayout);
@@ -430,7 +429,7 @@ public class TelaMotorista extends javax.swing.JFrame {
                                     .addComponent(jTextFieldNumeroCNH)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFundoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFundoLayout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -453,12 +452,12 @@ public class TelaMotorista extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldILogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelFundoLayout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(106, 106, 106)
+                                .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextFieldVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelFundoLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
@@ -550,8 +549,8 @@ public class TelaMotorista extends javax.swing.JFrame {
                                     .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel7)
-                                        .addComponent(jFormattedTextFieldVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelFundoLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -604,7 +603,7 @@ public class TelaMotorista extends javax.swing.JFrame {
 
             while (lista.hasNext()) {
 
-                String[] saida = new String[8];
+                String[] saida = new String[14];
                 Motorista aux = lista.next();
 
                 saida[0] = aux.getId() + "";
@@ -655,7 +654,7 @@ public class TelaMotorista extends javax.swing.JFrame {
             String estado = jComboBoxEstado.getSelectedItem().toString();
             Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
 
-            String data = jFormattedTextFieldVencimento.getText();
+            String data = jTextFieldVencimento.getText();
             String categoria = jComboBoxCategoria.getSelectedItem().toString();
 
             Motorista motorista = new Motorista(0,
@@ -702,7 +701,7 @@ public class TelaMotorista extends javax.swing.JFrame {
             String estado = jComboBoxEstado.getSelectedItem().toString();
             Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
 
-            String data = jFormattedTextFieldVencimento.getText();
+            String data = jTextFieldVencimento.getText();
             String categoria = jComboBoxCategoria.getSelectedItem().toString();
 
             Motorista motorista = new Motorista(0,
@@ -839,22 +838,55 @@ public class TelaMotorista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextFieldCIDADEActionPerformed
 
-    private void jFormattedTextFieldVencimentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldVencimentoKeyPressed
+    private void jTableMotoristaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMotoristaMouseClicked
         // TODO add your handling code here:
-        jFormattedTextFieldVencimento.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent e) {
 
-                char c = e.getKeyChar();
-                if (!((c >= '0') && (c <= '9')
-                        || (c == KeyEvent.VK_BACK_SPACE)
-                        || (c == KeyEvent.VK_DELETE) || (c == KeyEvent.VK_SLASH))) {
-                    JOptionPane.showMessageDialog(null, "Apenas números neste campo");
-                    e.consume();
-                }
+        jTextFieldI.setText(jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 0).toString());
+        jTextFieldNomeMotorista.setText(jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 1).toString());
+        String nomeArquivo = (String) this.jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 2);
+        jTextFieldURL.setText(nomeArquivo);
+        ImageIcon iconLogo = new ImageIcon(nomeArquivo);
+        iconLogo.setImage(iconLogo.getImage().getScaledInstance(JLabelFotoCNH.getWidth(), JLabelFotoCNH.getHeight(), java.awt.Image.SCALE_SMOOTH));
+        JLabelFotoCNH.setIcon(iconLogo);
+        jTextFieldNumeroCNH.setText(jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 3).toString());
+
+        String categoria = jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 4).toString();
+        for (int i = 0; i <= 6; i++) {
+
+            if (categoria.equals(jComboBoxCategoria.getItemAt(i))) {
+                jComboBoxCategoria.setSelectedIndex(i);
             }
-        });
+        }
 
-    }//GEN-LAST:event_jFormattedTextFieldVencimentoKeyPressed
+        jTextFieldVencimento.setText((String) jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 5));
+
+        String telefoneTodo = jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 6).toString();
+        String[] telefoneSplit = telefoneTodo.split(";");
+
+        jTextFieldDDI.setText(telefoneSplit[0]);
+        jTextFieldDDD.setText(telefoneSplit[1]);
+        jTextFieldTelefone.setText(telefoneSplit[2]);
+
+        String enderecoTodo = jTableMotorista.getValueAt(jTableMotorista.getSelectedRow(), 7).toString();
+        String[] enderecoSplit = enderecoTodo.split(";");
+
+        jTextFieldILogradouro.setText(enderecoSplit[0]);
+        jTextFieldIComplemento.setText(enderecoSplit[1]);
+        jTextFieldCEP.setText(enderecoSplit[2]);
+        jTextFieldIBairro.setText(enderecoSplit[3]);
+        jTextFieldCIDADE.setText(enderecoSplit[4]);
+
+        for (int i = 0; i < 26; i++) {
+
+            if (enderecoSplit[5].equals(jComboBoxEstado.getItemAt(i))) {
+                jComboBoxEstado.setSelectedIndex(i);
+            }
+        }
+    }//GEN-LAST:event_jTableMotoristaMouseClicked
+
+    private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -899,7 +931,6 @@ public class TelaMotorista extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVoltarTelaCliente;
     private javax.swing.JComboBox<String> jComboBoxCategoria;
     private javax.swing.JComboBox<String> jComboBoxEstado;
-    private javax.swing.JFormattedTextField jFormattedTextFieldVencimento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -934,5 +965,6 @@ public class TelaMotorista extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumeroCNH;
     private javax.swing.JTextField jTextFieldTelefone;
     private javax.swing.JTextField jTextFieldURL;
+    private javax.swing.JTextField jTextFieldVencimento;
     // End of variables declaration//GEN-END:variables
 }

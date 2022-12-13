@@ -2,6 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/view/TelaCliente.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/Tools/geral/TabelaimagemMotorista.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/view/TelaVeiculo.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/control/motorista/MotoristaControle.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/control/cliente/IClienteControle.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/Tools/geral/TabelaimagemMarca.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/model/cliente/Cliente.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/Dados/motorista/Motorista.txt</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/model/motorista/Motorista.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/view/TelaDasMarcas.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/DAO/cliente/ClienteDAO.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/DAO/cliente/IClienteDAO.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/view/TelaMotorista.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/view/TelaCadastroModelo.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/DAO/motorista/MotoristaDAO.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/Tools/modelo/TabelaimagemModelo.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/control/motorista/IMotoristaControle.java</file>
+            <file>file:/C:/Users/Avell/Documents/GitHub/LocaZilla/LocaZilla/src/com/LocaZilla/control/cliente/ClienteControle.java</file>
+        </group>
     </open-files>
 </project-private>
