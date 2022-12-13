@@ -488,7 +488,7 @@ public class TelaCliente extends javax.swing.JFrame {
                         .addComponent(jLabelRG)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldRG, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 139, Short.MAX_VALUE))
+                        .addGap(0, 141, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFundoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -516,8 +516,9 @@ public class TelaCliente extends javax.swing.JFrame {
                                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTextFieldTelefone)
                                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldDDD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldDDI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextFieldDDD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldDDI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16))))
@@ -528,20 +529,16 @@ public class TelaCliente extends javax.swing.JFrame {
                     .addComponent(jLabel19))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanelFundoLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFundoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(jPanelFundoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         jPanelFundoLayout.setVerticalGroup(
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFundoLayout.createSequentialGroup()
                 .addComponent(jPanelCadastroVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelFundoLayout.createSequentialGroup()
                         .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -981,7 +978,8 @@ public class TelaCliente extends javax.swing.JFrame {
     private void jTableClienteCPFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClienteCPFMouseClicked
         // TODO add your handling code here:
         if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_FISICA)) {
-
+            
+            jTextFieldID.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 0).toString());
             jTextFieldNomeRazaoSocial.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 1).toString());
             jTextFieldCpfCnpj.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 2).toString());
             jTextFieldRG.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 3).toString());
@@ -1018,7 +1016,8 @@ public class TelaCliente extends javax.swing.JFrame {
     private void jTableClienteCNPJMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClienteCNPJMouseClicked
         // TODO add your handling code here:
         if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_JURIDICA)) {
-
+            
+            jTextFieldID.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 0).toString());
             jTextFieldNomeRazaoSocial.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 1).toString());
             jTextFieldCpfCnpj.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 2).toString());
             jTextFieldEmail.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 3).toString());
