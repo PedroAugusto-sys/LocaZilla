@@ -1,6 +1,1 @@
-
-66;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Corsa.jpg;151515;AB;12/12/2025;55;62;1212121;rua;comple;5161616;bairro;goiania;AC
-67;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Corsa.jpg;151515;AB;12/12/2025;55;62;1212121;rua;comple;5161616;bairro;goiania;AC
-68;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Corsa.jpg;151515;AB;12/12/2025;55;62;1212121;rua;comple;5161616;bairro;goiania;AC
-69;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Corsa.jpg;151515;AB;12/12/2025;55;62;1212121;rua;comple;5161616;bairro;goiania;AC
-70;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Corsa.jpg;151515;AB;12/12/2025;55;62;1212121;rua;comple;5161616;bairro;goiania;AC
+71;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Chevrolet.jpg;562626256;A;56/56/2262;62;65;6526265;dasdas;dasdas;65656266;dasd;asdasdsa;AC

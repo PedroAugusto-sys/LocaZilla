@@ -10,6 +10,7 @@ import com.LocaZilla.model.cliente.Telefone;
 import com.LocaZilla.model.motorista.Motorista;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -78,6 +79,12 @@ public class MotoristaDAO implements IMotoristaDAO {
             ArrayList<Motorista> listaMotorista = new ArrayList<Motorista>();
             String linha = "";
 
+            File arquivo = new File("./src/com/LocaZilla/Dados/motorista/Motorista.txt");
+            if (!arquivo.exists()) {
+                arquivo.createNewFile();
+                nomeDoArquivoNoDisco = "./src/com/LocaZilla/Dados/motorista/Motorista.txt";
+            }
+
             FileReader fr = new FileReader(nomeDoArquivoNoDisco);
             BufferedReader br = new BufferedReader(fr);
 
@@ -106,8 +113,8 @@ public class MotoristaDAO implements IMotoristaDAO {
                 String cidade = vetorString[13];
                 String estado = vetorString[14];
                 Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
-                objMotorista.setEndereco(endereco);
 
+                objMotorista.setEndereco(endereco);
                 listaMotorista.add(objMotorista);
 
             }
@@ -116,6 +123,7 @@ public class MotoristaDAO implements IMotoristaDAO {
         } catch (Exception erro) {
             throw erro;
         }
+
     }
 
     @Override
@@ -124,9 +132,9 @@ public class MotoristaDAO implements IMotoristaDAO {
         BufferedReader br = new BufferedReader(fr);
         String linha = "";
         while ((linha = br.readLine()) != null) {
-            
+
             Motorista objMotorista = new Motorista();
-                    
+
             String vetorString[] = linha.split(";");
             objMotorista.setId(Integer.parseInt(vetorString[0]));
             objMotorista.setNome(vetorString[1]);
@@ -135,9 +143,24 @@ public class MotoristaDAO implements IMotoristaDAO {
             objMotorista.setCategoriaCNH(vetorString[4]);
             objMotorista.setDataVencimento(vetorString[5]);
 
+            int ddi = Integer.parseInt(vetorString[6]);
+            int ddd = Integer.parseInt(vetorString[7]);
+            int numero = Integer.parseInt(vetorString[8]);
+            Telefone telefone = new Telefone(ddi, ddd, numero);
+            objMotorista.setTelefone(telefone);
+
+            String logradouro = vetorString[9];
+            String complemento = vetorString[10];
+            int cep = Integer.parseInt(vetorString[11]);
+            String bairro = vetorString[12];
+            String cidade = vetorString[13];
+            String estado = vetorString[14];
+            Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
+
             if (objetoMotorista.getId() == id) {
                 br.close();
-                return new Motorista(Integer.parseInt(vetorString[0]), vetorString[1], vetorString[2], Long.parseLong(vetorString[3]), vetorString[4], vetorString[5]);
+                return new Motorista(Integer.parseInt(vetorString[0]), vetorString[1],
+                        vetorString[2], Long.parseLong(vetorString[3]), vetorString[4], vetorString[5], telefone, endereco);
             }
         }
         return null;

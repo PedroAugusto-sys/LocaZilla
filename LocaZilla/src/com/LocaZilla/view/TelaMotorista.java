@@ -6,30 +6,23 @@ package com.LocaZilla.view;
 
 import com.LocaZilla.control.motorista.IMotoristaControle;
 import com.LocaZilla.control.motorista.MotoristaControle;
-import com.LocaZilla.model.cliente.Cliente;
+import javax.swing.table.DefaultTableModel;
 import com.LocaZilla.model.cliente.Endereco;
 import com.LocaZilla.model.cliente.Telefone;
-import com.LocaZilla.model.cliente.TipoDoCliente;
 import com.LocaZilla.model.motorista.Motorista;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.DateFormatter;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
