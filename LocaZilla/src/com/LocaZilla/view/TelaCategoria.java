@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,6 +35,8 @@ public class TelaCategoria extends javax.swing.JFrame {
         imprimirDadosNaGrid(categoriaControle.listagem());
 
     }
+
+    ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +64,7 @@ public class TelaCategoria extends javax.swing.JFrame {
         jButtonIncluir5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(img.getImage());
 
         jPanel1.setBackground(java.awt.SystemColor.control);
 
@@ -523,17 +527,7 @@ public class TelaCategoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAlterar;
-    private javax.swing.JButton jButtonAlterar1;
-    private javax.swing.JButton jButtonAlterar2;
-    private javax.swing.JButton jButtonAlterar3;
-    private javax.swing.JButton jButtonAlterar4;
     private javax.swing.JButton jButtonAlterar5;
-    private javax.swing.JButton jButtonIncluir;
-    private javax.swing.JButton jButtonIncluir1;
-    private javax.swing.JButton jButtonIncluir2;
-    private javax.swing.JButton jButtonIncluir3;
-    private javax.swing.JButton jButtonIncluir4;
     private javax.swing.JButton jButtonIncluir5;
     private javax.swing.JButton jButtonVoltarTelaMarcas;
     private javax.swing.JLabel jLabel1;
@@ -542,11 +536,6 @@ public class TelaCategoria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableCategoria;

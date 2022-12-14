@@ -104,6 +104,7 @@ public class TelaMotorista extends javax.swing.JFrame {
         jTextFieldVencimento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(img.getImage());
 
         jPanelFundo.setBackground(java.awt.SystemColor.control);
 

@@ -52,6 +52,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
         imprimirDadosNaGrid(incluirVeiculo.listagem());
 
     }
+        ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,6 +103,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(img.getImage());
 
         jPanelFundo.setBackground(java.awt.SystemColor.control);
 
