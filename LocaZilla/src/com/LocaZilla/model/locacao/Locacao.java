@@ -4,34 +4,50 @@
  */
 package com.LocaZilla.model.locacao;
 
-import java.util.Date;
+import com.LocaZilla.model.acessorios.Acessorios;
+import com.LocaZilla.model.cliente.Cliente;
+import com.LocaZilla.model.motorista.Motorista;
+import com.LocaZilla.model.veiculo.Veiculo;
 
 /**
  *
  * @author pedro
  */
 public class Locacao {
-    private int id;
-    private Date dataInicio;
-    private Date dataFim;
-    private double valorDaLocacao;
-    private SituacaoDaLocacao situacaoDaLocacao;
+    
+     private int id;
+    private Cliente cliente;
+    private Motorista motorista;
+    private Veiculo veiculo;
+    private Acessorios acessorio;
+    private String dataInicio;
+    private String dataFim;
+    private Float valorDaLocação;
+    private Object situacao;
 
-    
-    
-       //Metodos
-    public Locacao(int id, Date dataInicio, Date dataFim, double valorDaLocacao, SituacaoDaLocacao situacaoDaLocacao) {
-        this.id = id;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.valorDaLocacao = valorDaLocacao;
-        this.situacaoDaLocacao = situacaoDaLocacao;
-    }
     public Locacao() {
     }
-    
-    
-    //Getters+Setters
+
+    public Locacao(int id, Cliente cliente, Motorista motorista, Veiculo veiculo, Acessorios acessorio, String dataInicio, String dataFim, Float valorDaLocação, Object situacao) {
+        this.id = id;
+        this.cliente = cliente;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.acessorio = acessorio;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valorDaLocação = valorDaLocação;
+        this.situacao = situacao;
+    }
+
+    public Object getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(Object situacao) {
+        this.situacao = situacao;
+    }
+
     public int getId() {
         return id;
     }
@@ -40,44 +56,76 @@ public class Locacao {
         this.id = id;
     }
 
-    public Date getDataInicio() {
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Motorista getMotorista() {
+        return motorista;
+    }
+
+    public void setMotorista(Motorista motorista) {
+        this.motorista = motorista;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Acessorios getAcessorio() {
+        return acessorio;
+    }
+
+    public void setAcessorio(Acessorios acessorio) {
+        this.acessorio = acessorio;
+    }
+
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 
-    public double getValorDaLocacao() {
-        return valorDaLocacao;
+    public Float getValorDaLocação() {
+        return valorDaLocação;
     }
 
-    public void setValorDaLocacao(double valorDaLocacao) {
-        this.valorDaLocacao = valorDaLocacao;
-    }
-
-    public SituacaoDaLocacao getSituacaoDaLocacao() {
-        return situacaoDaLocacao;
-    }
-
-    public void setSituacaoDaLocacao(SituacaoDaLocacao situacaoDaLocacao) {
-        this.situacaoDaLocacao = situacaoDaLocacao;
+    public void setValorDaLocação(Float valorDaLocação) {
+        this.valorDaLocação = valorDaLocação;
     }
 
     @Override
     public String toString() {
-        return  id + "+" + dataInicio + "+" + dataFim + "+" + valorDaLocacao + "+" + situacaoDaLocacao ;
+        return id + ";" 
+                + cliente.getId() + ";" 
+                + motorista.getId()  + ";" 
+                + veiculo.getId() + ";" 
+                + acessorio.getId() + ";" 
+                + dataInicio + ";" 
+                + dataFim + ";" 
+                + valorDaLocação + ";" 
+                + situacao;
     }
     
     
     
-    
 }
+
