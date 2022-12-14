@@ -4,6 +4,8 @@
  */
 package com.LocaZilla.DAO.veiculo;
 
+import com.LocaZilla.DAO.categoria.CategoriaDAO;
+import com.LocaZilla.DAO.categoria.ICategoriaDAO;
 import com.LocaZilla.Tools.geral.GeradorIdentificadorMarca;
 import com.LocaZilla.model.veiculo.Veiculo;
 import com.LocaZilla.DAO.modelo.IModeloDAO;
@@ -23,7 +25,6 @@ import java.util.Iterator;
 public class VeiculoDAO implements IVeiculoDAO {
 
     private String nomeDoArquivoNoDisco;
-
 
     public VeiculoDAO() {
         nomeDoArquivoNoDisco = "./src/com/LocaZilla/Dados/veiculo/Veiculo.txt";
@@ -73,52 +74,89 @@ public class VeiculoDAO implements IVeiculoDAO {
 
     @Override
     public ArrayList<Veiculo> listagem() throws Exception {
-//        try {
-//            ArrayList<Veiculo> listaVeiculo = new ArrayList<Veiculo>();
-//            File arquivo = new File("./src/com/locagyn/arquivosdedados/Modelo.txt");
-//            if (!arquivo.exists()) {
-//                arquivo.createNewFile();
-//                nomeDoArquivoNoDisco = "./src/com/locagyn/arquivosdedados/Modelo.txt";
-//            }
-//            FileReader fr = new FileReader(nomeDoArquivoNoDisco);
-//            BufferedReader br = new BufferedReader(fr);
-//            String linha;
-//            while ((linha = br.readLine()) != null) {
-//                IModeloDAO objetoModelo = new ModeloDAO();
-//                CategoriaDAO objetoCategoria = new CategoriaDAO();
-//                Veiculo objetoVeiculo = new Veiculo();
-//                String vetorString[] = linha.split(";");
-//                System.out.printf(linha);
-//                objetoVeiculo.setId(Integer.parseInt(vetorString[0]));
-//                objetoVeiculo.setPlaca(vetorString[1]);
-//                objetoVeiculo.setRenavam(Integer.parseInt(vetorString[2]));
-//                objetoVeiculo.setPrecoDeCompra(Float.parseFloat(vetorString[3]));
-//                objetoVeiculo.setPrecoDeVenda(Float.parseFloat(vetorString[4]));
-//                objetoVeiculo.setAnoFabricacao(Integer.parseInt(vetorString[5]));
-//                objetoVeiculo.setAnoModelo(Integer.parseInt(vetorString[6]));
-//                objetoVeiculo.setTipoDeCombutivel(vetorString[7]);
-//                objetoVeiculo.setQuilometragem(Integer.parseInt(vetorString[8]));
-//                objetoVeiculo.setTipoDeVeiculo(vetorString[9]);
-//                int idModelo = Integer.parseInt(vetorString[10]);
-//                objetoVeiculo.setModelo(objetoModelo.buscar(idModelo));
-//                objetoVeiculo.setSituacao(vetorString[11]);
-//                int idCategoria = Integer.parseInt(vetorString[12]);
-//                objetoVeiculo.setCategoria(objetoCategoria.buscar(idCategoria));
-//
-//                listaDeVeiculos.add(objetoVeiculo);
-//
-//            }
-//            br.close();
-//            return listaDeVeiculos;
-//        } catch (Exception erro) {
-//            throw erro;
-//        
-    return null;
+        try {
+
+            ArrayList<Veiculo> listaVeiculo = new ArrayList<Veiculo>();
+            File arquivo = new File("./src/com/locagyn/arquivosdedados/Modelo.txt");
+
+            if (!arquivo.exists()) {
+                arquivo.createNewFile();
+                nomeDoArquivoNoDisco = "./src/com/locagyn/arquivosdedados/Modelo.txt";
+            }
+
+            FileReader fr = new FileReader(nomeDoArquivoNoDisco);
+            BufferedReader br = new BufferedReader(fr);
+            String linha;
+
+            while ((linha = br.readLine()) != null) {
+
+                IModeloDAO objetoModelo = new ModeloDAO();
+                ICategoriaDAO objetoCategoria = new CategoriaDAO();
+
+                Veiculo objVeiculo = new Veiculo();
+                String vetorString[] = linha.split(";");
+
+                objVeiculo.setId(Integer.parseInt(vetorString[0]));
+                objVeiculo.setPlaca(vetorString[1]);
+                objVeiculo.setRenavam(Integer.parseInt(vetorString[2]));
+                objVeiculo.setPrecoDeCompra(Float.parseFloat(vetorString[3]));
+                objVeiculo.setPrecoDeVenda(Float.parseFloat(vetorString[4]));
+                objVeiculo.setAnoFabricacao(Integer.parseInt(vetorString[5]));
+                objVeiculo.setAnoModelo(Integer.parseInt(vetorString[6]));
+                objVeiculo.setTipoDeCombutivel(vetorString[7]);
+                objVeiculo.setQuilometragem(Integer.parseInt(vetorString[8]));
+                objVeiculo.setTipoDeVeiculo(vetorString[9]);
+                int idModelo = Integer.parseInt(vetorString[10]);
+                objVeiculo.setModelo(objetoModelo.buscar(idModelo));
+                objVeiculo.setSituacao(vetorString[11]);
+                int idCategoria = Integer.parseInt(vetorString[12]);
+                objVeiculo.setCategoria(objetoCategoria.buscar(idCategoria));
+
+                listaVeiculo.add(objVeiculo);
+
+            }
+            br.close();
+            return listaVeiculo;
+        } catch (Exception erro) {
+            throw erro;
+
+        }
+
     }
 
     @Override
     public Veiculo selecionarVeiculos(int id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        FileReader fr = new FileReader(nomeDoArquivoNoDisco);
+        BufferedReader br = new BufferedReader(fr);
+        
+        String linha = "";
+        
+        while ((linha = br.readLine()) != null) {
+            
+            IModeloDAO objetoModelo = new ModeloDAO();
+            ICategoriaDAO objetoCategoria = new CategoriaDAO();
+            Veiculo objetoVeiculo = new Veiculo();
+            String vetorString[] = linha.split(";");
+            System.out.printf(linha);
+            objetoVeiculo.setId(Integer.parseInt(vetorString[0]));
+            objetoVeiculo.setPlaca(vetorString[1]);
+            objetoVeiculo.setRenavam(Integer.parseInt(vetorString[2]));
+            objetoVeiculo.setPrecoDeCompra(Float.parseFloat(vetorString[3]));
+            objetoVeiculo.setPrecoDeVenda(Float.parseFloat(vetorString[4]));
+            objetoVeiculo.setAnoFabricacao(Integer.parseInt(vetorString[5]));
+            objetoVeiculo.setAnoModelo(Integer.parseInt(vetorString[6]));
+            objetoVeiculo.setTipoDeCombutivel(vetorString[7]);
+            objetoVeiculo.setQuilometragem(Integer.parseInt(vetorString[8]));
+            objetoVeiculo.setTipoDeVeiculo(vetorString[9]);
+            objetoVeiculo.setSituacao(vetorString[11]);
+            
+            if (objetoVeiculo.getId() == id) {
+                br.close();
+                return new Veiculo(Integer.parseInt(vetorString[0]), vetorString[1], Integer.parseInt(vetorString[2]), Float.parseFloat(vetorString[3]), Float.parseFloat(vetorString[4]), Integer.parseInt(vetorString[5]), Integer.parseInt(vetorString[6]), vetorString[7], Integer.parseInt(vetorString[8]), vetorString[9], vetorString[11]);
+            }
+        }
+        return null;
     }
-
+    
 }

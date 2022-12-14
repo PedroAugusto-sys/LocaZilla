@@ -15,36 +15,71 @@ public class Veiculo {
 
     private int id;
     private String placa;
-    private Disponibilidade disponibilidade;
     private int renavam;
     private float precoDeCompra;
     private float precoDeVenda;
-    private Date anoFabricacao;
-    private Date anoModelo;
-    private TipoDoCombustivel combustivel;
+    private int anoFabricacao;
+    private int anoModelo;
+    private Object tipoDeCombutivel;
     private int quilometragem;
-    private TipoDoVeiculo tipoDoVeiculo;
-    private Categoria categoria;
+    private Object tipoDeVeiculo;
     private Modelo modelo;
+    private Object situacao;
+    private Categoria categoria;
 
-    //Metodo
-    public Veiculo(int id, String placa, Disponibilidade disponibilidade, int renavam, float precoDeCompra, float precoDeVenda, Date anoFabricacao, Date anoModelo, TipoDoCombustivel combustivel, int quilometragem, TipoDoVeiculo tipoDoVeiculo, Categoria categoria, Modelo modelo) {
+    public Veiculo() {
+    }
+
+    public Veiculo(int id, String placa, int renavam, float precoDeCompra, float precoDeVenda,
+            int anoFabricacao, int anoModelo, Object tipoDeCombutivel, int quilometragem,
+            Object tipoDeVeiculo, Modelo modelo, Object situacao, Categoria categoria) {
         this.id = id;
         this.placa = placa;
-        this.disponibilidade = disponibilidade;
         this.renavam = renavam;
         this.precoDeCompra = precoDeCompra;
         this.precoDeVenda = precoDeVenda;
         this.anoFabricacao = anoFabricacao;
         this.anoModelo = anoModelo;
-        this.combustivel = combustivel;
+        this.tipoDeCombutivel = tipoDeCombutivel;
         this.quilometragem = quilometragem;
-        this.tipoDoVeiculo = tipoDoVeiculo;
-        this.categoria = categoria;
+        this.tipoDeVeiculo = tipoDeVeiculo;
         this.modelo = modelo;
+        this.situacao = situacao;
+        this.categoria = categoria;
+        
     }
 
-    public Veiculo() {
+    public Veiculo (int id, String placa, int renavam, float precoDeCompra, float precoDeVenda,
+            int anoFabricacao, int anoModelo, Object tipoDeCombutivel, int quilometragem,
+            Object tipoDeVeiculo, Object situacao) {
+        this.id = id;
+        this.placa = placa;
+        this.renavam = renavam;
+        this.precoDeCompra = precoDeCompra;
+        this.precoDeVenda = precoDeVenda;
+        this.anoFabricacao = anoFabricacao;
+        this.anoModelo = anoModelo;
+        this.tipoDeCombutivel = tipoDeCombutivel;
+        this.quilometragem = quilometragem;
+        this.tipoDeVeiculo = tipoDeVeiculo;
+        this.situacao = situacao;
+
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Object getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(Object situacao) {
+        this.situacao = situacao;
     }
 
     public int getId() {
@@ -61,14 +96,6 @@ public class Veiculo {
 
     public void setPlaca(String placa) {
         this.placa = placa;
-    }
-
-    public Disponibilidade getDisponibilidade() {
-        return disponibilidade;
-    }
-
-    public void setDisponibilidade(Disponibilidade disponibilidade) {
-        this.disponibilidade = disponibilidade;
     }
 
     public int getRenavam() {
@@ -95,28 +122,28 @@ public class Veiculo {
         this.precoDeVenda = precoDeVenda;
     }
 
-    public Date getAnoFabricacao() {
+    public int getAnoFabricacao() {
         return anoFabricacao;
     }
 
-    public void setAnoFabricacao(Date anoFabricacao) {
+    public void setAnoFabricacao(int anoFabricacao) {
         this.anoFabricacao = anoFabricacao;
     }
 
-    public Date getAnoModelo() {
+    public int getAnoModelo() {
         return anoModelo;
     }
 
-    public void setAnoModelo(Date anoModelo) {
+    public void setAnoModelo(int anoModelo) {
         this.anoModelo = anoModelo;
     }
 
-    public TipoDoCombustivel getCombustivel() {
-        return combustivel;
+    public Object getTipoDeCombutivel() {
+        return tipoDeCombutivel;
     }
 
-    public void setCombustivel(TipoDoCombustivel combustivel) {
-        this.combustivel = combustivel;
+    public void setTipoDeCombutivel(String tipoDeCombutivel) {
+        this.tipoDeCombutivel = tipoDeCombutivel;
     }
 
     public int getQuilometragem() {
@@ -127,45 +154,28 @@ public class Veiculo {
         this.quilometragem = quilometragem;
     }
 
-    public TipoDoVeiculo getTipoDoVeiculo() {
-        return tipoDoVeiculo;
+    public Object getTipoDeVeiculo() {
+        return tipoDeVeiculo;
     }
 
-    public void setTipoDoVeiculo(TipoDoVeiculo tipoDoVeiculo) {
-        this.tipoDoVeiculo = tipoDoVeiculo;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setTipoDeVeiculo(String tipoDeVeiculo) {
+        this.tipoDeVeiculo = tipoDeVeiculo;
     }
 
     public Modelo getModelo() {
         return modelo;
     }
-
+    
     public void setModelo(Modelo modelo) {
         this.modelo = modelo;
     }
 
     @Override
     public String toString() {
-        return id + ";"
-                + placa + ";"
-                + disponibilidade + ";"
-                + renavam + ";"
-                + precoDeCompra + ";"
-                + precoDeVenda + ";"
-                + anoFabricacao + ";"
-                + anoModelo + ";"
-                + combustivel + ";"
-                + quilometragem + ";"
-                + tipoDoVeiculo + ";"
-                + categoria.getId() + ";"
-                + modelo.getIdModelo();
+        return id + ";" + placa + ";" + renavam + ";" + precoDeCompra + ";" + precoDeVenda + ";" 
+                + anoFabricacao + ";" + anoModelo + ";" + tipoDeCombutivel + ";" +  quilometragem
+                + ";" + tipoDeVeiculo + ";" + modelo.getIdModelo()+ ";" + situacao + ";" + categoria.getId();
     }
+    
 
 }
