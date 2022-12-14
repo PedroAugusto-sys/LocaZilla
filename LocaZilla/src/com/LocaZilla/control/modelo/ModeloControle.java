@@ -114,5 +114,10 @@ public class ModeloControle implements IModeloControle{
         
         
     }
+
+    @Override
+    public Modelo buscar(int id) throws Exception {
+        return modeloPersistencia.buscar(id);
+    }
     
 }

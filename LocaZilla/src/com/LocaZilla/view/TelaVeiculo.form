@@ -73,7 +73,7 @@
                               <Component id="jTextFieldID" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldANOModelo" alignment="1" max="32767" attributes="0"/>
                               <Component id="jComboBoxSITUACAO" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldPlaca" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldPLACA" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
@@ -89,6 +89,7 @@
                                               <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -105,15 +106,20 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextFieldRENAVAM" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                      <Component id="jTextFieldPRECOvenda" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                      <Component id="jTextFieldPRECOcompra" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                      <Component id="jComboBoxTIPOVeiculo" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                      <Component id="jComboBoxCOMBUSTIVEL" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                      <Component id="jTextFieldKM" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldRENAVAM" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPRECOvenda" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPRECOcompra" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="jComboBoxTIPOVeiculo" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="jComboBoxCOMBUSTIVEL" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="jTextFieldKM" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jComboBoxCATEGORIA" min="-2" pref="112" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -137,7 +143,7 @@
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBoxCOMBUSTIVEL" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldPlaca" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPLACA" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -173,9 +179,16 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldRENAVAM" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldRENAVAM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jComboBoxCATEGORIA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -312,6 +325,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableVeiculoMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -523,6 +539,7 @@
         <Component class="javax.swing.JTextField" name="jTextFieldKM">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldKMActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldKMKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxCOMBUSTIVEL">
@@ -637,16 +654,31 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jButtonIncluirKeyPressed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldPlaca">
+        <Component class="javax.swing.JTextField" name="jTextFieldPLACA">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxCATEGORIA">
           <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="###-####" subtype="-1" type="5"/>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
             </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel17">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Categoria"/>
           </Properties>
         </Component>
       </SubComponents>

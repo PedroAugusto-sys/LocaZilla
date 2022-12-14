@@ -1,1 +1,1 @@
-71;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Chevrolet.jpg;562626256;A;56/56/2262;62;65;6526265;dasdas;dasdas;65656266;dasd;asdasdsa;AC
+71;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Chevrolet.jpg;562626256;C;56/56/2242;62;65;6526265;dasdas;dasdas;65656266;dasd;asdasdsa;AC

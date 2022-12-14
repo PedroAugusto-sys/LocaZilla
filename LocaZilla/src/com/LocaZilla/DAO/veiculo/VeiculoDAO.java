@@ -77,11 +77,11 @@ public class VeiculoDAO implements IVeiculoDAO {
         try {
 
             ArrayList<Veiculo> listaVeiculo = new ArrayList<Veiculo>();
-            File arquivo = new File("./src/com/locagyn/arquivosdedados/Modelo.txt");
+            File arquivo = new File("./src/com/LocaZilla/Dados/veiculo/Veiculo.txt");
 
             if (!arquivo.exists()) {
                 arquivo.createNewFile();
-                nomeDoArquivoNoDisco = "./src/com/locagyn/arquivosdedados/Modelo.txt";
+                nomeDoArquivoNoDisco = "./src/com/LocaZilla/Dados/veiculo/Veiculo.txt";
             }
 
             FileReader fr = new FileReader(nomeDoArquivoNoDisco);

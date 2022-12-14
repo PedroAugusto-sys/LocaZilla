@@ -734,7 +734,6 @@ public class TelaCliente extends javax.swing.JFrame {
                 String estado = jComboBoxEstado.getSelectedItem().toString();
                 Endereco endereco = new Endereco(logradouro, complemento, cep, bairro, cidade, estado);
 
-                String alterar = jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 0).toString();
                 Cliente clientePF = new Cliente(Integer.parseInt(jTextFieldID.getText()),
                         jTextFieldNomeRazaoSocial.getText(),
                         jTextFieldCpfCnpj.getText(),
