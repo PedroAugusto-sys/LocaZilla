@@ -4,6 +4,7 @@
  */
 package com.LocaZilla.view;
 
+import com.LocaZilla.control.modelo.ModeloControle;
 import com.LocaZilla.model.veiculo.Disponibilidade;
 import com.LocaZilla.model.veiculo.TipoDoCombustivel;
 import com.LocaZilla.model.veiculo.TipoDoVeiculo;
@@ -25,9 +26,11 @@ public class TelaVeiculo extends javax.swing.JFrame {
     /**
      * Creates new form TelaVeiculo
      */
-    public TelaVeiculo() {
+    public TelaVeiculo() throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        ModeloControle objetoControle = new ModeloControle();
         
         preencherComboBox();
     }
@@ -566,6 +569,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldKMActionPerformed
 
+    
     private void jComboBoxMODELOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMODELOActionPerformed
         // TODO add your handling code here:
 
@@ -617,7 +621,11 @@ public class TelaVeiculo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaVeiculo().setVisible(true);
+                try {
+                    new TelaVeiculo().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(TelaVeiculo.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

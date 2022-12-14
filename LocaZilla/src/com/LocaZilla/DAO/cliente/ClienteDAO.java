@@ -4,7 +4,6 @@
  */
 package com.LocaZilla.DAO.cliente;
 
-import com.LocaZilla.DAO.marca.MarcaDAO;
 import com.LocaZilla.Tools.geral.GeradorIdentificadorMarca;
 import com.LocaZilla.model.cliente.Cliente;
 import com.LocaZilla.model.cliente.Endereco;
@@ -12,7 +11,6 @@ import com.LocaZilla.model.cliente.Telefone;
 import com.LocaZilla.model.cliente.TipoDoCliente;
 import static com.LocaZilla.model.cliente.TipoDoCliente.PESSOA_FISICA;
 import static com.LocaZilla.model.cliente.TipoDoCliente.PESSOA_JURIDICA;
-import com.LocaZilla.model.modelo.Modelo;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -79,7 +77,7 @@ public class ClienteDAO implements IClienteDAO {
         try {
             Iterator<Cliente> lista = listagem(objeto.getTipoDoCliente()).iterator();
 
-            if (tipoDoCliente == PESSOA_FISICA) {
+            if (tipoDoCliente.equals(TipoDoCliente.PESSOA_FISICA)) {
                 FileWriter fw = new FileWriter(nomeDoArquivoNoDiscoPF);
                 BufferedWriter bw = new BufferedWriter(fw);
 
@@ -95,7 +93,7 @@ public class ClienteDAO implements IClienteDAO {
                 bw.close();
             }
 
-            if (tipoDoCliente == PESSOA_JURIDICA) {
+            if (tipoDoCliente.equals(TipoDoCliente.PESSOA_JURIDICA)) {
                 FileWriter fw = new FileWriter(nomeDoArquivoNoDiscoPJ);
                 BufferedWriter bw = new BufferedWriter(fw);
 

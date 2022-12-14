@@ -4,7 +4,6 @@
  */
 package com.LocaZilla.model.locacao;
 
-import java.util.Date;
 
 /**
  *
@@ -12,15 +11,15 @@ import java.util.Date;
  */
 public class Locacao {
     private int id;
-    private Date dataInicio;
-    private Date dataFim;
+    private String dataInicio;
+    private String dataFim;
     private double valorDaLocacao;
     private SituacaoDaLocacao situacaoDaLocacao;
 
     
     
        //Metodos
-    public Locacao(int id, Date dataInicio, Date dataFim, double valorDaLocacao, SituacaoDaLocacao situacaoDaLocacao) {
+    public Locacao(int id, String dataInicio, String dataFim, double valorDaLocacao, SituacaoDaLocacao situacaoDaLocacao) {
         this.id = id;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
@@ -40,19 +39,19 @@ public class Locacao {
         this.id = id;
     }
 
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 
@@ -72,10 +71,34 @@ public class Locacao {
         this.situacaoDaLocacao = situacaoDaLocacao;
     }
 
+    
+        public String toString(SituacaoDaLocacao situacaoDaLocacao) {
+
+        if (situacaoDaLocacao.equals(SituacaoDaLocacao.CANCELAR)) {
+            return id + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocacao + ";" + situacaoDaLocacao.CANCELAR ;
+        }
+        if (situacaoDaLocacao.equals(SituacaoDaLocacao.DEVOLVER)) {
+            return id +";"+ dataInicio +";" + dataFim + ";"+ valorDaLocacao + ";" + situacaoDaLocacao.DEVOLVER ;
+        }
+         if (situacaoDaLocacao.equals(SituacaoDaLocacao.LISTAGEM)) {
+            return id + ";"+ dataInicio +";" + dataFim + ";"+ valorDaLocacao + ";" + situacaoDaLocacao.LISTAGEM ;
+        }
+        if (situacaoDaLocacao.equals(SituacaoDaLocacao.DEVOLVER)) {
+            return id + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocacao + ";" + situacaoDaLocacao.LOCAR ;
+        }
+        
+        else{
+        return null;
+        }
+       
+    }
+    
     @Override
     public String toString() {
-        return  id + "+" + dataInicio + "+" + dataFim + "+" + valorDaLocacao + "+" + situacaoDaLocacao ;
+        return  id + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocacao + ";" + situacaoDaLocacao ;
     }
+
+  
     
     
     

@@ -324,7 +324,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        TelaVeiculo telaVeiculo = new TelaVeiculo();
+        TelaVeiculo telaVeiculo = null;
+        try {
+            telaVeiculo = new TelaVeiculo();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         telaVeiculo.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

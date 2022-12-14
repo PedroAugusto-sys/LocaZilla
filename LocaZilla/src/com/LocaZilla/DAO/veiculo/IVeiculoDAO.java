@@ -16,6 +16,6 @@ public interface IVeiculoDAO {
     void incluir(Veiculo objeto) throws Exception;
     void alterar(Veiculo objeto) throws Exception;
     ArrayList<Veiculo> listagem() throws Exception;
-    String selecionarVeiculos(int id) throws Exception;
+    Veiculo selecionarVeiculos(int id) throws Exception;
     
 }
