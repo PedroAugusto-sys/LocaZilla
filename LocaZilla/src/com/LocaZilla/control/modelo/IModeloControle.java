@@ -12,14 +12,20 @@ import java.util.ArrayList;
  * @author pedro
  */
 public interface IModeloControle {
-     void incluirModelo(Modelo objeto)throws Exception;
-    void alterarModelo(Modelo objeto)throws Exception;
-    ArrayList<Modelo> listagemModelo()throws Exception;
-    
+
+    void incluirModelo(Modelo objeto) throws Exception;
+
+    void alterarModelo(Modelo objeto) throws Exception;
+
+    ArrayList<Modelo> listagemModelo() throws Exception;
+
+    Modelo buscar (int id) throws Exception;
     
     //Excessões
-    void vazio (Modelo desc)throws Exception;
-    void semFoto(Modelo url)throws Exception;
-    void mesmaFoto(Modelo url)throws Exception;
-    
+    void vazio(Modelo desc) throws Exception;
+
+    void semFoto(Modelo url) throws Exception;
+
+    void mesmaFoto(Modelo url) throws Exception;
+
 }

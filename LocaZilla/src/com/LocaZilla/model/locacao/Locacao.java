@@ -4,39 +4,133 @@
  */
 package com.LocaZilla.model.locacao;
 
+import com.LocaZilla.model.acessorios.Acessorios;
+import com.LocaZilla.model.cliente.Cliente;
+import com.LocaZilla.model.motorista.Motorista;
+import com.LocaZilla.model.veiculo.Veiculo;
 
 /**
  *
  * @author pedro
  */
 public class Locacao {
-    private int id;
+    
+     private int id;
+    private Cliente cliente;
+    private Motorista motorista;
+    private Veiculo veiculo;
+    private Acessorios acessorio;
     private String dataInicio;
     private String dataFim;
-    private double valorDaLocacao;
-    private SituacaoDaLocacao situacaoDaLocacao;
+    private Float valorDaLocação;
+    private Object situacao;
+    private int duracao;
+    private Object categoria;
 
-    
-    
-       //Metodos
-    public Locacao(int id, String dataInicio, String dataFim, double valorDaLocacao, SituacaoDaLocacao situacaoDaLocacao) {
-        this.id = id;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.valorDaLocacao = valorDaLocacao;
-        this.situacaoDaLocacao = situacaoDaLocacao;
-    }
     public Locacao() {
     }
+
+    public Locacao(int id, Cliente cliente, Motorista motorista, Veiculo veiculo, Acessorios acessorio, String dataInicio, String dataFim, Float valorDaLocação, Object situacao) {
+        this.id = id;
+        this.cliente = cliente;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.acessorio = acessorio;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valorDaLocação = valorDaLocação;
+        this.situacao = situacao;
+    }
+
+    public Locacao(int id, Cliente cliente, Motorista motorista, Veiculo veiculo, Float valorDaLocação, Object situacao, int duracao) {
+        this.id = id;
+        this.cliente = cliente;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.valorDaLocação = valorDaLocação;
+        this.situacao = situacao;
+        this.duracao = duracao;
+    }
+
+    public Locacao(int id, Cliente cliente, Motorista motorista, Veiculo veiculo, Float valorDaLocação, Object situacao, int duracao, Object categoria) {
+        this.id = id;
+        this.cliente = cliente;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.valorDaLocação = valorDaLocação;
+        this.situacao = situacao;
+        this.duracao = duracao;
+        this.categoria = categoria;
+    }
+
+    
+
+    public Object getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Object categoria) {
+        this.categoria = categoria;
+    }
     
     
-    //Getters+Setters
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
+    
+    
+
+    public Object getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(Object situacao) {
+        this.situacao = situacao;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Motorista getMotorista() {
+        return motorista;
+    }
+
+    public void setMotorista(Motorista motorista) {
+        this.motorista = motorista;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Acessorios getAcessorio() {
+        return acessorio;
+    }
+
+    public void setAcessorio(Acessorios acessorio) {
+        this.acessorio = acessorio;
     }
 
     public String getDataInicio() {
@@ -55,52 +149,28 @@ public class Locacao {
         this.dataFim = dataFim;
     }
 
-    public double getValorDaLocacao() {
-        return valorDaLocacao;
+    public Float getValorDaLocação() {
+        return valorDaLocação;
     }
 
-    public void setValorDaLocacao(double valorDaLocacao) {
-        this.valorDaLocacao = valorDaLocacao;
-    }
-
-    public SituacaoDaLocacao getSituacaoDaLocacao() {
-        return situacaoDaLocacao;
-    }
-
-    public void setSituacaoDaLocacao(SituacaoDaLocacao situacaoDaLocacao) {
-        this.situacaoDaLocacao = situacaoDaLocacao;
+    public void setValorDaLocação(Float valorDaLocação) {
+        this.valorDaLocação = valorDaLocação;
     }
 
     
-        public String toString(SituacaoDaLocacao situacaoDaLocacao) {
-
-        if (situacaoDaLocacao.equals(SituacaoDaLocacao.CANCELAR)) {
-            return id + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocacao + ";" + situacaoDaLocacao.CANCELAR ;
-        }
-        if (situacaoDaLocacao.equals(SituacaoDaLocacao.DEVOLVER)) {
-            return id +";"+ dataInicio +";" + dataFim + ";"+ valorDaLocacao + ";" + situacaoDaLocacao.DEVOLVER ;
-        }
-         if (situacaoDaLocacao.equals(SituacaoDaLocacao.LISTAGEM)) {
-            return id + ";"+ dataInicio +";" + dataFim + ";"+ valorDaLocacao + ";" + situacaoDaLocacao.LISTAGEM ;
-        }
-        if (situacaoDaLocacao.equals(SituacaoDaLocacao.DEVOLVER)) {
-            return id + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocacao + ";" + situacaoDaLocacao.LOCAR ;
-        }
-        
-        else{
-        return null;
-        }
-       
-    }
     
     @Override
     public String toString() {
-        return  id + ";" + dataInicio + ";" + dataFim + ";" + valorDaLocacao + ";" + situacaoDaLocacao ;
+        return id + ";" 
+                + cliente.getId() + ";" 
+                + motorista.getId()  + ";" 
+                + veiculo.getId() + ";" 
+                + duracao + ";"
+                + valorDaLocação + ";" 
+                + situacao;
     }
-
-  
-    
     
     
     
 }
+

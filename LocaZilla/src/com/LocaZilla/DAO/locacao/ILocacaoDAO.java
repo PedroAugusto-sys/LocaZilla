@@ -10,13 +10,18 @@ import java.util.ArrayList;
 
 /**
  *
- * @author pedro
+ * @author Avell
  */
 public interface ILocacaoDAO {
-    void incluir (Locacao objeto, SituacaoDaLocacao situacaoDaLocacao) throws Exception;
-    void devolver (Locacao objeto, SituacaoDaLocacao situacaoDaLocacao) throws Exception;
-    ArrayList<Locacao> listagem(SituacaoDaLocacao situacaoDaLocacao) throws Exception;
-    Locacao  buscar(int id, SituacaoDaLocacao situacaoDaLocacao) throws Exception;
+
+    void incluir(Locacao objeto) throws Exception;
+
+    void devolver(Locacao objeto) throws Exception;
+
+    ArrayList<Locacao> listagem() throws Exception;
+
+    Locacao buscar(int id) throws Exception;
+
     public void conferirTxt() throws Exception;
 
 }

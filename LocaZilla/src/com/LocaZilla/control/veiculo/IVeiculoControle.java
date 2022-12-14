@@ -4,6 +4,7 @@
  */
 package com.LocaZilla.control.veiculo;
 
+import com.LocaZilla.model.locacao.Locacao;
 import com.LocaZilla.model.veiculo.Veiculo;
 import java.util.ArrayList;
 

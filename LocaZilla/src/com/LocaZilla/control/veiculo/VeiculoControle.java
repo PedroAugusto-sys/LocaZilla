@@ -6,6 +6,7 @@ package com.LocaZilla.control.veiculo;
 
 import com.LocaZilla.DAO.veiculo.IVeiculoDAO;
 import com.LocaZilla.DAO.veiculo.VeiculoDAO;
+import com.LocaZilla.model.locacao.Locacao;
 import com.LocaZilla.model.veiculo.Veiculo;
 import java.util.ArrayList;
 
@@ -39,6 +40,10 @@ public class VeiculoControle implements IVeiculoControle {
     @Override
     public Veiculo selecionarVeiculos(int id) throws Exception {
         return veiculoPersistencia.selecionarVeiculos(id);
+    }
+
+    public void incluir(Locacao objeto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 

@@ -1,1 +1,2 @@
-2;CORSA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\Corsa.jpg;1
+85;KA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\KA.jpg;83
+105;CORSA;.\src\com\LocaZilla\Dados\modelo\ImagemModelo\Corsa.jpg;84

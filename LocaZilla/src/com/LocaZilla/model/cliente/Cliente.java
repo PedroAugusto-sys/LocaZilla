@@ -24,6 +24,18 @@ public class Cliente {
     public Cliente() {
     }
 
+    public Cliente(int id, String cpf, String nome, String identidade, String email, Telefone telefone, Endereco endereco) {
+        this.id = id;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.identidade = identidade;
+        this.email = email;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
+
+    
+    
     public Cliente(int id, String nome, String cpf, String identidade, String email, Telefone telefone, Endereco endereco, TipoDoCliente tipoDoCliente) {
         this.id = id;
         this.nome = nome;
