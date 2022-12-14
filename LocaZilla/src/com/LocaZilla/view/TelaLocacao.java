@@ -4,17 +4,22 @@
  */
 package com.LocaZilla.view;
 
+import com.LocaZilla.control.categoria.CategoriaControle;
 import com.LocaZilla.control.cliente.ClienteControle;
 import com.LocaZilla.control.cliente.IClienteControle;
 import com.LocaZilla.control.locacao.ILocacaoControle;
 import com.LocaZilla.control.locacao.LocacaoControle;
+import com.LocaZilla.control.modelo.ModeloControle;
 import com.LocaZilla.control.motorista.IMotoristaControle;
 import com.LocaZilla.control.motorista.MotoristaControle;
 import com.LocaZilla.control.veiculo.IVeiculoControle;
 import com.LocaZilla.control.veiculo.VeiculoControle;
 import com.LocaZilla.model.cliente.TipoDoCliente;
 import com.LocaZilla.model.locacao.Locacao;
+import com.LocaZilla.model.modelo.Modelo;
+import com.LocaZilla.model.veiculo.Categoria;
 import com.LocaZilla.model.veiculo.Disponibilidade;
+import com.LocaZilla.model.veiculo.Veiculo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -491,35 +496,48 @@ public class TelaLocacao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
-        // TODO add your handling code here:
-        //
-        //        try {
-        //
-        //            int idMarca = 0;
-        //            objetoMarca.buscar(idMarca);
-        //
-        //            Modelo objeto = new Modelo(0, jTextFieldDescricaoModelo.getText().trim(), jTextFieldUrlModelo.getText(),
-        //                objetoMarca.buscar(jComboBoxMarca.getSelectedItem().toString()));
-        //            ArrayList<Marca> lista = objetoMarca.listagem();
-        //            for(int i = 0; i < lista.size(); i++){
-        //                if(jComboBoxMarca.getSelectedItem().equals(lista.get(i).getDescricao())){
-        //                    objeto.setMarca(lista.get(i));
-        //                }
-        //            }
-        //
-        //            modeloControle.vazio(objeto);
-        //            modeloControle.semFoto(objeto);
-        //            modeloControle.mesmaFoto(objeto);
-        //            modeloControle.incluirModelo(objeto);
-        //            imprimirDadosNaGrid(modeloControle.listagemModelo());
-        //
-        //        } catch (Exception erro) {
-        //            JOptionPane.showMessageDialog(this, erro.getMessage());
-        //        }
-        //        jTextFieldIDOModelo.setText("");
-        //        jTextFieldDescricaoModelo.setText("");
-        //        jTextFieldUrlModelo.setText("");
-        //        JLabelModelo.setIcon(null);
+//        try {
+//
+//
+//
+//            ModeloControle objetoModelo = new ModeloControle();
+//            CategoriaControle objCategoria = new CategoriaControle();
+//            VeiculoControle objVeiculo = new VeiculoControle();
+//            LocacaoControle objLocacao = new LocacaoControle();
+//
+//            Locacao objeto = new Locacao(0, 
+//                    jComboBoxCLIENTE.getSelectedItem(), 
+//                    jComboBoxMOTORISTA.getSelectedItem(), 
+//                    jComboBoxVEICULO.getSelectedItem(), 
+//                    TOP_ALIGNMENT, 
+//                    objLocacao, 
+//                    NORMAL, 
+//                    objCategoria);
+//            
+//;
+//
+//            ArrayList<Veiculo> lista = objVeiculo.listagem();
+//            for (int i = 0; i < lista.size(); i++) {
+//                if (jComboBoxVEICULO.getSelectedItem().equals(lista.get(i).getId())) {
+//                    objeto.setVeiculo(lista.get(i));
+//                }
+//            }
+//
+//            ArrayList<Categoria> listaCategoria = objCategoria.listagem();
+//            for (int i = 0; i < listaCategoria.size(); i++) {
+//                if (jComboBoxCATEGORIA.getSelectedItem().equals(listaCategoria.get(i).getDescricao())) {
+//                    objeto.setCategoria(listaCategoria.get(i));
+//                }
+//            }
+//
+//            objVeiculo.incluir(objeto);
+//            imprimirDadosNaGrid(objLocacao.listagem());
+//
+//        } catch (Exception erro) {
+//
+//            JOptionPane.showMessageDialog(this, erro.getMessage());
+//
+//        }
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonIncluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonIncluirKeyPressed

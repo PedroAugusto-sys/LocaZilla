@@ -25,6 +25,7 @@ public class Locacao {
     private Float valorDaLocação;
     private Object situacao;
     private int duracao;
+    private Object categoria;
 
     public Locacao() {
     }
@@ -50,6 +51,29 @@ public class Locacao {
         this.situacao = situacao;
         this.duracao = duracao;
     }
+
+    public Locacao(int id, Cliente cliente, Motorista motorista, Veiculo veiculo, Float valorDaLocação, Object situacao, int duracao, Object categoria) {
+        this.id = id;
+        this.cliente = cliente;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.valorDaLocação = valorDaLocação;
+        this.situacao = situacao;
+        this.duracao = duracao;
+        this.categoria = categoria;
+    }
+
+    
+
+    public Object getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Object categoria) {
+        this.categoria = categoria;
+    }
+    
+    
 
     public int getDuracao() {
         return duracao;

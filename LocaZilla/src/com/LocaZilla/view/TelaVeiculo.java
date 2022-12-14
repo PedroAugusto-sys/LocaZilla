@@ -721,7 +721,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
             jTextFieldPRECOcompra.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 3).toString());
             jTextFieldPRECOvenda.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 4).toString());
             jTextFieldANOFabricacao.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 5).toString());
-            jTextFieldANOFabricacao.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 6).toString());
+            jTextFieldANOModelo.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 6).toString());
                     
             String combustivel = jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 7).toString();
 
