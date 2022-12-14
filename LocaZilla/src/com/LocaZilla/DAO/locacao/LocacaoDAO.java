@@ -4,10 +4,11 @@
  */
 package com.LocaZilla.DAO.locacao;
 
-import com.LocaZilla.DAO.acessorios.AcessoriosDAO;
-import com.LocaZilla.DAO.acessorios.IAcessoriosDAO;
+
+import com.LocaZilla.DAO.motorista.IMotoristaDAO;
 import com.LocaZilla.DAO.motorista.IMotoristaDAO;
 import com.LocaZilla.DAO.veiculo.IVeiculoDAO;
+import com.LocaZilla.DAO.veiculo.VeiculoDAO;
 import com.LocaZilla.Tools.geral.GeradorIdentificadorMarca;
 import com.LocaZilla.model.locacao.Locacao;
 import com.LocaZilla.model.locacao.SituacaoDaLocacao;
@@ -76,27 +77,25 @@ public class LocacaoDAO implements ILocacaoDAO {
 
             FileReader fr = new FileReader(nomeDoArquivoNoDiscoLOCACAO);
             BufferedReader br = new BufferedReader(fr);
-                    
+
             String linha;
 
             while ((linha = br.readLine()) != null) {
 
                 IVeiculoDAO objetoVeiculo = new VeiculoDAO();
                 IMotoristaDAO objetoMotorista = new MotoristaDAO();
-                IAcessoriosDAO objetoAcessorio = new AcessoriosDAO();
+
                 Locacao objetoLocacao = new Locacao();
                 String vetorString[] = linha.split(";");
+
                 objetoLocacao.setId(Integer.parseInt(vetorString[0]));
-                int idMotorista = Integer.parseInt(vetorString[2]);
+                int idMotorista = Integer.parseInt(vetorString[1]);
                 objetoLocacao.setMotorista(objetoMotorista.buscar(idMotorista));
-                int idVeiculo = Integer.parseInt(vetorString[3]);
+                int idVeiculo = Integer.parseInt(vetorString[2]);
                 objetoLocacao.setVeiculo(objetoVeiculo.selecionarVeiculos(idVeiculo));
-                int idAcessorios = Integer.parseInt(vetorString[4]);
-                objetoLocacao.setAcessorio(objetoAcessorio.buscar(idAcessorios));
-                objetoLocacao.setDataInicio(vetorString[5]);
-                objetoLocacao.setDataFim(vetorString[6]);
-                objetoLocacao.setValorDaLocação(Float.parseFloat(vetorString[7]));
-                objetoLocacao.setSituacao(vetorString[8]);
+                objetoLocacao.setDuracao(Integer.parseInt(vetorString[3]));
+                objetoLocacao.setValorDaLocação(Float.parseFloat(vetorString[4]));
+                objetoLocacao.setSituacao(vetorString[5]);
 
                 listaDeLocacao.add(objetoLocacao);
 
@@ -110,7 +109,41 @@ public class LocacaoDAO implements ILocacaoDAO {
 
     @Override
     public Locacao buscar(int id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        FileReader fr = new FileReader(nomeDoArquivoNoDiscoLOCACAO);
+//        BufferedReader br = new BufferedReader(fr);
+//        String linha;
+//        while ((linha = br.readLine()) != null) {
+//            
+//            IVeiculoDAO objVeiculo = new VeiculoDAO();
+//            IMotoristaDAO objMotorista = new MotoristaDAO();
+//            
+//            Locacao objLocacao = new Locacao();
+//            
+//            String vetorString[] = linha.split(";");
+//            objetoLocacao.setId(Integer.parseInt(vetorString[0]));
+//            int idMotorista = Integer.parseInt(vetorString[1]);
+//            objetoLocacao.setMotorista(objMotorista.buscar(idMotorista));
+//            int idVeiculo = Integer.parseInt(vetorString[2]);
+//            objetoLocacao.setVeiculo(objVeiculo.selecionarVeiculos(idVeiculo));
+//            objLocacao.setDuracao(Integer.parseInt(vetorString[3]));
+//            objLocacao.setValorDaLocação(Float.parseFloat(vetorString[4]));
+//            objLocacao.setSituacao(vetorString[5]);
+//            
+//            if (objLocacao.getId() == id) {
+//                br.close();
+//                return new Locacao(Integer.parseInt(vetorString[0]), 
+//                        cliente, motorista, veiculo, Float.MAX_VALUE, objLocacao, idVeiculo);
+                
+//                        this.id = id;
+//        this.cliente = cliente;
+//        this.motorista = motorista;
+//        this.veiculo = veiculo;
+//        this.valorDaLocação = valorDaLocação;
+//        this.situacao = situacao;
+////        this.duracao = duracao;
+//            }
+//        }
+        return null;
     }
 
     @Override

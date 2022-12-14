@@ -24,6 +24,7 @@ public class Locacao {
     private String dataFim;
     private Float valorDaLocação;
     private Object situacao;
+    private int duracao;
 
     public Locacao() {
     }
@@ -39,6 +40,26 @@ public class Locacao {
         this.valorDaLocação = valorDaLocação;
         this.situacao = situacao;
     }
+
+    public Locacao(int id, Cliente cliente, Motorista motorista, Veiculo veiculo, Float valorDaLocação, Object situacao, int duracao) {
+        this.id = id;
+        this.cliente = cliente;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.valorDaLocação = valorDaLocação;
+        this.situacao = situacao;
+        this.duracao = duracao;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
+    
+    
 
     public Object getSituacao() {
         return situacao;
@@ -112,15 +133,15 @@ public class Locacao {
         this.valorDaLocação = valorDaLocação;
     }
 
+    
+    
     @Override
     public String toString() {
         return id + ";" 
                 + cliente.getId() + ";" 
                 + motorista.getId()  + ";" 
                 + veiculo.getId() + ";" 
-                + acessorio.getId() + ";" 
-                + dataInicio + ";" 
-                + dataFim + ";" 
+                + duracao + ";"
                 + valorDaLocação + ";" 
                 + situacao;
     }

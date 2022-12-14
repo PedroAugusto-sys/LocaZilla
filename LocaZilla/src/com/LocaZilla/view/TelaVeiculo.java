@@ -150,7 +150,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "PLACA", "SITUAÇÃO", "ANO Fabricação", "ANO Modelo", "MODELO", "ODÔMETRO", "COMBUSTIVEL", "TIPO", "$ COMPRA", "$ VENDA", "RENAVAM"
+                "ID", "PLACA", "RENAVAM", "COMPRA", "VENDA", "FABRICAÇÃO", "MODELO", "COMBUSTIVEL", "QUILOMETRAGEM", "TIPO", "MODELO", "DISPONIBILIDADE"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -176,6 +176,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTableVeiculo);
+        jTableVeiculo.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));

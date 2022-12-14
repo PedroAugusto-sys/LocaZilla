@@ -292,17 +292,81 @@
                   <Table columnCount="12" rowCount="4">
                     <Column editable="false" title="ID" type="java.lang.Object"/>
                     <Column editable="false" title="PLACA" type="java.lang.Object"/>
-                    <Column editable="false" title="SITUA&#xc7;&#xc3;O" type="java.lang.Object"/>
-                    <Column editable="false" title="ANO Fabrica&#xe7;&#xe3;o" type="java.lang.Object"/>
-                    <Column editable="false" title="ANO Modelo" type="java.lang.Object"/>
-                    <Column editable="false" title="MODELO" type="java.lang.Object"/>
-                    <Column editable="false" title="OD&#xd4;METRO" type="java.lang.Object"/>
-                    <Column editable="false" title="COMBUSTIVEL" type="java.lang.Object"/>
-                    <Column editable="false" title="TIPO" type="java.lang.Object"/>
-                    <Column editable="false" title="$ COMPRA" type="java.lang.Object"/>
-                    <Column editable="false" title="$ VENDA" type="java.lang.Object"/>
                     <Column editable="false" title="RENAVAM" type="java.lang.Object"/>
+                    <Column editable="false" title="COMPRA" type="java.lang.Object"/>
+                    <Column editable="false" title="VENDA" type="java.lang.Object"/>
+                    <Column editable="false" title="FABRICA&#xc7;&#xc3;O" type="java.lang.Object"/>
+                    <Column editable="false" title="MODELO" type="java.lang.Object"/>
+                    <Column editable="false" title="COMBUSTIVEL" type="java.lang.Object"/>
+                    <Column editable="false" title="QUILOMETRAGEM" type="java.lang.Object"/>
+                    <Column editable="false" title="TIPO" type="java.lang.Object"/>
+                    <Column editable="false" title="MODELO" type="java.lang.Object"/>
+                    <Column editable="false" title="DISPONIBILIDADE" type="java.lang.Object"/>
                   </Table>
+                </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="2">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
                 </Property>
                 <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                 <Property name="fillsViewportHeight" type="boolean" value="true"/>
