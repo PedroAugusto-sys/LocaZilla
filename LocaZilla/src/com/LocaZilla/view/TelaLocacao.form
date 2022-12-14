@@ -385,6 +385,7 @@
         <Component class="javax.swing.JTextField" name="jTextFieldDataInicio">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDataInicioActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldDataInicioKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxMOTORISTA">
@@ -530,6 +531,7 @@
         <Component class="javax.swing.JTextField" name="jTextFieldValorLocacao">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldValorLocacaoActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorLocacaoKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxCATEGORIA">

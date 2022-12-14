@@ -434,6 +434,12 @@ public class TelaCliente extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableClienteCPF);
         jTableClienteCPF.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
+        jTextFieldCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCEPKeyTyped(evt);
+            }
+        });
+
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setText("Clientes Pessoa Física");
 
@@ -516,9 +522,8 @@ public class TelaCliente extends javax.swing.JFrame {
                                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTextFieldTelefone)
                                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextFieldDDD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldDDI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jTextFieldDDD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldDDI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16))))
@@ -977,7 +982,7 @@ public class TelaCliente extends javax.swing.JFrame {
     private void jTableClienteCPFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClienteCPFMouseClicked
         // TODO add your handling code here:
         if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_FISICA)) {
-            
+
             jTextFieldID.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 0).toString());
             jTextFieldNomeRazaoSocial.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 1).toString());
             jTextFieldCpfCnpj.setText(jTableClienteCPF.getValueAt(jTableClienteCPF.getSelectedRow(), 2).toString());
@@ -1015,7 +1020,7 @@ public class TelaCliente extends javax.swing.JFrame {
     private void jTableClienteCNPJMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClienteCNPJMouseClicked
         // TODO add your handling code here:
         if (jComboBoxTipoPessoa.getSelectedItem().equals(TipoDoCliente.PESSOA_JURIDICA)) {
-            
+
             jTextFieldID.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 0).toString());
             jTextFieldNomeRazaoSocial.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 1).toString());
             jTextFieldCpfCnpj.setText(jTableClienteCNPJ.getValueAt(jTableClienteCNPJ.getSelectedRow(), 2).toString());
@@ -1047,6 +1052,14 @@ public class TelaCliente extends javax.swing.JFrame {
             System.out.println(jTableClienteCNPJ.getSelectedRow() + " " + jTableClienteCNPJ.getSelectedColumn());
         }
     }//GEN-LAST:event_jTableClienteCNPJMouseClicked
+
+    private void jTextFieldCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCEPKeyTyped
+        // TODO add your handling code here
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldCEPKeyTyped
 
     /**
      * @param args the command line arguments

@@ -33,12 +33,10 @@ public class TelaMotorista extends javax.swing.JFrame {
     IMotoristaControle motoristaControle = new MotoristaControle();
 
     public TelaMotorista() {
-       
+
         initComponents();
         this.setLocationRelativeTo(null);
 
-        
-        
         try {
 
             imprimirDadosNaGrid(motoristaControle.listagem());
@@ -358,6 +356,17 @@ public class TelaMotorista extends javax.swing.JFrame {
         jLabelCEP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelCEP.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCEP.setText("CEP");
+
+        jTextFieldCEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCEPActionPerformed(evt);
+            }
+        });
+        jTextFieldCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCEPKeyTyped(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
@@ -891,6 +900,18 @@ public class TelaMotorista extends javax.swing.JFrame {
     private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
+
+    private void jTextFieldCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCEPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCEPActionPerformed
+
+    private void jTextFieldCEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCEPKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldCEPKeyTyped
 
     /**
      * @param args the command line arguments

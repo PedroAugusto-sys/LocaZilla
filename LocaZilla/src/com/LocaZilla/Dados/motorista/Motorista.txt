@@ -1,1 +1,2 @@
 71;hugo dias;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\Chevrolet.jpg;562626256;C;56/56/2242;62;65;6526265;dasdas;dasdas;65656266;dasd;asdasdsa;AC
+87;Motorista da Silva;.\src\com\LocaZilla\Dados\motorista\ImagemMotorista\CNH.jpg;5625487;AB;10/12/2024;55;62;99856145;Logradouro;Complemento;7458965;Bairro;Goiânia;GO

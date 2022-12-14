@@ -148,6 +148,11 @@ public class TelaCategoria extends javax.swing.JFrame {
                 jTextFieldVALORActionPerformed(evt);
             }
         });
+        jTextFieldVALOR.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldVALORKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Valor da locação");
@@ -486,6 +491,14 @@ public class TelaCategoria extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButtonAlterar5ActionPerformed
+
+    private void jTextFieldVALORKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldVALORKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldVALORKeyTyped
 
     /**
      * @param args the command line arguments

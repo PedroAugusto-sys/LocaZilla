@@ -52,7 +52,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
         imprimirDadosNaGrid(incluirVeiculo.listagem());
 
     }
-        ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
+    ImageIcon img = new ImageIcon("./src/com/LocaZilla/imagens/operador/LocaMini.png");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -255,6 +255,18 @@ public class TelaVeiculo extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldANOFabricacao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldANOFabricacaoKeyTyped(evt);
+            }
+        });
+
+        jTextFieldANOModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldANOModeloKeyTyped(evt);
+            }
+        });
+
         jComboBoxMODELO.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traz os modelos" }));
         jComboBoxMODELO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,9 +294,26 @@ public class TelaVeiculo extends javax.swing.JFrame {
 
         jComboBoxTIPOVeiculo.setModel(new javax.swing.DefaultComboBoxModel(TipoDoVeiculo.values()));
 
+        jTextFieldPRECOcompra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPRECOcompraKeyTyped(evt);
+            }
+        });
+
+        jTextFieldPRECOvenda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPRECOvendaKeyTyped(evt);
+            }
+        });
+
         jTextFieldRENAVAM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldRENAVAMActionPerformed(evt);
+            }
+        });
+        jTextFieldRENAVAM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldRENAVAMKeyTyped(evt);
             }
         });
 
@@ -722,7 +751,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
             jTextFieldPRECOvenda.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 4).toString());
             jTextFieldANOFabricacao.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 5).toString());
             jTextFieldANOModelo.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 6).toString());
-                    
+
             String combustivel = jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 7).toString();
 
             if (combustivel == TipoDoCombustivel.DIESEL.toString()) {
@@ -742,9 +771,9 @@ public class TelaVeiculo extends javax.swing.JFrame {
             }
 
             jTextFieldKM.setText(jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 8).toString());
-            
+
             String tipoDeVeiculo = jTableVeiculo.getValueAt(jTableVeiculo.getSelectedRow(), 9).toString();
-            
+
             if (tipoDeVeiculo == TipoDoVeiculo.HATCH.toString()) {
                 jComboBoxTIPOVeiculo.setSelectedItem(TipoDoVeiculo.HATCH.valueOf(tipoDeVeiculo));
             }
@@ -757,7 +786,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
             if (tipoDeVeiculo == TipoDoVeiculo.SUV.toString()) {
                 jComboBoxTIPOVeiculo.setSelectedItem(TipoDoVeiculo.SUV.valueOf(tipoDeVeiculo));
             }
-            
+
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(this, e);
@@ -765,6 +794,46 @@ public class TelaVeiculo extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jTableVeiculoMouseClicked
+
+    private void jTextFieldPRECOcompraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPRECOcompraKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldPRECOcompraKeyTyped
+
+    private void jTextFieldPRECOvendaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPRECOvendaKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldPRECOvendaKeyTyped
+
+    private void jTextFieldRENAVAMKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldRENAVAMKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldRENAVAMKeyTyped
+
+    private void jTextFieldANOFabricacaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldANOFabricacaoKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldANOFabricacaoKeyTyped
+
+    private void jTextFieldANOModeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldANOModeloKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldANOModeloKeyTyped
 
     /**
      * @param args the command line arguments

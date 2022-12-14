@@ -206,6 +206,11 @@ public class TelaLocacao extends javax.swing.JFrame {
                 jTextFieldDataInicioActionPerformed(evt);
             }
         });
+        jTextFieldDataInicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDataInicioKeyTyped(evt);
+            }
+        });
 
         jComboBoxMOTORISTA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +283,11 @@ public class TelaLocacao extends javax.swing.JFrame {
         jTextFieldValorLocacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldValorLocacaoActionPerformed(evt);
+            }
+        });
+        jTextFieldValorLocacao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorLocacaoKeyTyped(evt);
             }
         });
 
@@ -562,6 +572,22 @@ public class TelaLocacao extends javax.swing.JFrame {
     private void jComboBoxCLIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCLIENTEActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxCLIENTEActionPerformed
+
+    private void jTextFieldDataInicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDataInicioKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldDataInicioKeyTyped
+
+    private void jTextFieldValorLocacaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorLocacaoKeyTyped
+        // TODO add your handling code here:
+        char e = evt.getKeyChar();
+        if (!Character.isDigit(e)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldValorLocacaoKeyTyped
 
     private void imprimirDadosNaGrid(ArrayList<Locacao> listaLocacao) {
         try {
