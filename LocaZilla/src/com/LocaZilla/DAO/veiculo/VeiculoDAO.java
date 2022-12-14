@@ -136,22 +136,22 @@ public class VeiculoDAO implements IVeiculoDAO {
             
             IModeloDAO objetoModelo = new ModeloDAO();
             ICategoriaDAO objetoCategoria = new CategoriaDAO();
-            Veiculo objetoVeiculo = new Veiculo();
+            Veiculo objVeiculo = new Veiculo();
             String vetorString[] = linha.split(";");
             System.out.printf(linha);
-            objetoVeiculo.setId(Integer.parseInt(vetorString[0]));
-            objetoVeiculo.setPlaca(vetorString[1]);
-            objetoVeiculo.setRenavam(Integer.parseInt(vetorString[2]));
-            objetoVeiculo.setPrecoDeCompra(Float.parseFloat(vetorString[3]));
-            objetoVeiculo.setPrecoDeVenda(Float.parseFloat(vetorString[4]));
-            objetoVeiculo.setAnoFabricacao(Integer.parseInt(vetorString[5]));
-            objetoVeiculo.setAnoModelo(Integer.parseInt(vetorString[6]));
-            objetoVeiculo.setTipoDeCombutivel(vetorString[7]);
-            objetoVeiculo.setQuilometragem(Integer.parseInt(vetorString[8]));
-            objetoVeiculo.setTipoDeVeiculo(vetorString[9]);
-            objetoVeiculo.setSituacao(vetorString[11]);
+            objVeiculo.setId(Integer.parseInt(vetorString[0]));
+            objVeiculo.setPlaca(vetorString[1]);
+            objVeiculo.setRenavam(Integer.parseInt(vetorString[2]));
+            objVeiculo.setPrecoDeCompra(Float.parseFloat(vetorString[3]));
+            objVeiculo.setPrecoDeVenda(Float.parseFloat(vetorString[4]));
+            objVeiculo.setAnoFabricacao(Integer.parseInt(vetorString[5]));
+            objVeiculo.setAnoModelo(Integer.parseInt(vetorString[6]));
+            objVeiculo.setTipoDeCombutivel(vetorString[7]);
+            objVeiculo.setQuilometragem(Integer.parseInt(vetorString[8]));
+            objVeiculo.setTipoDeVeiculo(vetorString[9]);
+            objVeiculo.setSituacao(vetorString[11]);
             
-            if (objetoVeiculo.getId() == id) {
+            if (objVeiculo.getId() == id) {
                 br.close();
                 return new Veiculo(Integer.parseInt(vetorString[0]), vetorString[1], Integer.parseInt(vetorString[2]), Float.parseFloat(vetorString[3]), Float.parseFloat(vetorString[4]), Integer.parseInt(vetorString[5]), Integer.parseInt(vetorString[6]), vetorString[7], Integer.parseInt(vetorString[8]), vetorString[9], vetorString[11]);
             }

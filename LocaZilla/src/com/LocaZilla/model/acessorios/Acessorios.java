@@ -9,24 +9,21 @@ package com.LocaZilla.model.acessorios;
  * @author pedro
  */
 public class Acessorios {
-
-    private int id;
-    private String descricao;
-    private float valorDaLocacao;
-
-    
-    
-    //Constructors
-    public Acessorios(int id, String descricao, float valorDaLocacao) {
-        this.id = id;
-        this.descricao = descricao;
-        this.valorDaLocacao = valorDaLocacao;
-    }
+ private int id = 0;
+    private String descricao = "";
+    private float valorDaLocacao = 0;
+    private Object situacao;
     
     public Acessorios() {
     }
 
-    //Gets+Sets    
+    public Acessorios(int id, String descricao, float valorDaLocacao, Object situacao) {
+        this.id = id;
+        this.descricao = descricao;
+        this.valorDaLocacao = valorDaLocacao;
+        this.situacao = situacao;
+    }
+
     public int getId() {
         return id;
     }
@@ -51,9 +48,17 @@ public class Acessorios {
         this.valorDaLocacao = valorDaLocacao;
     }
 
-    @Override
-    public String toString() {
-        return id + ";" + descricao + ";" + valorDaLocacao;
+    public Object getSituacao() {
+        return situacao;
     }
 
+    public void setSituacao(Object situacao) {
+        this.situacao = situacao;
+    }
+    
+    @Override
+    public String toString() {
+        return id + ";" + descricao + ";" + valorDaLocacao + ";" + situacao;
+    }
+    
 }
